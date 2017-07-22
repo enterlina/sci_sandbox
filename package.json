@@ -1,0 +1,73 @@
+{
+  "name": "scitech",
+  "version": "0.1.0",
+  "description": "",
+  "keywords": [],
+  "author": "",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/enterlina/sci_sandbox.git"
+  },
+  "bugs": {},
+  "homepage": "http://scitech.by/",
+  "scripts": {
+    "lint": "npm run lint:js && npm run lint:sass",
+    "lint:js": "jshint",
+    "lint:sass": "stylelint ./src/**/*.scss",
+    "start": "webpack-dev-server",
+    "test": "jest --watch --coverage"
+  },
+  "dependencies": {
+    "babel": "^6.23.0",
+    "babel-core": "^6.25.0",
+    "babel-loader": "^7.1.1",
+    "babel-preset-es2015": "^6.24.1",
+    "babel-preset-react": "^6.24.1",
+    "babel-preset-stage-2": "^6.24.1",
+    "css-loader": "^0.28.4",
+    "file-loader": "^0.11.2",
+    "identity-obj-proxy": "^3.0.0",
+    "image-webpack-loader": "^3.3.1",
+    "jest": "^20.0.4",
+    "jshint": "^2.9.5",
+    "loglevel": "^1.4.1",
+    "node-sass": "^4.5.3",
+    "postcss-loader": "^2.0.6",
+    "react": "^15.6.1",
+    "react-addons-test-utils": "^15.6.0",
+    "react-dom": "^15.6.1",
+    "react-hot-loader": "^3.0.0-beta.7",
+    "sass-loader": "^6.0.6",
+    "style-loader": "^0.18.2",
+    "stylelint-config-standard": "^16.0.0",
+    "stylelint-webpack-plugin": "^0.8.0",
+    "webpack": "^3.1.0",
+    "webpack-dev-server": "^2.5.1"
+  },
+  "devDependencies": {},
+  "jest": {
+    "moduleFileExtensions": [
+      "js",
+      "jsx"
+    ],
+    "transform": {
+      "^.+\\.(js|jsx)$": "<rootDir>/config/jest/jest.preprocessor.js"
+    },
+    "transformIgnorePatterns": [
+      "[/\\\\]node_modules[/\\\\].+\\.(js|jsx)$"
+    ],
+    "testRegex": "/__tests__/.*\\.(js|jsx)$",
+    "moduleDirectories": [
+      "node_modules"
+    ],
+    "moduleNameMapper": {
+      "^.+\\.(css|scss)$": "identity-obj-proxy",
+      "^.+\\.(jpg|jpeg|png|gif|eot|otf|webp|svg|ttf|woff|woff2|mp4|webm|wav|mp3|m4a|aac|oga)$": "<rootDir>/config/jest/fileMock.js"
+    },
+    "globals": {
+      "DEVELOPMENT": false,
+      "FAKE_SERVER": false
+    }
+  }
+}
