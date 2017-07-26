@@ -18,7 +18,7 @@
     background-position: center;
     height: 100%;
     display: block;
-    width: 134px;
+    width: 137px;
   }
 
   &-navigation {
@@ -55,16 +55,16 @@
         }
 
         &.plasma {
-          background-image: url(#{$publicPath}img/plasma.png);
+          background-image: url(#{$publicPath}img/plasma.svg);
           background-color: transparent;
           background-size: cover;
           width: 71px;
-          height: 68px;
+          height: 73px;
           box-sizing: border-box;
           margin: 0 10px;
 
           &:hover {
-            background-image: url(#{$publicPath}img/plasma.png);
+            background-image: url(#{$publicPath}img/plasma.svg);
             background-color: transparent;
             background-size: cover;
           }
