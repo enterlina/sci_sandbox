@@ -1,0 +1,138 @@
+@import './scss/helpers/variables.scss';
+@import './scss/helpers/placeholders.scss';
+
+.Card {
+  width: 70%;
+  max-width: 300px;
+  height: 90%;
+  color: #152033;
+  min-height: 300px;
+  background: #fff;
+  box-sizing: border-box;
+  padding: 20px 25px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: stretch;
+  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.16);
+
+  &-wrapper {
+    max-width: 470px;
+    height: 348px;
+    border: 6px solid #fff;
+    background: #ccc;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    &.Plasma {
+      max-width: none;
+      height: auto;
+      border: none;
+      background: transparent;
+    }
+
+    &.Tender,
+    &.Meetup {
+      .Card {
+        box-shadow: 0 2px 8px 0 rgba(0, 0, 0, 0.43);
+        background: transparent;
+        color: #fff;
+
+        a {
+          background: transparent;
+          color: #fff;
+        }
+      }
+
+      .Card-author span {
+        background: transparent;
+        color: #fff;
+      }
+
+      .Card-sphere {
+        border-color: #fff;
+      }
+    }
+
+    &.bg-yellow {
+      background: #f7db87;
+    }
+
+    &.bg-purple {
+      background: #6e6bba;
+    }
+
+    &.bg-blue {
+      background: #3abbe5;
+    }
+
+    &[class*=bg-image] {
+      background-size: cover;
+      background-repeat: no-repeat;
+    }
+
+    &.bg-image-1 {
+      background-image: url(#{$publicPath}img/cards/bg1.jpg);
+    }
+
+    &.bg-image-2 {
+      background-image: url(#{$publicPath}img/cards/bg2.jpg);
+    }
+  }
+
+  h1,
+  &-date,
+  &-activity,
+  &-place {
+    margin: 0;
+    font-size: 20px;
+    line-height: 1.4;
+    word-wrap: break-word;
+    font-weight: bold;
+
+    a {
+      color: #1b263b;
+      text-decoration: none;
+
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+  }
+
+  &-sphere {
+    font-size: 14px;
+    padding: 3px;
+    margin: 0;
+    border-bottom: solid 2px #152033;
+    margin-bottom: 15px;
+  }
+
+  &-author {
+    margin: 0;
+    padding: 0;
+    font-weight: bold;
+    font-size: 14px;
+
+    span {
+      color: #818791;
+      display: block;
+      font-weight: normal;
+      font-size: 12px;
+      margin-top: 5px;
+    }
+  }
+
+  &-accept a {
+    text-decoration: none;
+    text-transform: uppercase;
+    font-weight: bold;
+    font-size: 14px;
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+}
