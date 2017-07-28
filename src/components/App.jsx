@@ -1,16 +1,19 @@
 import React from "react";
 
-require("!style-loader!css-loader!sass-loader!./App.scss");
-
-const reactLogo = require('./react_logo.svg');
+import Card from "./Card";
+import Header from "./Header";
 
 class App extends React.Component {
     render() {
-        return <div className="app">
-            <h1>Hello World!</h1>
-            <p>Foo to the bar</p>
-            <img src={reactLogo}/>
-        </div>;
+      let data = this.props.data;
+      let cards = data.map((card, index) => <Card key={index} cardData={card}/>);
+      
+      console.log(cards);
+      return <div>
+              <Header/>
+              {cards}      
+            </div>
+
     }
 }
 

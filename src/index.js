@@ -1,19 +1,23 @@
 import React from "react";
 import ReactDOM from 'react-dom';
-import {AppContainer} from "react-hot-loader";
+import { AppContainer } from "react-hot-loader";
+import { Provider } from 'react-redux';
+import { createStore } from 'redux';
+
 import App from "./components/App";
-import Card from "./components/Card";
-import Header from "./components/Header";
 
 require("!style-loader!css-loader!sass-loader!./components/scss/fonts.scss");
 require("!style-loader!css-loader!sass-loader!./components/scss/core.scss");
 require("!style-loader!css-loader!sass-loader!./components/scss/utils.scss");
 
 const rootEl = document.getElementById("root");
+const initialState = [];
 
-let dataMeetup = {
+let data = [{
+  type: "Meetup",
   title: "PLASMONA - ТЕСТ НА НАРКОТИКИ В ДОМАШНИХ УСЛОВИЯХ",
   sphere: "Медицина",
+  theme: "bg-purple",
   author: {
     name: "ВАЛЕРИЙ КАЗАНЦЕВ",
     descr: "химик, институт неорганической химии"
@@ -21,7 +25,8 @@ let dataMeetup = {
   date: "19.10.2017 18:00",
   place: "ПВТ, КУПРЕВИЧА 1/5"
 }, 
-dataPlasma = {
+{
+  type: "Plasma",
   title: "PLASMONA - ТЕСТ НА НАРКОТИКИ В ДОМАШНИХ УСЛОВИЯХ",
   sphere: "Медицина",
   author: {
@@ -29,7 +34,18 @@ dataPlasma = {
     descr: "химик, институт неорганической химии"
   }
 },
-dataStartup = {
+{
+  type: "Startup",
+  title: "PLASMONA - ТЕСТ НА НАРКОТИКИ В ДОМАШНИХ УСЛОВИЯХ",
+  sphere: "Медицина",
+  theme: "bg-purple",
+  author: {
+    name: "ВАЛЕРИЙ КАЗАНЦЕВ",
+    descr: "химик, институт неорганической химии"
+  }
+},
+{
+  type: "Startup",
   title: "PLASMONA - ТЕСТ НА НАРКОТИКИ В ДОМАШНИХ УСЛОВИЯХ",
   sphere: "Медицина",
   author: {
@@ -37,38 +53,41 @@ dataStartup = {
     descr: "химик, институт неорганической химии"
   }
 },
-dataResearch = {
+{
+  type: "Research",
   title: "PLASMONA - ТЕСТ НА НАРКОТИКИ В ДОМАШНИХ УСЛОВИЯХ",
   sphere: "Медицина",
+  theme: "bg-yellow",
   author: {
     name: "ВАЛЕРИЙ КАЗАНЦЕВ",
     descr: "химик, институт неорганической химии"
   }
 },
-dataTender = {
+{
+  type: "Research",
   title: "PLASMONA - ТЕСТ НА НАРКОТИКИ В ДОМАШНИХ УСЛОВИЯХ",
   sphere: "Медицина",
+  theme: "bg-image-1",
+  author: {
+    name: "ВАЛЕРИЙ КАЗАНЦЕВ",
+    descr: "химик, институт неорганической химии"
+  }
+},
+{
+  type: "Tender",
+  title: "PLASMONA - ТЕСТ НА НАРКОТИКИ В ДОМАШНИХ УСЛОВИЯХ",
+  sphere: "Медицина",
+  theme: "bg-blue",
   author: {
     name: "ВАЛЕРИЙ КАЗАНЦЕВ",
     descr: "химик, институт неорганической химии"
   },
   date: "19.10.2017 18:00",
   activity: "Конкурс"
-};
-
-
+}];
 
 
 ReactDOM.render(
-            <div>
-              <Header/>
-              <Card type="Meetup" theme="bg-purple" cardData={dataMeetup}/>
-              <Card type="Plasma" cardData={dataPlasma}/>
-              <Card type="Startup" cardData={dataStartup}/>
-              <Card type="Startup" theme="bg-image-2" cardData={dataStartup}/>   
-              <Card type="Research" theme="bg-yellow" cardData={dataResearch}/>   
-              <Card type="Research" theme="bg-image-1" cardData={dataResearch}/>    
-              <Card type="Tender" theme="bg-blue" cardData={dataTender}/>            
-            </div>,
+            <App data={data}/>,
         rootEl
     );
