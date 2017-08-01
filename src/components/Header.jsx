@@ -12,7 +12,7 @@ class Header extends React.Component {
               <li><a href="#">Исследования</a></li>
               <li><a href="#">Startups</a></li>
               <li><a href="#" className="Header-activeLink">Люди</a></li>
-              <li><a href="#" className="link-no-text icon-money">Инвестиции</a></li>
+              <li><a href="#" className="link-no-text icon-tender">Инвестиции</a></li>
               <li><a href="#" className="link-no-text icon-meetup">Митапы</a></li>
               <li><a href="#" className="link-no-text icon-search">Поиск</a></li>
               <li><a href="#" className="link-no-text plasma">Plasma</a></li>

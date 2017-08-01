@@ -2,6 +2,20 @@ import React from "react";
 
 require("!style-loader!css-loader!sass-loader!./Card.scss");
 
+// Example of data 
+
+// {
+//   type: "Meetup",
+//   title: "PLASMONA - ТЕСТ НА НАРКОТИКИ В ДОМАШНИХ УСЛОВИЯХ",
+//   sphere: "Медицина",
+//   theme: "bg-purple",
+//   author: {
+//     name: "ВАЛЕРИЙ КАЗАНЦЕВ",
+//     descr: "химик, институт неорганической химии"
+//   },
+//   date: "19.10.2017 18:00",
+//   place: "ПВТ, КУПРЕВИЧА 1/5"
+// }
 
 class Card extends React.Component {
     render() {

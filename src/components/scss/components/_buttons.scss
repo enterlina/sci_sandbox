@@ -1,0 +1,22 @@
+//buttons
+.Button {
+  padding: 5px 10px;
+  text-transform: uppercase;
+  color: #fff;
+  font-size: 16px;
+  font-weight: bold;
+  text-align: center;
+  transition: background 0.5s, color 0.5s;
+  will-change: background, color;
+
+  &--green {
+    background-color: #5ad89f;
+    border: solid 2px #5ad89f;
+
+    &:hover {
+      background-color: #fff;
+      color: #5ad89f;
+      cursor: pointer;
+    }
+  }
+}

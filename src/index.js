@@ -12,8 +12,59 @@ require("!style-loader!css-loader!sass-loader!./components/scss/utils.scss");
 
 const rootEl = document.getElementById("root");
 const initialState = [];
+let author = {
+      name: "ВАЛЕРИЙ КАЗАНЦЕВ",
+      description: "научный сотрудник Института общей и неорганической химии НАН Беларуси, научный сотрудник РНПЦ детской хирургии.",
+      links: [
+        {
+          title: "email",
+          href: "#",
+        },
+        {
+          title: "fb",
+          href: "#",
+        },
+        {
+          title: "ln",
+          href: "#",
+        },
+        {
+          title: "tg",
+          href: "#",
+        }
+      ]
+    };
 
-let data = [{
+let data = {};
+data.table = {
+  fields: ['Компания', 'Специализация', 'Сфера', 'Вакансия' ],
+  items: [
+    ["321123213", 'Вакансия', 'Химия', "123213213"],
+    ["321123213", 'Вакансия', 'Химия', "123213213"]
+  ]
+}
+
+data.searchItems = [{
+  type: "Startup",
+  title: "Характеристика взаимодействия наночастиц коллоидного золота.",
+  sphere: "Медицина",
+  author: {
+    name: "ВАЛЕРИЙ КАЗАНЦЕВ",
+    descr: "химик, институт неорганической химии"
+  }
+},
+{
+  type: "Research",
+  title: "Характеристика взаимодействия наночастиц коллоидного золота.",
+  sphere: "Медицина",
+  img: "name",
+  author: {
+    name: "ВАЛЕРИЙ КАЗАНЦЕВ",
+    descr: "химик, институт неорганической химии"
+  }
+}];
+
+data.cards = [{
   type: "Meetup",
   title: "PLASMONA - ТЕСТ НА НАРКОТИКИ В ДОМАШНИХ УСЛОВИЯХ",
   sphere: "Медицина",
@@ -68,6 +119,16 @@ let data = [{
   title: "PLASMONA - ТЕСТ НА НАРКОТИКИ В ДОМАШНИХ УСЛОВИЯХ",
   sphere: "Медицина",
   theme: "bg-image-1",
+  author: {
+    name: "ВАЛЕРИЙ КАЗАНЦЕВ",
+    descr: "химик, институт неорганической химии"
+  }
+},
+{
+  type: "Research",
+  title: "PLASMONA - ТЕСТ НА НАРКОТИКИ В ДОМАШНИХ УСЛОВИЯХ",
+  sphere: "Медицина",
+  theme: "bg-image-2",
   author: {
     name: "ВАЛЕРИЙ КАЗАНЦЕВ",
     descr: "химик, институт неорганической химии"
