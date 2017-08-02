@@ -15,8 +15,17 @@ class App extends React.Component {
       let searchItems = searchItemsData.map((item, index) => <SearchItem key={index} data={item}/>);
       
       return <div>
-              <Header/>
-              {cards}
+              <nav className="navbar" role="navigation">
+                <div className="container">
+                    <Header/>
+                </div>
+              </nav>
+              <div className="container">
+                <div className="row">
+                  {cards}
+                </div>
+              </div>
+              <div className="clearfix"></div>
               <div className="searchFieldWrapper">
                 <SearchField/>
               </div>
