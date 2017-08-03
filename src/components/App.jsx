@@ -22,17 +22,17 @@ class App extends React.Component {
               </nav>
               <div className="container">
                 <div className="row">
+                  <SearchField/>
+                  {searchItems}
+                <Table data={tableData}/>
+                </div>
+              </div>
+              <div className="container">
+                <div className="row">
                   {cards}
                 </div>
               </div>
-              <div className="clearfix"></div>
-              <div className="searchFieldWrapper">
-                <SearchField/>
-              </div>
-              <div className="searchItems">
-                {searchItems}
-                <Table data={tableData}/> 
-              </div>     
+              <div className="clearfix"></div>  
             </div>
 
     }
