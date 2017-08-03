@@ -33,6 +33,14 @@
       height: auto;
       border: none;
       background: transparent;
+
+      a {
+        text-transform: uppercase;
+      }
+    }
+
+    &.Startup .Card a {
+      text-transform: uppercase;
     }
 
     &.Tender,
@@ -45,6 +53,7 @@
         a {
           background: transparent;
           color: #fff;
+          text-transform: uppercase;
         }
       }
 
