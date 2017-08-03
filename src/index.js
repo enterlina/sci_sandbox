@@ -12,144 +12,186 @@ require("!style-loader!css-loader!sass-loader!./components/scss/utils.scss");
 require("!style-loader!css-loader!sass-loader!./components/scss/layout.scss");
 
 const rootEl = document.getElementById("root");
-const initialState = [];
-let author = {
-      name: "ВАЛЕРИЙ КАЗАНЦЕВ",
-      description: "научный сотрудник Института общей и неорганической химии НАН Беларуси, научный сотрудник РНПЦ детской хирургии.",
-      links: [
-        {
-          title: "email",
-          href: "#",
-        },
-        {
-          title: "fb",
-          href: "#",
-        },
-        {
-          title: "ln",
-          href: "#",
-        },
-        {
-          title: "tg",
-          href: "#",
-        }
-      ]
-    };
+const initialState = {};
 
-let data = {};
-data.table = {
-  fields: ['Компания', 'Специализация', 'Сфера', 'Вакансия' ],
-  items: [
-    ["321123213", 'Вакансия', 'Химия', "123213213"],
-    ["321123213", 'Вакансия', 'Химия', "123213213"]
-  ]
+let promise = new Promise((resolve, reject) => {
+            fetch('https://scitech.herokuapp.com/api/cards')
+                .then((response) => {
+                    return response.json()
+                })
+                .then((data) => {
+                    resolve(data);
+                })
+                .catch((err) => {
+                    reject(err)
+                });
+        });
+
+        promise.then(result => {
+            console.log('data loaded');
+            initialState.cards = result;
+            initApp();
+
+        }, error => {
+            console.log(error);
+        });
+
+function reducer (state = initialState, action) {
+  if (action.type === 'ADD_TRACK') {
+    return [
+      ...state,
+      action.payload
+    ];
+  }
+  return state;
 }
 
-data.searchItems = [{
-  type: "Startup",
-  title: "Характеристика взаимодействия наночастиц коллоидного золота.",
-  sphere: "Медицина",
-  author: {
-    name: "ВАЛЕРИЙ КАЗАНЦЕВ",
-    descr: "химик, институт неорганической химии"
-  }
-},
-{
-  type: "Research",
-  title: "Характеристика взаимодействия наночастиц коллоидного золота.",
-  sphere: "Медицина",
-  img: "name",
-  author: {
-    name: "ВАЛЕРИЙ КАЗАНЦЕВ",
-    descr: "химик, институт неорганической химии"
-  }
-}];
+function initApp () {
+  const store = createStore(reducer);
 
-data.cards = [{
-  type: "Meetup",
-  title: "PLASMONA - ТЕСТ НА НАРКОТИКИ В ДОМАШНИХ УСЛОВИЯХ",
-  sphere: "Медицина",
-  theme: "bg-purple",
-  author: {
-    name: "ВАЛЕРИЙ КАЗАНЦЕВ",
-    descr: "химик, институт неорганической химии"
-  },
-  date: "19.10.2017 18:00",
-  place: "ПВТ, КУПРЕВИЧА 1/5"
-}, 
-{
-  type: "Plasma",
-  title: "PLASMONA - ТЕСТ НА НАРКОТИКИ В ДОМАШНИХ УСЛОВИЯХ",
-  sphere: "Медицина",
-  author: {
-    name: "ВАЛЕРИЙ КАЗАНЦЕВ",
-    descr: "химик, институт неорганической химии"
-  }
-},
-{
-  type: "Startup",
-  title: "PLASMONA - ТЕСТ НА НАРКОТИКИ В ДОМАШНИХ УСЛОВИЯХ",
-  sphere: "Медицина",
-  theme: "bg-purple",
-  author: {
-    name: "ВАЛЕРИЙ КАЗАНЦЕВ",
-    descr: "химик, институт неорганической химии"
-  }
-},
-{
-  type: "Startup",
-  title: "PLASMONA - ТЕСТ НА НАРКОТИКИ В ДОМАШНИХ УСЛОВИЯХ",
-  sphere: "Медицина",
-  author: {
-    name: "ВАЛЕРИЙ КАЗАНЦЕВ",
-    descr: "химик, институт неорганической химии"
-  }
-},
-{
-  type: "Research",
-  title: "PLASMONA - ТЕСТ НА НАРКОТИКИ В ДОМАШНИХ УСЛОВИЯХ",
-  sphere: "Медицина",
-  theme: "bg-yellow",
-  author: {
-    name: "ВАЛЕРИЙ КАЗАНЦЕВ",
-    descr: "химик, институт неорганической химии"
-  }
-},
-{
-  type: "Research",
-  title: "PLASMONA - ТЕСТ НА НАРКОТИКИ В ДОМАШНИХ УСЛОВИЯХ",
-  sphere: "Медицина",
-  theme: "bg-image-1",
-  author: {
-    name: "ВАЛЕРИЙ КАЗАНЦЕВ",
-    descr: "химик, институт неорганической химии"
-  }
-},
-{
-  type: "Research",
-  title: "PLASMONA - ТЕСТ НА НАРКОТИКИ В ДОМАШНИХ УСЛОВИЯХ",
-  sphere: "Медицина",
-  theme: "bg-image-2",
-  author: {
-    name: "ВАЛЕРИЙ КАЗАНЦЕВ",
-    descr: "химик, институт неорганической химии"
-  }
-},
-{
-  type: "Tender",
-  title: "PLASMONA - ТЕСТ НА НАРКОТИКИ В ДОМАШНИХ УСЛОВИЯХ",
-  sphere: "Медицина",
-  theme: "bg-blue",
-  author: {
-    name: "ВАЛЕРИЙ КАЗАНЦЕВ",
-    descr: "химик, институт неорганической химии"
-  },
-  date: "19.10.2017 18:00",
-  activity: "Конкурс"
-}];
+  ReactDOM.render(
+          <Provider store={store}>
+              <App/>
+          </Provider>,
+          rootEl
+      );
+}
 
 
-ReactDOM.render(
-            <App data={data}/>,
-        rootEl
-    );
+
+
+
+// let author = {
+//       name: "ВАЛЕРИЙ КАЗАНЦЕВ",
+//       description: "научный сотрудник Института общей и неорганической химии НАН Беларуси, научный сотрудник РНПЦ детской хирургии.",
+//       links: [
+//         {
+//           title: "email",
+//           href: "#",
+//         },
+//         {
+//           title: "fb",
+//           href: "#",
+//         },
+//         {
+//           title: "ln",
+//           href: "#",
+//         },
+//         {
+//           title: "tg",
+//           href: "#",
+//         }
+//       ]
+//     };
+
+// let data = {};
+// data.table = {
+//   fields: ['Компания', 'Специализация', 'Сфера', 'Вакансия' ],
+//   items: [
+//     ["321123213", 'Вакансия', 'Химия', "123213213"],
+//     ["321123213", 'Вакансия', 'Химия', "123213213"]
+//   ]
+// }
+
+// data.searchItems = [{
+//   type: "Startup",
+//   title: "Характеристика взаимодействия наночастиц коллоидного золота.",
+//   sphere: "Медицина",
+//   author: {
+//     name: "ВАЛЕРИЙ КАЗАНЦЕВ",
+//     descr: "химик, институт неорганической химии"
+//   }
+// },
+// {
+//   type: "Research",
+//   title: "Характеристика взаимодействия наночастиц коллоидного золота.",
+//   sphere: "Медицина",
+//   img: "name",
+//   author: {
+//     name: "ВАЛЕРИЙ КАЗАНЦЕВ",
+//     descr: "химик, институт неорганической химии"
+//   }
+// }];
+
+// data.cards = [{
+//   type: "Meetup",
+//   title: "PLASMONA - ТЕСТ НА НАРКОТИКИ В ДОМАШНИХ УСЛОВИЯХ",
+//   sphere: "Медицина",
+//   theme: "bg-purple",
+//   author: {
+//     name: "ВАЛЕРИЙ КАЗАНЦЕВ",
+//     descr: "химик, институт неорганической химии"
+//   },
+//   date: "19.10.2017 18:00",
+//   place: "ПВТ, КУПРЕВИЧА 1/5"
+// }, 
+// {
+//   type: "Plasma",
+//   title: "PLASMONA - ТЕСТ НА НАРКОТИКИ В ДОМАШНИХ УСЛОВИЯХ",
+//   sphere: "Медицина",
+//   author: {
+//     name: "ВАЛЕРИЙ КАЗАНЦЕВ",
+//     descr: "химик, институт неорганической химии"
+//   }
+// },
+// {
+//   type: "Startup",
+//   title: "PLASMONA - ТЕСТ НА НАРКОТИКИ В ДОМАШНИХ УСЛОВИЯХ",
+//   sphere: "Медицина",
+//   theme: "bg-purple",
+//   author: {
+//     name: "ВАЛЕРИЙ КАЗАНЦЕВ",
+//     descr: "химик, институт неорганической химии"
+//   }
+// },
+// {
+//   type: "Startup",
+//   title: "PLASMONA - ТЕСТ НА НАРКОТИКИ В ДОМАШНИХ УСЛОВИЯХ",
+//   sphere: "Медицина",
+//   author: {
+//     name: "ВАЛЕРИЙ КАЗАНЦЕВ",
+//     descr: "химик, институт неорганической химии"
+//   }
+// },
+// {
+//   type: "Research",
+//   title: "PLASMONA - ТЕСТ НА НАРКОТИКИ В ДОМАШНИХ УСЛОВИЯХ",
+//   sphere: "Медицина",
+//   theme: "bg-yellow",
+//   author: {
+//     name: "ВАЛЕРИЙ КАЗАНЦЕВ",
+//     descr: "химик, институт неорганической химии"
+//   }
+// },
+// {
+//   type: "Research",
+//   title: "PLASMONA - ТЕСТ НА НАРКОТИКИ В ДОМАШНИХ УСЛОВИЯХ",
+//   sphere: "Медицина",
+//   theme: "bg-image-1",
+//   author: {
+//     name: "ВАЛЕРИЙ КАЗАНЦЕВ",
+//     descr: "химик, институт неорганической химии"
+//   }
+// },
+// {
+//   type: "Research",
+//   title: "PLASMONA - ТЕСТ НА НАРКОТИКИ В ДОМАШНИХ УСЛОВИЯХ",
+//   sphere: "Медицина",
+//   theme: "bg-image-2",
+//   author: {
+//     name: "ВАЛЕРИЙ КАЗАНЦЕВ",
+//     descr: "химик, институт неорганической химии"
+//   }
+// },
+// {
+//   type: "Tender",
+//   title: "PLASMONA - ТЕСТ НА НАРКОТИКИ В ДОМАШНИХ УСЛОВИЯХ",
+//   sphere: "Медицина",
+//   theme: "bg-blue",
+//   author: {
+//     name: "ВАЛЕРИЙ КАЗАНЦЕВ",
+//     descr: "химик, институт неорганической химии"
+//   },
+//   date: "19.10.2017 18:00",
+//   activity: "Конкурс"
+// }];

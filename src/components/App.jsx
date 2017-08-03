@@ -1,4 +1,5 @@
 import React from "react";
+import { connect } from 'react-redux';
 
 import Card from "./Card";
 import Header from "./Header";
@@ -8,11 +9,14 @@ import Table from "./Table";
 
 class App extends React.Component {
     render() {
-      let cardData = this.props.data.cards;
-      let tableData = this.props.data.table;
-      let searchItemsData = this.props.data.searchItems;
+
+      console.log(this.props.cards);
+
+      let cardData = this.props.cards;
+      // let tableData = this.props.data.table;
+      // let searchItemsData = this.props.data.searchItems;
       let cards = cardData.map((card, index) => <Card key={index} cardData={card}/>);
-      let searchItems = searchItemsData.map((item, index) => <SearchItem key={index} data={item}/>);
+      // let searchItems = searchItemsData.map((item, index) => <SearchItem key={index} data={item}/>);
       
       return <div>
               <nav className="navbar" role="navigation">
@@ -22,20 +26,23 @@ class App extends React.Component {
               </nav>
               <div className="container">
                 <div className="row">
+                  <SearchField/>
+                </div>
+              </div> 
+              <div className="container">
+                <div className="row">
                   {cards}
                 </div>
               </div>
               <div className="clearfix"></div>
-              <div className="searchFieldWrapper">
-                <SearchField/>
-              </div>
-              <div className="searchItems">
-                {searchItems}
-                <Table data={tableData}/> 
-              </div>     
             </div>
 
     }
 }
 
-export default App;
+export default connect(
+  state => ({
+    cards: state.cards
+  }),
+  dispatch => ({})
+)(App);
