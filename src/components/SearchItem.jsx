@@ -22,9 +22,11 @@ class SearchItem extends React.Component {
         return <article className="SearchItem">
           <i className={markerClass}></i>
           { item.img ? <img src={item.img} alt={item.title} title={item.title} /> : null }
-          <p>{item.sphere}</p>
-          <h1><a href="#">{item.title}</a></h1>
-          <p>{item.author.name.toLowerCase()}</p>
+          <div className="SearchItem--content">
+            <p>{item.sphere}</p>
+            <h1><a href="#">{item.title}</a></h1>
+            <p>{item.author.name.toLowerCase()}</p>
+          </div>
       </article>
     }
 }

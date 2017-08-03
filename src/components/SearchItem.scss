@@ -8,6 +8,10 @@
   color: $fontColor;
   padding: 10px 20px;
   max-height: 95px;
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+  justify-content: left;
 
   & > i {
     float: left;
@@ -21,15 +25,15 @@
   }
 
   img {
-    float: left;
     height: 80px;
     width: 80px;
-    margin: 5px 10px;
+    margin: 5px 0 5px 10px;
   }
 
   h1 {
     margin: 0;
     padding: 0;
+    margin-left: 10px;
     white-space: nowrap;
     text-overflow: ellipsis;
 
@@ -45,6 +49,7 @@
 
   p {
     margin: 5px 0;
+    margin-left: 10px;
     padding: 0;
     text-transform: capitalize;
   }
