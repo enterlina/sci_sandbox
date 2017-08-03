@@ -9,6 +9,7 @@ import App from "./components/App";
 require("!style-loader!css-loader!sass-loader!./components/scss/fonts.scss");
 require("!style-loader!css-loader!sass-loader!./components/scss/core.scss");
 require("!style-loader!css-loader!sass-loader!./components/scss/utils.scss");
+require("!style-loader!css-loader!sass-loader!./components/scss/layout.scss");
 
 const rootEl = document.getElementById("root");
 const initialState = [];
