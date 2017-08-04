@@ -33,6 +33,14 @@
       height: auto;
       border: none;
       background: transparent;
+
+      a {
+        text-transform: uppercase;
+      }
+    }
+
+    &.Startup .Card a {
+      text-transform: uppercase;
     }
 
     &.Tender,
@@ -45,6 +53,7 @@
         a {
           background: transparent;
           color: #fff;
+          text-transform: uppercase;
         }
       }
 
@@ -81,6 +90,38 @@
 
     &.bg-image-2 {
       background-image: url(#{$publicPath}img/cards/bg2.jpg);
+    }
+
+    &.bg-image-3 {
+      background-image: url(#{$publicPath}img/cards/bg3.jpg);
+    }
+
+    &.bg-image-4 {
+      background-image: url(#{$publicPath}img/cards/bg4.jpg);
+    }
+
+    &.bg-image-5 {
+      background-image: url(#{$publicPath}img/cards/bg5.jpg);
+    }
+
+    &.bg-image-6 {
+      background-image: url(#{$publicPath}img/cards/bg6.jpg);
+    }
+
+    &.bg-image-7 {
+      background-image: url(#{$publicPath}img/cards/bg7.jpg);
+    }
+
+    &.bg-image-8 {
+      background-image: url(#{$publicPath}img/cards/bg8.jpg);
+    }
+
+    &.bg-image-9 {
+      background-image: url(#{$publicPath}img/cards/bg9.jpg);
+    }
+
+    &.bg-image-10 {
+      background-image: url(#{$publicPath}img/cards/bg10.jpg);
     }
   }
 
@@ -123,6 +164,7 @@
     padding: 0;
     font-weight: bold;
     font-size: 14px;
+    text-transform: uppercase;
 
     span {
       color: #818791;
@@ -130,6 +172,7 @@
       font-weight: normal;
       font-size: 12px;
       margin-top: 5px;
+      text-transform: capitalize;
     }
   }
 

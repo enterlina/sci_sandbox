@@ -1,5 +1,7 @@
 import React from "react";
 
+import {substrName} from '../utilities';
+
 require("!style-loader!css-loader!sass-loader!./Card.scss");
 
 // Example of data 
@@ -23,7 +25,7 @@ class Card extends React.Component {
       
       let className = "Card-wrapper " + cardData.type + " " + cardData.style;
       let iconClass = "icon-" + cardData.type.toLowerCase();
-
+      console.log(cardData.name.length);
       return <div className="Card-externalBound col-md-6">
         <div className={className}>
             <article className="Card">
@@ -32,7 +34,7 @@ class Card extends React.Component {
                     <p className="Card-activity">{cardData.activity}</p>
                     <p className="Card-date">{cardData.date}</p>
                 </div> : null }
-                <h1><a href="#">{cardData.name}</a></h1>
+                <h1><a href="#">{substrName(cardData.name, 100)}</a></h1>
                 { cardData.type == 'Meetup' ? <p className="Card-place">{cardData.place}</p> : null }
                 <div>
                     <p className="Card-sphere">{cardData.type !== 'Meetup' && cardData.type !== 'Tender' ? cardData.use : ''} <i className={iconClass}></i></p>

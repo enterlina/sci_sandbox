@@ -2,7 +2,9 @@ import React from "react";
 import ReactDOM from 'react-dom';
 import { AppContainer } from "react-hot-loader";
 import { Provider } from 'react-redux';
-import { createStore } from 'redux';
+import { createStore, applyMiddleware } from 'redux';
+import { composeWithDevTools } from 'redux-devtools-extension';
+import thunk from 'redux-thunk';
 
 import App from "./components/App";
 
@@ -12,50 +14,18 @@ require("!style-loader!css-loader!sass-loader!./components/scss/utils.scss");
 require("!style-loader!css-loader!sass-loader!./components/scss/layout.scss");
 
 const rootEl = document.getElementById("root");
-const initialState = {};
 
-let promise = new Promise((resolve, reject) => {
-            fetch('https://scitech.herokuapp.com/api/cards')
-                .then((response) => {
-                    return response.json()
-                })
-                .then((data) => {
-                    resolve(data);
-                })
-                .catch((err) => {
-                    reject(err)
-                });
-        });
+import reducer from './reducers';
 
-        promise.then(result => {
-            console.log('data loaded');
-            initialState.cards = result;
-            initApp();
+const store = createStore(reducer, composeWithDevTools(applyMiddleware(thunk)));
 
-        }, error => {
-            console.log(error);
-        });
+ReactDOM.render(
+        <Provider store={store}>
+            <App/>
+        </Provider>,
+        rootEl
+    );
 
-function reducer (state = initialState, action) {
-  if (action.type === 'ADD_TRACK') {
-    return [
-      ...state,
-      action.payload
-    ];
-  }
-  return state;
-}
-
-function initApp () {
-  const store = createStore(reducer);
-
-  ReactDOM.render(
-          <Provider store={store}>
-              <App/>
-          </Provider>,
-          rootEl
-      );
-}
 
 
 

@@ -3,20 +3,22 @@ import { connect } from 'react-redux';
 
 import Card from "./Card";
 import Header from "./Header";
-import SearchItem from "./SearchItem";
-import SearchField from "./SearchField";
 import Table from "./Table";
 
-class App extends React.Component {
-    render() {
+import { getCards } from '../actions/cards';
 
-      console.log(this.props.cards);
+class App extends React.Component {
+    componentWillMount() {
+      
+      this.props.onGetCards();
+    }
+    render() {
+      let cards = 'There is no items';
 
       let cardData = this.props.cards;
-      // let tableData = this.props.data.table;
-      // let searchItemsData = this.props.data.searchItems;
-      let cards = cardData.map((card, index) => <Card key={index} cardData={card}/>);
-      // let searchItems = searchItemsData.map((item, index) => <SearchItem key={index} data={item}/>);
+      
+      cards = cardData.map((card, index) => <Card key={index} cardData={card}/>);
+
       
       return <div>
               <nav className="navbar" role="navigation">
@@ -24,14 +26,10 @@ class App extends React.Component {
                     <Header/>
                 </div>
               </nav>
+              
               <div className="container">
                 <div className="row">
-                  <SearchField/>
-                </div>
-              </div> 
-              <div className="container">
-                <div className="row">
-                  {cards}
+                {cards}
                 </div>
               </div>
               <div className="clearfix"></div>
@@ -44,5 +42,9 @@ export default connect(
   state => ({
     cards: state.cards
   }),
-  dispatch => ({})
+  dispatch => ({
+    onGetCards: () => {
+      dispatch(getCards());
+    }
+  })
 )(App);
