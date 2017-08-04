@@ -1,4 +1,44 @@
-.navbar {
+.layout-navbar {
+  width: 100%;
   background: #fff;
-  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.15);
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.row {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+@media (min-width: 1200px) {
+  .container {
+    //width: 1170px;
+  }
+}
+
+@media (min-width: 992px) {
+  .container {
+    //width: 970px;
+  }
+}
+
+@media (max-width: 768px) {
+  .Card-wrapper {
+    border: 0;
+  }
+
+  .Card-externalBound {
+    min-width: 100%;
+    margin: 0;
+  }
+}
+
+@media (max-width: 350px) {
+  .Card {
+    max-width: 100%;
+    margin: 10px;
+  }
 }

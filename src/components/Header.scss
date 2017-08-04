@@ -9,7 +9,6 @@
   flex-direction: row;
   justify-content: space-between;
   align-items: stretch;
-  padding: 0 20px;
 
   &-logo {
     background: url('#{$publicPath}img/logo.svg') no-repeat;

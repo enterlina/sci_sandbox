@@ -15,18 +15,18 @@ class App extends React.Component {
       let searchItems = searchItemsData.map((item, index) => <SearchItem key={index} data={item}/>);
       
       return <div>
-              <nav className="navbar" role="navigation">
+              {/*<nav className="layout-navbar">
                 <div className="container">
                     <Header/>
                 </div>
-              </nav>
-              <div className="container">
-                <div className="row">
+              </nav>*/}
+              {/*div className="container">
+                div className="row">
                   <SearchField/>
                   {searchItems}
                 <Table data={tableData}/>
                 </div>
-              </div>
+              </div>*/}
               <div className="container">
                 <div className="row">
                   {cards}
