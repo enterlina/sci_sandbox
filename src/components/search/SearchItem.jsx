@@ -1,5 +1,6 @@
 import React from "react";
 import {substrName, getHighlightedText} from '../../utilities';
+import { connect } from 'react-redux';
 
 require("!style-loader!css-loader!sass-loader!./SearchItem.scss");
 
@@ -35,11 +36,16 @@ class SearchItem extends React.Component {
       }
       return <article className="SearchItem">
           <div className="SearchItem--content noResult">
-            <h1>По Вашему запросу ничего не найдено</h1>
+            <h1>{this.props.lang.NO_ITEMS_FOUND || 'There are no items found'}</h1>
           </div>
       </article>
       
     }
 }
 
-export default SearchItem;
+export default connect(
+  state => ({ 
+    lang: state.lang
+   }),
+  dispatch => ({})
+)(SearchItem);
