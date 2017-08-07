@@ -15,7 +15,13 @@ export const search = (searchTerm) => dispatch => {
 
         promise.then(result => {
             console.log('data loaded');
-            dispatch({ type: 'SEARCH_WORD', payload: result });
+            
+            if(result.length == 0) {
+              dispatch({ type: 'SEARCH_NO_ITEMS', payload: false });
+              return;
+            }
+
+            dispatch({ type: 'SEARCH_WORD', payload: result, searchWord: searchTerm  });
 
         }, error => {
             dispatch({ type: 'SEARCH_NO_ITEMS', payload: false });

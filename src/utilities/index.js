@@ -4,5 +4,13 @@ function substrName(name, num) {
   }
   return name.substr(0, num).trim() + "...";
 }
+function getHighlightedText(text, higlight) {
+    let parts = text.split(new RegExp(`(${higlight})`, 'gi'));
+    return <span> { parts.map((part, i) => 
+        <span key={i} className={part.toLowerCase() === higlight.toLowerCase() ? 'term' : {} }>
+            { part }
+        </span>)
+    } </span>;
+}
 
-export {substrName};
+export {substrName, getHighlightedText};

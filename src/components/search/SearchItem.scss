@@ -40,8 +40,16 @@
     a {
       color: $fontColor;
 
+      &::first-letter {
+        text-transform: uppercase;
+      }
+
       &:hover {
         text-decoration: underline;
+      }
+
+      span.term {
+        background: #5ad89f;
       }
     }
   }

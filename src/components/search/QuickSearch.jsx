@@ -11,11 +11,11 @@ class QuickSearch extends React.Component {
         this.props.onSearch(this.searchWord.value);
     }
     render() {
-
+      console.log(this.props.searchTerm);
       let searchItems = <SearchItem data={false}/>;
 
       if(this.props.searchResult){
-        searchItems = this.props.searchResult.map((item, index) => <SearchItem key={index} data={item}/>);;
+        searchItems = this.props.searchResult.map((item, index) => <SearchItem searchWord={this.props.searchTerm} key={index} data={item}/>);;
       }
       
         return <div className="QuickSearch">
@@ -30,7 +30,8 @@ class QuickSearch extends React.Component {
 
 export default connect(
   state => ({
-    searchResult: state.search
+    searchResult: state.search.data,
+    searchTerm: state.search.term
   }),
   dispatch => ({ })
 )(QuickSearch);

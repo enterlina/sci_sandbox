@@ -1,5 +1,5 @@
 import React from "react";
-import {substrName} from '../../utilities';
+import {substrName, getHighlightedText} from '../../utilities';
 
 require("!style-loader!css-loader!sass-loader!./SearchItem.scss");
 
@@ -7,7 +7,7 @@ require("!style-loader!css-loader!sass-loader!./SearchItem.scss");
 
 // {
 //   type: "Startup",
-//   title: "Характеристика взаимодействия наночастиц коллоидного золота.",
+//   name: "Характеристика взаимодействия наночастиц коллоидного золота.",
 //   sphere: "Медицина",
 //   _author: {
 //     name: "ВАЛЕРИЙ КАЗАНЦЕВ",
@@ -18,15 +18,17 @@ require("!style-loader!css-loader!sass-loader!./SearchItem.scss");
 class SearchItem extends React.Component {
     render() {
       const item = this.props.data;
+      const searchWord = this.props.searchWord;
       if(item) {
         const markerClass = "icon-marker-" + item.type.toLowerCase();
-      
+        let name = substrName(item.name, 80);
+
         return <article className="SearchItem">
           <i className={markerClass}></i>
           { item.image ? <img src={item.image} alt={item.name} title={item.name} /> : null }
           <div className="SearchItem--content">
             <p>{item.use}</p>
-            <h1><a href="#">{substrName(item.name, 80)}</a></h1>
+            <h1><a href="#">{getHighlightedText(name, searchWord)}</a></h1>
             <p>{item._author[0].name.toLowerCase()}</p>
           </div>
       </article>
