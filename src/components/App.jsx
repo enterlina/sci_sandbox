@@ -6,11 +6,13 @@ import Header from "./Header";
 import Table from "./Table";
 
 import { getCards } from '../actions/cards';
+import { getLangVars } from '../actions/language';
 
 class App extends React.Component {
     componentWillMount() {
       
-      this.props.onGetCards();
+      this.props.onGetCards(this.props.defaultLang);
+      this.props.onLoadLang(this.props.defaultLang);
     }
     render() {
       let cards = 'There is no items';
@@ -40,11 +42,15 @@ class App extends React.Component {
 
 export default connect(
   state => ({
-    cards: state.cards
+    cards: state.cards,
+    defaultLang: state.defaultLang
   }),
   dispatch => ({
-    onGetCards: () => {
-      dispatch(getCards());
+    onGetCards: (lang) => {
+      dispatch(getCards(lang));
+    },
+    onLoadLang: (lang) => {
+      dispatch(getLangVars(lang));
     }
   })
 )(App);

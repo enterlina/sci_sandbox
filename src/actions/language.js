@@ -1,7 +1,7 @@
-export const getCards = (lang) => dispatch => {
+const getLangVars = (lang) => dispatch => {
 
   let promise = new Promise((resolve, reject) => {
-            fetch(`https://scitech.herokuapp.com/api/cards/${lang}`)
+            fetch(`https://scitech.herokuapp.com/api/langvars/${lang}`)
                 .then((response) => {
                     return response.json()
                 })
@@ -15,9 +15,14 @@ export const getCards = (lang) => dispatch => {
 
         promise.then(result => {
             console.log('data loaded');
-            dispatch({ type: 'FETCH_CARDS_SUCCESS', payload: result });
+
+            dispatch({ type: 'LANG_VARS_LOADED', payload: result });
 
         }, error => {
-            console.log(error);
+            dispatch({ type: 'LANG_VARS_NOT_LOADED', payload: false });
         });
 }
+const onLangUpdate = (lang) => {
+  return getLangVars(lang);
+}
+export {getLangVars, onLangUpdate}
