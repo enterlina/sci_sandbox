@@ -12,11 +12,29 @@ class Header extends React.Component {
                 <li className="hamburger"></li>
                 <li><a href="#">Исследования</a></li>
                 <li><a href="#">Startups</a></li>
-                <li><a href="#" className="Header-activeLink">Люди</a></li>
-                <li><a href="#" className="link-no-text icon-tender">Инвестиции</a></li>
-                <li><a href="#" className="link-no-text icon-meetup">Митапы</a></li>
-                <li><a href="#" className="link-no-text icon-search">Поиск</a></li>
-                <li><a href="#" className="link-no-text plasma">Plasma</a></li>
+                <li>
+                    <a href="#" className="Header-activeLink">
+                        Люди
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <span className="link-no-text icon-tender">Инвестиции</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#" >
+                        <span className="link-no-text icon-meetup">Митапы</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#" >
+                        <span className="link-no-text icon-search">Поиск</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#" className="link-no-text plasma">Plasma</a>
+                </li>
                 <li className="lang-selector">
                     <a href="#" className="lang-active">Ru</a>
                     <span>/</span>

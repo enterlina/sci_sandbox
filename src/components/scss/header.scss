@@ -1,0 +1,23 @@
+.layout-navbar {
+  width: 100%;
+  background: #fff;
+}
+
+@media (max-width: 800px) {
+  .Header {
+    display: block;
+
+    &-logo {
+      height: 70px;
+    }
+
+    &-navigation {
+      flex-direction: column;
+    }
+
+    li a,
+    li .link-no-text {
+      display: block;
+    }
+  }
+}

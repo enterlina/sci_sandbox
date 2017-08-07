@@ -15,11 +15,11 @@ class App extends React.Component {
       let searchItems = searchItemsData.map((item, index) => <SearchItem key={index} data={item}/>);
       
       return <div>
-              {/*<nav className="layout-navbar">
+              <nav className="layout-navbar">
                 <div className="container">
                     <Header/>
                 </div>
-              </nav>*/}
+              </nav>
               {/*div className="container">
                 div className="row">
                   <SearchField/>
@@ -27,12 +27,12 @@ class App extends React.Component {
                 <Table data={tableData}/>
                 </div>
               </div>*/}
-              <div className="container">
+              {/*<div className="container">
                 <div className="row">
                   {cards}
                 </div>
               </div>
-              <div className="clearfix"></div>  
+              <div className="clearfix"></div>  */}
             </div>
 
     }
