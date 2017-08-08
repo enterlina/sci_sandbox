@@ -16,7 +16,7 @@ class App extends React.Component {
       
       return <div>
               <nav className="layout-navbar">
-                <div className="container">
+                <div className="layout-container">
                     <Header/>
                 </div>
               </nav>
@@ -33,6 +33,9 @@ class App extends React.Component {
                 </div>
               </div>
               <div className="clearfix"></div>  */}
+              <div className="layout-container cards">
+                  {cards}
+              </div> 
             </div>
 
     }

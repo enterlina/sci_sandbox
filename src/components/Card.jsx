@@ -24,7 +24,7 @@ class Card extends React.Component {
       let className = "Card-wrapper " + cardData.type + " " + cardData.theme;
       let iconClass = "icon-" + cardData.type.toLowerCase();
 
-      return <div className="Card-externalBound col-md-6">
+      return <div className="layout-cardFrame">
         <div className={className}>
             <article className="Card">
                 { cardData.type == 'Meetup' ? <p className="Card-date">{cardData.date}</p> : null }
