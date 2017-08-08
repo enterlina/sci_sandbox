@@ -6,10 +6,12 @@ require("!style-loader!css-loader!sass-loader!./Header.scss");
 class Header extends React.Component {
     render() {
         return <div className="navbar-collapse collapse">
-            <header className="Header">
+        <header className="Header">
             <a href="#" className="Header-logo link-no-text">SciTech</a>
+            <div className="hamburger">
+                <div className="hamburger-stripe"></div>
+            </div>
             <nav className="Header-navigation">
-                <li className="hamburger"></li>
                 <li><a href="#">Исследования</a></li>
                 <li><a href="#">Startups</a></li>
                 <li>
@@ -33,7 +35,7 @@ class Header extends React.Component {
                     </a>
                 </li>
                 <li>
-                    <a href="#" className="link-no-text plasma">Plasma</a>
+                    <a href="#" className="link-no-text plasma">Plasma +</a>
                 </li>
                 <li className="lang-selector">
                     <a href="#" className="lang-active">Ru</a>

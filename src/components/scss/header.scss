@@ -5,7 +5,8 @@
 
 @media (max-width: 800px) {
   .Header {
-    display: block;
+    display: flex;
+    flex-wrap: wrap;
 
     &-logo {
       height: 70px;
@@ -13,11 +14,42 @@
 
     &-navigation {
       flex-direction: column;
+      width: 100%;
     }
 
-    li a,
-    li .link-no-text {
+    li {
+      display: none;
+    }
+
+    li a {
+      padding: 25px;
       display: block;
+    }
+
+    li a.plasma {
+      font-size: 18px;
+      background: linear-gradient(to bottom, #f8ffad 0%, #c5fff2 100%);
+      width: auto;
+      height: auto;
+      margin: 0;
+      transition: background 0.2s, color 0.3s;
+
+      &:hover {
+        background: linear-gradient(to bottom, #f8ffad 0%, #c5fff2 100%);
+        color: #000;
+      }
+    }
+
+    .hamburger {
+      display: flex;
+      width: 80px;
+      cursor: pointer;
+
+      &:hover {
+        & + .Header-navigation li {
+          display: block;
+        }
+      }
     }
   }
 }
