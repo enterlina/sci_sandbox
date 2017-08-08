@@ -19,5 +19,6 @@ export const getCards = (lang) => dispatch => {
             dispatch({ type: 'ACTION_PRELOADER', payload: false });
         }, error => {
             dispatch({ type: 'FETCH_CARDS_FAILED', payload: result });
+            dispatch({ type: 'ACTION_PRELOADER', payload: false });
         });
 }

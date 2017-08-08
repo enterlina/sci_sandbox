@@ -1,16 +1,25 @@
+
+.layout-container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.layout-container.cards {
+  display: flex;
+  flex-wrap: wrap;
+}
+
 .layout-navbar {
   width: 100%;
   background: #fff;
 }
 
-.container {
-  max-width: 1200px;
-  margin: 0 auto;
-}
-
-.row {
-  display: flex;
-  flex-wrap: wrap;
+.layout-cardFrame {
+  flex-grow: 1;
+  flex-shrink: 0;
+  flex-basis: calc(50% - 20px);
+  margin: 10px;
+  min-width: 400px;
 }
 
 @media (min-width: 1200px) {
@@ -31,6 +40,13 @@
   }
 
   .Card-externalBound {
+    min-width: 100%;
+    margin: 0;
+  }
+}
+
+@media (max-width: 450px) {
+  .layout-cardFrame {
     min-width: 100%;
     margin: 0;
   }

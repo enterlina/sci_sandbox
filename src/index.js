@@ -12,6 +12,7 @@ require("!style-loader!css-loader!sass-loader!./components/scss/fonts.scss");
 require("!style-loader!css-loader!sass-loader!./components/scss/core.scss");
 require("!style-loader!css-loader!sass-loader!./components/scss/utils.scss");
 require("!style-loader!css-loader!sass-loader!./components/scss/layout.scss");
+require("!style-loader!css-loader!sass-loader!./components/scss/header.scss");
 require("!style-loader!css-loader!sass-loader!./components/scss/normalize.scss");
 
 const rootEl = document.getElementById("root");
