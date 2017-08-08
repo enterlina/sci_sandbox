@@ -25,7 +25,7 @@ class Card extends React.Component {
       
       let className = "Card-wrapper " + cardData.type + " " + cardData.style;
       let iconClass = "icon-" + cardData.type.toLowerCase();
-      console.log(cardData.name.length);
+      
       return <div className="Card-externalBound col-md-6">
         <div className={className}>
             <article className="Card">

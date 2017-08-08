@@ -19,9 +19,6 @@ class Header extends React.Component {
       this.setState({ isSearchActive: !this.state.isSearchActive });
     }
     render() {
-       console.log(this.state.isSearchActive);
-      
-      
 
         return <div className="navbar-collapse collapse">
             <header className="Header">
