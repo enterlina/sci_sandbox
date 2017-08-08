@@ -26,11 +26,9 @@ class App extends React.Component {
       return <div>
               {this.props.alert.length != 0 ? <Alert type={this.props.alert.type} text={this.props.alert.text}/> : null}
               {this.props.preloader ? <Preloader /> : null }
-              <nav className="navbar" role="navigation">
-                <div className="layout-container">
-                    <Header/>
-                </div>
-              </nav>
+              <div className="layout-navbar" >
+                  <Header/>
+              </div>
               
               <div className="layout-container cards">
                 {cards}

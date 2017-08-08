@@ -20,14 +20,13 @@ class Header extends React.Component {
     }
     render() {
 
-        return <div className="navbar-collapse collapse">
-            <header className="Header">
+        return <header className="Header layout-container">
             <a href="#" className="Header-logo link-no-text">SciTech</a>
             <div className="hamburger">
                 <div className="hamburger-stripe"></div>
             </div>
 
-            <nav className="Header-navigation">
+            <nav className="Header-navigation" role="navigation">
                 <li><a href="#">{this.props.lang.RESEARCH || 'Researches'}</a></li>
                 <li><a href="#">{this.props.lang.STARTUPS || 'Startups'}</a></li>
                 <li><a href="#" className="Header-activeLink">{this.props.lang.PEOPLE || 'People'}</a></li>
@@ -43,7 +42,7 @@ class Header extends React.Component {
             </nav>
         </header>
          {this.state.isSearchActive ? <QuickSearch/> : null}
-      </div>
+
     }
 }
 
