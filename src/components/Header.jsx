@@ -40,8 +40,8 @@ class Header extends React.Component {
                     <a href="#" className={this.props.defaultLang == 'en' ? "lang-active" : ""} onClick={this.props.setDefaultLang.bind(this, "en")}>En</a>
                 </li>
             </nav>
-        </header>
          {this.state.isSearchActive ? <QuickSearch/> : null}
+        </header>
 
     }
 }
