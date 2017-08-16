@@ -18,6 +18,7 @@ import {langArrayHandler} from '../utilities';
 class Main extends React.Component {
     componentWillMount() {
 
+      this.props.onLoadLang(this.props.defaultLang);
       this.props.onGetCards();
 
     }
