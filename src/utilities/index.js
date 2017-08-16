@@ -1,6 +1,6 @@
 
 // обрезать строку и добавить 3 точки в конце
-function substrName(name, num) {
+export function substrName(name, num) {
   if (name.length <= num) {
     return name;
   }
@@ -8,7 +8,7 @@ function substrName(name, num) {
 }
 
 // выделить цветом текст
-function getHighlightedText(text, higlight) {
+export function getHighlightedText(text, higlight) {
     let parts = text.split(new RegExp(`(${higlight})`, 'gi'));
     return <span> { parts.map((part, i) => 
         <span key={i} className={part.toLowerCase() === higlight.toLowerCase() ? 'term' : {} }>
@@ -18,7 +18,7 @@ function getHighlightedText(text, higlight) {
 }
 
 // Убрать посторонние символы из запроса
-function escapeHtml(text) {
+export function escapeHtml(text) {
   var map = {
     '&': '&amp;',
     '<': '&lt;',
@@ -30,4 +30,29 @@ function escapeHtml(text) {
   return text.replace(/[&<>"']/g, function(m) { return map[m]; });
 }
 
-export {substrName, getHighlightedText, escapeHtml};
+export function langArrayHandler(data, lang) {
+ let result = data.find((element)=>{
+    if (element !== undefined ) { return element[lang] }
+    return false;
+  });
+  if(result) {
+    return result[lang];
+  }
+  return "Translation not fond";
+}
+
+
+export function convertDate(date) {
+        date = new Date(date);
+        var dd = date.getDate();
+        if (dd < 10) 
+            dd = '0' + dd;
+        
+        var mm = date.getMonth() + 1;
+        if (mm < 10) 
+            mm = '0' + mm;
+        
+        var yyyy = date.getFullYear()
+
+        return dd + '.' + mm + '.' + yyyy;
+}

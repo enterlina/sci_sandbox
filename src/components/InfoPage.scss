@@ -1,0 +1,51 @@
+.InfoPage .InfoPage--wrapper {
+  display: flex;
+  flex-direction: column;
+}
+
+.InfoPage--term {
+  display: flex;
+  flex-direction: row;
+  margin-bottom: 20px;
+}
+
+.InfoPage--term > div {
+  flex: 1 1 10%;
+}
+
+.InfoPage--term .InfoPage--termKey {
+  flex-grow: 1;
+  font-size: 16px;
+  font-weight: bold;
+  text-align: left;
+  text-transform: uppercase;
+}
+
+.InfoPage--term .InfoPage--termDescription {
+  flex-grow: 10;
+  font-size: 14px;
+}
+
+.InfoPage--heading {
+  margin-bottom: 25px;
+  border-bottom: solid 2px #152033;
+}
+
+.InfoPage--heading h1 {
+  font-size: 20px;
+  font-weight: bold;
+  margin: 13px 0;
+}
+
+.InfoPage--heading i {
+  float: left;
+  margin-right: 10px;
+}
+
+.InfoPage--heading i::before {
+  font-size: 70px;
+}
+
+.InfoPage--heading span {
+  font-size: 14px;
+}

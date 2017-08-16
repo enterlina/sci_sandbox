@@ -24,7 +24,8 @@ module.exports = {
     devServer: {
         hot:         true, // enable HMR on the server
         contentBase: resolve(__dirname, "public"), // match the output path
-        publicPath:  "/" // match the output `publicPath`
+        publicPath:  "/", // match the output `publicPath`
+        historyApiFallback: true 
     },
 
     module: {

@@ -4,9 +4,14 @@ import { AppContainer } from "react-hot-loader";
 import { Provider } from 'react-redux';
 import { createStore, applyMiddleware } from 'redux';
 import { composeWithDevTools } from 'redux-devtools-extension';
+import {  BrowserRouter as Router, Route } from 'react-router-dom';
+import { ConnectedRouter, routerMiddleware, push } from 'react-router-redux';
 import thunk from 'redux-thunk';
+import createHistory from 'history/createBrowserHistory';
 
-import App from "./components/App";
+import Main from "./components/Main";
+import ResearchMain from "./components/ResearchMain";
+import Research from "./components/specificPages/Research";
 
 require("!style-loader!css-loader!sass-loader!./components/scss/fonts.scss");
 require("!style-loader!css-loader!sass-loader!./components/scss/core.scss");
@@ -16,14 +21,24 @@ require("!style-loader!css-loader!sass-loader!./components/scss/header.scss");
 require("!style-loader!css-loader!sass-loader!./components/scss/normalize.scss");
 
 const rootEl = document.getElementById("root");
+const history = createHistory();
+const middleware = routerMiddleware(history);
 
 import reducer from './reducers';
 
-const store = createStore(reducer, composeWithDevTools(applyMiddleware(thunk)));
+const store = createStore(reducer, composeWithDevTools(applyMiddleware(thunk), applyMiddleware(middleware)));
+
 
 ReactDOM.render(
         <Provider store={store}>
-            <App/>
+          <ConnectedRouter history={history}>
+            <div>
+              <Route exact path="/" component={Main} />
+              <Route path="/Researches" component={ResearchMain} />
+              <Route path="/Research/:id" component={Research} />
+              <Route path="/Startups" component={Main} />
+            </div>
+          </ConnectedRouter >
         </Provider>,
         rootEl
     );

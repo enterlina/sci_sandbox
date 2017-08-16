@@ -74,7 +74,8 @@
           font-size: 20px;
         }
 
-        &:hover {
+        &:hover,
+        &.active-link {
           background: #5ad89f;
           color: #fff;
         }

@@ -1,5 +1,6 @@
 import React from "react";
 import { connect } from 'react-redux';
+import {Link} from 'react-router-dom';
 
 import QuickSearch from "./search/QuickSearch";
 
@@ -19,17 +20,16 @@ class Header extends React.Component {
       this.setState({ isSearchActive: !this.state.isSearchActive });
     }
     render() {
-
         return <header className="Header layout-container">
-            <a href="#" className="Header-logo link-no-text">SciTech</a>
+            <Link to="/" className="Header-logo link-no-text">SciTech</Link>
             <div className="hamburger">
                 <div className="hamburger-stripe"></div>
             </div>
 
             <nav className="Header-navigation" role="navigation">
-                <li><a href="#">{this.props.lang.RESEARCH || 'Researches'}</a></li>
-                <li><a href="#">{this.props.lang.STARTUPS || 'Startups'}</a></li>
-                <li><a href="#" className="Header-activeLink">{this.props.lang.PEOPLE || 'People'}</a></li>
+                <li><Link to="/Researches" className={this.props.page.indexOf('Research') != '-1' ? 'active-link' : ''}>{this.props.lang.RESEARCH || 'Researches'}</Link></li>
+                <li><Link to="/Startups" className={this.props.page.indexOf('Startup') != '-1' ? 'active-link' : ''}>{this.props.lang.STARTUPS || 'Startups'}</Link></li>
+                <li><a href="#" >{this.props.lang.PEOPLE || 'People'}</a></li>
                 <li><a href="#" className="link-no-text icon-tender">{this.props.lang.INVEST || 'Investitions'}</a></li>
                 <li><a href="#" className="link-no-text icon-meetup">{this.props.lang.MEETUPS || 'Meetups'}</a></li>
                 <li><a href="#" className="link-no-text icon-search" onClick={this.toggleSearch.bind(this)}>{this.props.lang.SEARCH || 'Search'}</a></li>
@@ -49,13 +49,13 @@ class Header extends React.Component {
 export default connect(
   state => ({
     lang: state.lang,
-    defaultLang: state.defaultLang
+    defaultLang: state.defaultLang,
+    page: state.routing.location.pathname
   }),
   dispatch => ({
     setDefaultLang: (lang) => {
       dispatch({ type: 'SET_DEFAULT_LANG', payload: lang });
       dispatch(onLangUpdate(lang));
-      dispatch(getCards(lang));
     },
   })
 )(Header);

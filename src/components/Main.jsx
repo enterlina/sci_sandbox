@@ -4,23 +4,30 @@ import { connect } from 'react-redux';
 import Card from "./Card";
 import Header from "./Header";
 import Table from "./Table";
+import AuthorCard from "./AuthorCard";
+import {Link} from 'react-router-dom';
 import Alert from "./Alert";
 import Preloader from "./Preloader";
 
-import { getCards } from '../actions/cards';
+import { getCards, getCardsByType } from '../actions/cards';
 import { getLangVars } from '../actions/language';
 
-class App extends React.Component {
+
+import {langArrayHandler} from '../utilities';
+
+class Main extends React.Component {
     componentWillMount() {
-      this.props.onGetCards(this.props.defaultLang);
-      this.props.onLoadLang(this.props.defaultLang);
+
+      this.props.onGetCards();
+
     }
     render() {
+      
       let cards = 'There is no items';
-
       let cardData = this.props.cards;
       
-      cards = cardData.map((card, index) => <Card key={index} cardData={card}/>);
+        cards = cardData.map((card, index) => <Card key={index} cardData={card} lang={this.props.defaultLang}/>);
+  
 
       
       return <div>
@@ -40,18 +47,19 @@ class App extends React.Component {
 }
 
 export default connect(
-  state => ({
+  (state, ownProps) => ({
     preloader: state.preloader,
     alert: state.alert,
     cards: state.cards,
-    defaultLang: state.defaultLang
+    defaultLang: state.defaultLang,
+    ownProps
   }),
   dispatch => ({
-    onGetCards: (lang) => {
-      dispatch(getCards(lang));
+    onGetCards: () => {
+      dispatch(getCards());
     },
     onLoadLang: (lang) => {
       dispatch(getLangVars(lang));
     }
   })
-)(App);
+)(Main);

@@ -1,6 +1,7 @@
 import React from "react";
+import {Link} from 'react-router-dom';
 
-import {substrName} from '../utilities';
+import {substrName, langArrayHandler} from '../utilities';
 
 require("!style-loader!css-loader!sass-loader!./Card.scss");
 
@@ -22,7 +23,7 @@ require("!style-loader!css-loader!sass-loader!./Card.scss");
 class Card extends React.Component {
     render() {
       let cardData = this.props.cardData;
-      
+      let lang = this.props.lang;
       let className = "Card-wrapper " + cardData.type + " " + cardData.style;
       let iconClass = "icon-" + cardData.type.toLowerCase();
       
@@ -31,16 +32,16 @@ class Card extends React.Component {
             <article className="Card">
                 { cardData.type == 'Meetup' ? <p className="Card-date">{cardData.date}</p> : null }
                 { cardData.type == 'Tender' ? <div className="Card-info">
-                    <p className="Card-activity">{cardData.activity}</p>
+                    <p className="Card-activity">{langArrayHandler(cardData.activity, lang)}</p>
                     <p className="Card-date">{cardData.date}</p>
                 </div> : null }
-                <h1><a href="#">{substrName(cardData.name, 100)}</a></h1>
+                <h1><Link to={cardData.type + '/' + cardData._id}>{substrName(langArrayHandler(cardData.name, lang), 100)}</Link></h1>
                 { cardData.type == 'Meetup' ? <p className="Card-place">{cardData.place}</p> : null }
                 <div>
-                    <p className="Card-sphere">{cardData.type !== 'Meetup' && cardData.type !== 'Tender' ? cardData.use : ''} <i className={iconClass}></i></p>
+                    <p className="Card-sphere">{cardData.type !== 'Meetup' && cardData.type !== 'Tender' ? langArrayHandler(cardData.use, lang) : ''} <i className={iconClass}></i></p>
                     <p className="Card-author">
-                        {cardData._author[0].name}
-                        <span>{cardData._author[0].description}</span>
+                        {langArrayHandler(cardData._author[0].name, lang)}
+                        <span>{langArrayHandler(cardData._author[0].description, lang)}</span>
                     </p>
                 </div>
             </article>
