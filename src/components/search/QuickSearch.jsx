@@ -6,10 +6,9 @@ require("!style-loader!css-loader!sass-loader!./QuickSearch.scss");
 import SearchField from "./SearchField";
 import SearchItem from "./SearchItem";
 
+import { search } from '../../actions/search';
+
 class QuickSearch extends React.Component {
-    smartSearch() {
-        this.props.onSearch(this.searchWord.value);
-    }
     render() {
       console.log(this.props.searchTerm);
       let searchItems = <SearchItem data={false}/>;
