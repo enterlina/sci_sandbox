@@ -1,6 +1,7 @@
 import React from "react";
 import {substrName, getHighlightedText, langArrayHandler} from '../../utilities';
 import { connect } from 'react-redux';
+import {Link} from 'react-router-dom';
 
 require("!style-loader!css-loader!sass-loader!./SearchItem.scss");
 
@@ -30,7 +31,7 @@ console.log(name);
           { item.image ? <img src={item.image} alt={name} title={name} /> : null }
           <div className="SearchItem--content">
             <p>{langArrayHandler(item.use, currentLang)}</p>
-            <h1><a href="#">{getHighlightedText(name, searchWord)}</a></h1>
+            <h1><Link to={item.type + '/' + item._id}>{getHighlightedText(name, searchWord)}</Link></h1>
             <p>{langArrayHandler(item._author[0].name, currentLang).toLowerCase()}</p>
           </div>
       </article>
