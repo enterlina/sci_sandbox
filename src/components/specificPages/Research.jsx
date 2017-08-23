@@ -1,6 +1,6 @@
 import React from "react";
 import { connect } from 'react-redux';
-import {langArrayHandler, convertDate} from '../../utilities';
+import {langArrayHandler, convertDate, cardMapData} from '../../utilities';
 require("!style-loader!css-loader!sass-loader!../InfoPage.scss");
 
 import { getCardsById } from '../../actions/cards';
@@ -20,9 +20,11 @@ class Research extends React.Component {
     render() {
       let page = this.props.data;
       let defaultLang = this.props.defaultLang;
+
       if(page.length == 0) {
         return <Preloader />;
       }
+      console.log(page);
       return <div className="InfoPage">
               {this.props.alert.length != 0 ? <Alert type={this.props.alert.type} text={this.props.alert.text}/> : null}
               {this.props.preloader ? <Preloader /> : null }
@@ -37,32 +39,35 @@ class Research extends React.Component {
                 </div>
                 <div className="InfoPage--term">
                   <div className="InfoPage--termKey">{this.props.lang.AUTHOR || 'Author'}:</div>                  
-                  <div className="InfoPage--termDescription"><AuthorCard data={page._author[0]}  lang={defaultLang} /></div>
+                  <div className="InfoPage--termDescription">{page._author.map((author, index)=>{
+                      return <AuthorCard data={author} key={index} lang={defaultLang} />
+                  })}
+                  </div>
                 </div>
                 <div className="InfoPage--term">
                   <div className="InfoPage--termKey">{this.props.lang.GOAL || 'Goal'}:</div>                  
-                  <div className="InfoPage--termDescription">{langArrayHandler(page.goal, defaultLang)}</div>
+                  <div className="InfoPage--termDescription" dangerouslySetInnerHTML={{__html:langArrayHandler(page.goal, defaultLang)}}></div>
                 </div>
                 
                 <div className="InfoPage--term">
                   <div className="InfoPage--termKey">{this.props.lang.METHODS || 'Methods'}:</div>                  
-                  <div className="InfoPage--termDescription">{langArrayHandler(page.methods, defaultLang)}</div>
+                  <div className="InfoPage--termDescription" dangerouslySetInnerHTML={{__html:langArrayHandler(page.methods, defaultLang)}}></div>
                 </div>
                 <div className="InfoPage--term">
                   <div className="InfoPage--termKey">{this.props.lang.RESULTS || 'Results'}:</div>                  
-                  <div className="InfoPage--termDescription">{langArrayHandler(page.methods, defaultLang)}</div>
+                  <div className="InfoPage--termDescription" dangerouslySetInnerHTML={{__html:langArrayHandler(page.solution, defaultLang)}}></div>
                 </div>
                 <div className="InfoPage--term">
                   <div className="InfoPage--termKey">{this.props.lang.RECOMENDATIONS || 'Recomendations'}:</div>                  
-                  <div className="InfoPage--termDescription">{langArrayHandler(page.recomedation, defaultLang)}</div>
+                  <div className="InfoPage--termDescription" dangerouslySetInnerHTML={{__html:langArrayHandler(page.recommendation, defaultLang)}}></div>
                 </div>
                 <div className="InfoPage--term">
                   <div className="InfoPage--termKey">{this.props.lang.USING || 'Using'}:</div>                  
-                  <div className="InfoPage--termDescription">{langArrayHandler(page.use, defaultLang)}</div>
+                  <div className="InfoPage--termDescription" dangerouslySetInnerHTML={{__html:langArrayHandler(page.use, defaultLang)}}></div>
                 </div>
                 <div className="InfoPage--term">
                   <div className="InfoPage--termKey">{this.props.lang.TAGS || 'Tags'}:</div>                  
-                  <div className="InfoPage--termDescription">{langArrayHandler(page.tags, defaultLang).join(', ')}</div>
+                  <div className="InfoPage--termDescription" >{langArrayHandler(page.tags, defaultLang).join(', ')}</div>
                 </div>
                 
                 <div className="InfoPage--term">

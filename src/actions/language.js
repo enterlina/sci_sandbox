@@ -3,7 +3,7 @@ const getLangVars = (lang) => dispatch => {
   dispatch({ type: 'ACTION_PRELOADER', payload: true });
 
   let promise = new Promise((resolve, reject) => {
-            fetch(`https://scitech.herokuapp.com/api/langvars/${lang}`)
+            fetch(`http://localhost:8083/api/langvars/${lang}`)
                 .then((response) => {
                     return response.json()
                 })

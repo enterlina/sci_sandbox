@@ -1,7 +1,7 @@
 export const getCards = () => dispatch => {
     dispatch({ type: 'ACTION_PRELOADER', payload: true });
   let promise = new Promise((resolve, reject) => {
-            fetch(`https://scitech.herokuapp.com/api/cards`)
+            fetch(`http://localhost:8083/api/cards`)
                 .then((response) => {
                     return response.json()
                 })
@@ -26,7 +26,7 @@ export const getCards = () => dispatch => {
 export const getCardsById = ( id) => dispatch => {
     dispatch({ type: 'ACTION_PRELOADER', payload: true });
   let promise = new Promise((resolve, reject) => {
-            fetch(`https://scitech.herokuapp.com/api/card/${id}`)
+            fetch(`http://localhost:8083/api/card/${id}`)
                 .then((response) => {
                     return response.json()
                 })
@@ -50,7 +50,7 @@ export const getCardsById = ( id) => dispatch => {
 export const getCardsByType = ( type) => dispatch => {
     dispatch({ type: 'ACTION_PRELOADER', payload: true });
   let promise = new Promise((resolve, reject) => {
-            fetch(`https://scitech.herokuapp.com/api/cards/type/${type}`)
+            fetch(`http://localhost:8083/api/cards/type/${type}`)
                 .then((response) => {
                     return response.json()
                 })

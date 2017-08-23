@@ -31,6 +31,10 @@ export function escapeHtml(text) {
 }
 
 export function langArrayHandler(data, lang) {
+  console.log(data);
+  if(data === undefined || data.length === 0 ) {
+    return false;
+  }
  let result = data.find((element)=>{
     if (element !== undefined ) { return element[lang] }
     return false;
@@ -38,10 +42,8 @@ export function langArrayHandler(data, lang) {
   if(result) {
     return result[lang];
   }
-  return "Translation not fond";
+  return "Translation not found";
 }
-
-
 export function convertDate(date) {
         date = new Date(date);
         var dd = date.getDate();
@@ -55,4 +57,21 @@ export function convertDate(date) {
         var yyyy = date.getFullYear()
 
         return dd + '.' + mm + '.' + yyyy;
+}
+export function cardMapData(type) {
+  let researchMap = {
+    video: 'VIDEO',
+    _author: 'AUTHOR',
+    goal: 'GOAL',
+    problem: 'PROBLEM',
+    solution: 'SOLUTION',
+    methods: 'METHODS',
+    recommendation: 'RECOMENDATIONS',
+    use: 'USE',
+    tags: 'TAGS',
+    download: 'DOWNLOAD'
+  }
+  if(type=="Research") {
+    return researchMap;
+  }
 }
