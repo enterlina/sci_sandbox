@@ -222,14 +222,6 @@
         isMultilang: true
       },
       {
-        tag: 'input',
-        type: "text",
-        title: "Контакты",
-        name: "contacts",
-        id: "contacts",
-        isMultilang: false
-      },
-      {
         tag: 'textarea',
         type: "text",
         title: "Проблема",
@@ -299,7 +291,7 @@
     saveBtn.addEventListener('click', () => {
       let result = JSON.stringify(convertData(form.elements));
       console.log(convertData(form.elements));
-      fetch('http://localhost:8083/api/card/add', {
+      fetch('https://scitech.herokuapp.com/api/card/add', {
           method: 'post',
           body: result,
           headers: {
