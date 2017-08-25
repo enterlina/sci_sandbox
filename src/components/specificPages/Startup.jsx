@@ -50,10 +50,13 @@ class Research extends React.Component {
                   <div className="InfoPage--termKey">{this.props.lang.VIDEO || 'video'}:</div>                  
                   <div className="InfoPage--termDescription"><iframe width="560" height="315" src={`https://www.youtube.com/embed/${page.video}`} frameborder="0" allowfullscreen></iframe></div>
                 </div>) : null }
-                <div className="InfoPage--term">
+                { page.presentation.length != 0 ? 
+                (<div className="InfoPage--term">
                   <div className="InfoPage--termKey">{this.props.lang.PRESENTATION || 'Presentation'}:</div>                  
-                  <div className="InfoPage--termDescription">{page.presentation}</div>
-                </div>
+                  <div className="InfoPage--termDescription">
+                  <iframe allowfullscreen="" frameborder="0" height="485" marginheight="0" marginwidth="0" scrolling="no" width="560" src={`//www.slideshare.net/slideshow/embed_code/key/${page.presentation}`}> </iframe>
+                  </div>
+                </div>) : null }
                 <div className="InfoPage--term">
                   <div className="InfoPage--termKey">{this.props.lang.CONTACTS || 'Contacts'}:</div>                  
                   <div className="InfoPage--termDescription">{page._author.map((author, index)=>{
