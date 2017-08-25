@@ -5,6 +5,7 @@ import Card from "./Card";
 import Header from "./Header";
 import Table from "./Table";
 import AuthorCard from "./AuthorCard";
+import Dropdown from "./Dropdown";
 import {Link} from 'react-router-dom';
 import Alert from "./Alert";
 import Preloader from "./Preloader";
@@ -41,6 +42,8 @@ class Main extends React.Component {
               <div className="layout-container cards">
                 {cards}
               </div>
+              
+                <Dropdown name="sphere"/>
               <div className="clearfix"></div>
             </div>
 

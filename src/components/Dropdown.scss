@@ -1,0 +1,38 @@
+//
+
+.Dropdown ul {
+  margin: 0;
+  padding: 0;
+}
+
+.Dropdown--selectedItem {
+  width: 200px;
+  padding: 10px;
+  background-color: #fff;
+  border: solid 1px #f6f6f6;
+}
+
+.Dropdown--list {
+  width: 222px;
+  max-height: 400px;
+  overflow-y: auto;
+  background-color: #fff;
+  box-shadow: 2px 4px 4px 0 rgba(0, 0, 0, 0.15);
+  border: solid 1px #f6f6f6;
+}
+
+.Dropdown--list label {
+  display: block;
+  font-size: 12px;
+  padding: 0 5px;
+  margin-top: 5px;
+  user-select: none;
+}
+
+.Dropdown--list input {
+  display: none;
+}
+
+.Dropdown--list input:checked + label::before {
+  content: '- ';
+}

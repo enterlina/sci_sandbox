@@ -8,6 +8,7 @@ import lang from "./language";
 import defaultLang from "./defaultLang";
 import alert from "./alert";
 import preloader from "./preloader";
+import dropdowns from "./dropdowns";
 
 export default combineReducers({
   routing: routerReducer,
@@ -17,5 +18,6 @@ export default combineReducers({
   lang,
   alert,
   preloader,
-  specificCard
+  specificCard,
+  dropdowns
 });
