@@ -75,7 +75,7 @@ class Research extends React.Component {
                 </div>
                 <div className="InfoPage--term">
                   <div className="InfoPage--termKey">{this.props.lang.DEMO || 'Demo'}:</div>                  
-                  <div className="InfoPage--termDescription">{page.demo}</div>
+                  <div className="InfoPage--termDescription"><a href={page.demo} target="_blank">{page.demo}</a></div>
                 </div>
                 <div className="InfoPage--term">
                   <div className="InfoPage--termKey">{this.props.lang.INFO || 'Info'}:</div>                  
