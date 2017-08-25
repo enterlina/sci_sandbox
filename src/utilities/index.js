@@ -31,7 +31,6 @@ export function escapeHtml(text) {
 }
 
 export function langArrayHandler(data, lang) {
-  console.log(data);
   if(data === undefined || data.length === 0 ) {
     return false;
   }

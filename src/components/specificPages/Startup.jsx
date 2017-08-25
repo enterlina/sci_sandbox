@@ -18,8 +18,12 @@ class Research extends React.Component {
       this.props.onLoadLang(this.props.defaultLang);
     }
     render() {
+
+
       let page = this.props.data;
       let defaultLang = this.props.defaultLang;
+      
+      document.title = 'SciTech - ' + this.props.lang.STARTUPS + ' - ' + langArrayHandler(page.name, defaultLang);
 
       if(page.length == 0) {
         return <Preloader />;

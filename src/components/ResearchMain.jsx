@@ -16,11 +16,15 @@ import { getLangVars } from '../actions/language';
 import {langArrayHandler} from '../utilities';
 
 class ResearchMain extends React.Component {
-    componentWillMount() {
+    componentDidMount() {
       this.props.onGetCardsByType('Research');
       this.props.onLoadLang(this.props.defaultLang);
+
+      
     }
     render() {
+      
+      document.title = 'SciTech - ' + this.props.lang.RESEARCH;
 
       let cards = 'There is no items';
       let cardData = this.props.cards;
@@ -65,6 +69,7 @@ export default connect(
     preloader: state.preloader,
     alert: state.alert,
     cards: state.cards,
+    lang: state.lang,
     defaultLang: state.defaultLang,
     ownProps
   }),
