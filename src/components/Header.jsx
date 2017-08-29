@@ -30,7 +30,7 @@ class Header extends React.Component {
                 <li><Link to="/Researches" className={this.props.page.indexOf('Research') != '-1' ? 'active-link' : ''}>{this.props.lang.RESEARCH || 'Researches'}</Link></li>
                 <li><Link to="/Startups" className={this.props.page.indexOf('Startup') != '-1' ? 'active-link' : ''}>{this.props.lang.STARTUPS || 'Startups'}</Link></li>
                 <li><a href="#" >{this.props.lang.PEOPLE || 'People'}</a></li>
-                <li><a href="#" className="link-no-text icon-tender">{this.props.lang.INVEST || 'Investitions'}</a></li>
+                <li><Link to="/Tenders" className="link-no-text icon-tender">{this.props.lang.INVEST || 'Investitions'}</Link></li>
                 <li><a href="#" className="link-no-text icon-meetup">{this.props.lang.MEETUPS || 'Meetups'}</a></li>
                 <li><a href="#" className="link-no-text icon-search" onClick={this.toggleSearch.bind(this)}>{this.props.lang.SEARCH || 'Search'}</a></li>
                 <li><a href="#" className="link-no-text plasma">Plasma +</a></li>

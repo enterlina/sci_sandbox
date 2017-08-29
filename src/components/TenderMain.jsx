@@ -17,7 +17,7 @@ import {langArrayHandler} from '../utilities';
 
 class ResearchMain extends React.Component {
     componentDidMount() {
-      this.props.onGetCardsByType('Research');
+      this.props.onGetCardsByType('Tender');
       this.props.onLoadLang(this.props.defaultLang);
     }
     render() {

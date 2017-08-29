@@ -12,6 +12,7 @@ import createHistory from 'history/createBrowserHistory';
 import Main from "./components/Main";
 import ResearchMain from "./components/ResearchMain";
 import StartupMain from "./components/StartupMain";
+import TenderMain from "./components/TenderMain";
 import Research from "./components/specificPages/Research";
 import Startup from "./components/specificPages/Startup";
 
@@ -40,6 +41,8 @@ ReactDOM.render(
               <Route path="/Research/:id" component={Research} />
               <Route path="/Startups" component={StartupMain} />
               <Route path="/Startup/:id" component={Startup} />
+              <Route path="/Tenders" component={TenderMain} />
+              <Route path="/Tenders/:id" component={Startup} />
             </div>
           </ConnectedRouter >
         </Provider>,
