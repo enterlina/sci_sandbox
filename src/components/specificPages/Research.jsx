@@ -35,6 +35,7 @@ class Research extends React.Component {
         solution: langArrayHandler(page.solution, defaultLang),
         recommendation: langArrayHandler(page.recommendation, defaultLang),
         use: langArrayHandler(page.use, defaultLang),
+        sphere: langArrayHandler(page.sphere, defaultLang),
         skills: langArrayHandler(page.skils, defaultLang),
         tags: langArrayHandler(page.tags, defaultLang)  ,
         goal: langArrayHandler(page.goal, defaultLang)
@@ -48,7 +49,7 @@ class Research extends React.Component {
               <div className="layout-container InfoPage--wrapper layout-container--white">
                 <div className={`InfoPage--heading ${page.type}`}>
                   <i className={`icon-marker-${page.type.toLowerCase()}`}></i>
-                  <span className="sphere">{modifiedPageData.use}</span>
+                  <span className="sphere">{modifiedPageData.sphere}</span>
                   <h1>{modifiedPageData.name}</h1>
                 </div>
                 <div className="InfoPage--term">
@@ -82,6 +83,11 @@ class Research extends React.Component {
                 <div  className={"InfoPage--term" + (modifiedPageData.tags ? '' : ' hidden')}>
                   <div className="InfoPage--termKey">{this.props.lang.TAGS || 'Tags'}:</div>                  
                   <div className="InfoPage--termDescription" >{modifiedPageData.tags != '' ? modifiedPageData.tags.join(', ') : ''}</div>
+                </div>
+                
+                <div className={"InfoPage--term" + (page.download ? '' : ' hidden')}>
+                  <div className="InfoPage--termKey">{this.props.lang.DOWNLOAD || 'Download'}:</div>                  
+                  <div className="InfoPage--termDescription"><a href={page.download} targe="_blank">{page.download}</a></div>
                 </div>
                 
                 <div className={"InfoPage--term" + (page.date ? '' : ' hidden')}>
