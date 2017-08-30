@@ -5,6 +5,15 @@
   margin: 10px 0;
 }
 
+.AuthorCard h2 a {
+  color: #152033;
+  text-decoration: none;
+
+  &:hover {
+    text-decoration: underline;
+  }
+}
+
 .AuthorCard p {
   font-size: 14px;
   margin: 10px 0;

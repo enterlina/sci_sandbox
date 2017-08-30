@@ -8,6 +8,10 @@ import lang from "./language";
 import defaultLang from "./defaultLang";
 import alert from "./alert";
 import preloader from "./preloader";
+import people from "./people";
+import filterPeople from "./filterPeople";
+import specificPeople from "./specificPeople";
+import routerLocations from "./path";
 
 export default combineReducers({
   routing: routerReducer,
@@ -17,5 +21,9 @@ export default combineReducers({
   lang,
   alert,
   preloader,
-  specificCard
+  filterPeople,
+  specificCard,
+  people,
+  specificPeople,
+  routerLocations
 });

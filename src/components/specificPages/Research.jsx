@@ -1,6 +1,6 @@
 import React from "react";
 import { connect } from 'react-redux';
-import {langArrayHandler, convertDate, cardMapData} from '../../utilities';
+import {langArrayHandler, convertDate} from '../../utilities';
 require("!style-loader!css-loader!sass-loader!../InfoPage.scss");
 
 import { getCardsById } from '../../actions/cards';

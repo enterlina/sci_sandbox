@@ -13,6 +13,9 @@
         <option></option>
         <option value="Research">Исследование</option>
         <option value="Startup">Стартап</option>
+        <option value="Scientist">Ученый</option>
+        <option value="Startuper">Стартапер</option>
+        <option value="Business">Бизнес</option>
       </select>
       <div id="root">
 
@@ -278,6 +281,157 @@
         isMultilang: false
       }
 
+    ];
+
+
+
+    const scientistElements = [
+      {
+        tag: 'input',
+        type: "text",
+        title: "Имя",
+        name: "name",
+        isMultilang: true
+      },
+      {
+        tag: 'input',
+        type: "text",
+        title: "Сфера",
+        name: "sphere",
+        isMultilang: true
+      },
+      {
+        tag: 'input',
+        type: "text",
+        title: "Контакты. ",
+        name: "contacts",
+        isMultilang: false,
+        isMultiArray: true
+      },
+      {
+        tag: 'input',
+        type: "text",
+        title: "Специализация",
+        name: "specialization",
+        isMultilang: true
+      },
+      {
+        tag: 'textarea',
+        type: "text",
+        title: "Должность",
+        name: "description",
+        isMultilang: true
+      },
+      {
+        tag: 'textarea',
+        type: "text",
+        title: "Публикации ",
+        name: "publications",
+        isMultilang: false,
+        isMultiArray: true
+      },
+      {
+        tag: 'textarea',
+        title: "Проекты ",
+        name: "projects",
+        isMultilang: false,
+        isMultiArray: true
+      }
+
+    ];
+
+
+    const startuperElements = [
+      {
+        tag: 'input',
+        type: "text",
+        title: "Имя",
+        name: "name",
+        isMultilang: true
+      },
+      {
+        tag: 'input',
+        type: "text",
+        title: "Контакты. ",
+        name: "contacts",
+        isMultilang: false,
+        isMultiArray: true
+      },
+      {
+        tag: 'textarea',
+        type: "text",
+        title: "Описание",
+        name: "description",
+        isMultilang: true
+      },
+      {
+        tag: 'input',
+        type: "text",
+        title: "Сфера",
+        name: "sphere",
+        isMultilang: true
+      },
+      {
+        tag: 'input',
+        type: "text",
+        title: "Специализация",
+        name: "specialization",
+        isMultilang: true
+      },
+      {
+        tag: 'textarea',
+        title: "Проекты ",
+        name: "projects",
+        isMultilang: false,
+        isMultiArray: true
+      }
+
+    ];
+
+    const companyElements = [
+      {
+        tag: 'input',
+        type: "text",
+        title: "Компания",
+        name: "name",
+        isMultilang: true
+      },
+      {
+        tag: 'input',
+        type: "text",
+        title: "Отрасль",
+        name: "sphere",
+        isMultilang: true
+      },
+      {
+        tag: 'textarea',
+        type: "text",
+        title: "Описание",
+        name: "description",
+        isMultilang: true
+      },
+      {
+        tag: 'textarea',
+        type: "text",
+        title: "сайт ",
+        name: "site",
+        isMultilang: false
+      },
+      {
+        tag: 'textarea',
+        type: "text",
+        title: "Адрес ",
+        name: "address",
+        isMultilang: true
+      },
+      {
+        tag: 'textarea',
+        title: "Вакансии",
+        name: "job",
+        isMultilang: true,
+        isArray: true,
+      }
+
     ]
 
 
@@ -290,20 +444,47 @@
 
     saveBtn.addEventListener('click', () => {
       let result = JSON.stringify(convertData(form.elements));
-      console.log(convertData(form.elements));
-      fetch('https://scitech.herokuapp.com/api/card/add', {
-          method: 'post',
-          body: result,
-          headers: {
-            'Accept': 'application/json, text/plain, */*',
-            'Content-Type': 'application/json'
-          }
-      })
-      .then((result)=>{
-        message.innerHTML = result.statusText;
-      })
+
+      let type = form.elements.type.value;
+
+      console.log(type);
+
+      if(type == "Research" || type == "Startup") {    
+          fetch('https://scitech.herokuapp.com/api/card/add', {
+              method: 'post',
+              body: result,
+              headers: {
+                'Accept': 'application/json, text/plain, */*',
+                'Content-Type': 'application/json'
+              }
+          })
+          .then((result)=>{
+            message.innerHTML = result.statusText;
+          })
+      } else if(type == "Scientist" || type == "Startuper" || type == "Business") {    
+          fetch('https://scitech.herokuapp.com/api/persons/add', {
+              method: 'post',
+              body: result,
+              headers: {
+                'Accept': 'application/json, text/plain, */*',
+                'Content-Type': 'application/json'
+              }
+          })
+          .then((result)=>{
+            message.innerHTML = result.statusText;
+          })
+      }
     })
-    
+    function multipleArrayConvert(string) {
+      let contacts = string.split(';');
+        let contactsArr = []
+
+        contacts.map((item) => {
+          contactsArr.push(item.split(','))
+        })
+
+        return contactsArr;
+    }
     function convertData(elements) {
       let result = {};
       for(let i = 0; i < elements.length; i++) {
@@ -311,18 +492,24 @@
         let name = field.name;
         if(name.indexOf('_en') == -1 && name != "save") {
           let isArray = field.dataset.isarray == 'true' ? true : false;
+          let isMultiArray = field.dataset.ismultiarray == 'true' ? true : false;
           if(elements[name + '_en'] == undefined) {
             
             result[name] = isArray ? field.value.split(',') : field.value;
-            console.log(isArray, result[name])
+            result[name] = isMultiArray ? multipleArrayConvert(field.value) : field.value;
+            
           } else {
             result[name] = [];
+            let value = isArray ? field.value.split(',') : field.value;
+            value = isMultiArray ? multipleArrayConvert(field.value) : field.value;
             result[name].push({
-              "ru": isArray ? field.value.split(',') : field.value
+              "ru": value
             })
-            if(elements[name + '_en'].value.length != 0) {      
+            if(elements[name + '_en'].value.length != 0) {  
+              let value = isArray ? elements[name + '_en'].value.split(',') : elements[name + '_en'].value
+                  value = isMultiArray ? multipleArrayConvert( elements[name + '_en'].value) : elements[name + '_en'].value;    
               result[name].push({
-                "en": isArray ? elements[name + '_en'].value.split(',') : elements[name + '_en'].value
+                "en": value
               })
             }
           }
@@ -354,13 +541,21 @@
     }
 
     function renderFields(item) {
+      let arrayText = " (вводить через запятую)";
+      let multiArrayText = "(Формат ввода заголовокСсылки, ссылка; заголовокСсылки, ссылка)";
       let row = document.createElement('p');
-      row.innerText = item.title + ': ';
+
+      row.innerText = item.title;
+      row.innerText += item.isArray ? arrayText : '';
+      row.innerText += item.isMultiArray ? multiArrayText : '';
+      row.innerText += ': ';
+
       let element = document.createElement(item.tag);
           element.setAttribute('id', item.id ? item.id : item.name);
           element.setAttribute('type', item.type);
           element.setAttribute('name', item.name);
           element.setAttribute('data-isarray', item.isArray ? item.isArray : false);
+          element.setAttribute('data-ismultiarray', item.isMultiArray ? item.isMultiArray : false);
           row.appendChild(element);
 
           if(item.isMultilang) {
@@ -369,7 +564,8 @@
             elementEn.setAttribute('type', item.type);
             elementEn.setAttribute('placeholder', 'English version');
             elementEn.setAttribute('name', item.name + '_en');
-            element.setAttribute('isArray', item.isArray ? item.isArray : false);
+            element.setAttribute('data-isarray', item.isArray ? item.isArray : false);
+            element.setAttribute('data-ismultiarray', item.isMultiArray ? item.isMultiArray : false);
 
             row.appendChild(elementEn);
           }
@@ -387,6 +583,21 @@
         wrapper.innerHTML = '';
         root.innerHTML = '';
         startupElements.map(renderFields);
+        root.appendChild(wrapper);
+      } else if(this.value == "Scientist") {
+        wrapper.innerHTML = '';
+        root.innerHTML = '';
+        scientistElements.map(renderFields);
+        root.appendChild(wrapper);
+      } else if(this.value == "Business") {
+        wrapper.innerHTML = '';
+        root.innerHTML = '';
+        companyElements.map(renderFields);
+        root.appendChild(wrapper);
+      } else if(this.value == "Startuper") {
+        wrapper.innerHTML = '';
+        root.innerHTML = '';
+        startuperElements.map(renderFields);
         root.appendChild(wrapper);
       }
       message.innerHTML = '';

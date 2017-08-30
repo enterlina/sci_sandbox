@@ -57,20 +57,9 @@ export function convertDate(date) {
 
         return dd + '.' + mm + '.' + yyyy;
 }
-export function cardMapData(type) {
-  let researchMap = {
-    video: 'VIDEO',
-    _author: 'AUTHOR',
-    goal: 'GOAL',
-    problem: 'PROBLEM',
-    solution: 'SOLUTION',
-    methods: 'METHODS',
-    recommendation: 'RECOMENDATIONS',
-    use: 'USE',
-    tags: 'TAGS',
-    download: 'DOWNLOAD'
-  }
-  if(type=="Research") {
-    return researchMap;
-  }
+export function multipleArrTransformer(arr) {
+  if(!arr) { return false} 
+  return arr.map((item) => {
+    return <li><a href={item[1]}>{item[0]}</a></li>;
+  })
 }

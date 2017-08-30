@@ -32,14 +32,14 @@ class ResearchMain extends React.Component {
           items: []
         };
 
-        cardData.map((card, index) => {
+        tableData.items = cardData.map((card, index) => {
           let authors = card._author.map((author, index) => {
             return <AuthorCard data={author} index={index}  lang={this.props.defaultLang} />
           });
           
           let cardLink = <Link to={'/' + card.type + '/' + card._id}>{langArrayHandler(card.name, this.props.defaultLang)}</Link>;
 
-          tableData.items.push([cardLink, authors, langArrayHandler(card.use, this.props.defaultLang)]);
+          return [cardLink, authors, langArrayHandler(card.use, this.props.defaultLang)];
         });
 
         cards = <Table data={tableData}/>;

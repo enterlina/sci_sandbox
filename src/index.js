@@ -12,8 +12,10 @@ import createHistory from 'history/createBrowserHistory';
 import Main from "./components/Main";
 import ResearchMain from "./components/ResearchMain";
 import StartupMain from "./components/StartupMain";
+import PeopleMain from "./components/PeopleMain";
 import Research from "./components/specificPages/Research";
 import Startup from "./components/specificPages/Startup";
+import People from "./components/specificPages/People";
 
 require("!style-loader!css-loader!sass-loader!./components/scss/fonts.scss");
 require("!style-loader!css-loader!sass-loader!./components/scss/core.scss");
@@ -40,6 +42,8 @@ ReactDOM.render(
               <Route path="/Research/:id" component={Research} />
               <Route path="/Startups" component={StartupMain} />
               <Route path="/Startup/:id" component={Startup} />
+              <Route path="/Peoples" component={PeopleMain} />
+              <Route path="/People/:id" component={People} />
             </div>
           </ConnectedRouter >
         </Provider>,

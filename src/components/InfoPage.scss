@@ -7,6 +7,10 @@
   display: flex;
   flex-direction: row;
   margin-bottom: 20px;
+
+  h1 {
+    margin: 0;
+  }
 }
 
 .InfoPage--term > div {
@@ -24,6 +28,15 @@
 .InfoPage--term .InfoPage--termDescription {
   flex-grow: 10;
   font-size: 14px;
+
+  ul {
+    margin: 0;
+    padding: 0;
+
+    li {
+      list-style: none;
+    }
+  }
 }
 
 .InfoPage--heading {
