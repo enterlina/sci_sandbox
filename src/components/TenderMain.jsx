@@ -13,7 +13,7 @@ import { getCards, getCardsByType } from '../actions/cards';
 import { getLangVars } from '../actions/language';
 
 
-import {langArrayHandler} from '../utilities';
+import {langArrayHandler, convertDate} from '../utilities';
 
 class ResearchMain extends React.Component {
     componentDidMount() {
@@ -22,24 +22,29 @@ class ResearchMain extends React.Component {
     }
     render() {
       
-      document.title = 'SciTech - ' + this.props.lang.RESEARCH;
+      document.title = 'SciTech - ' + this.props.lang.TENDER;
 
       let cards = 'There is no items';
       let cardData = this.props.cards;
      
         let tableData = {
-          fields: ['Название', 'Автор', 'Сфера'],
+          fields: ['Название', 'Дедлайн', 'Награда', 'Сфера', 'Компания' ],
           items: []
         };
 
-        cardData.map((card, index) => {
-          let authors = card._author.map((author, index) => {
-            return <AuthorCard data={author} index={index}  lang={this.props.defaultLang} />
-          });
+        tableData.items = cardData.map((card, index) => {
+          
           
           let cardLink = <Link to={'/' + card.type + '/' + card._id}>{langArrayHandler(card.name, this.props.defaultLang)}</Link>;
 
-          tableData.items.push([cardLink, authors, langArrayHandler(card.use, this.props.defaultLang)]);
+          return [
+            cardLink,  
+            convertDate(card.tenderDeadline), 
+            card.tenderReward,
+            langArrayHandler(card.sphere, this.props.defaultLang),
+            langArrayHandler(card._author[0].name, this.props.defaultLang)
+          ];
+          
         });
 
         cards = <Table data={tableData}/>;
@@ -53,7 +58,7 @@ class ResearchMain extends React.Component {
                   <Header/>
               </div>
               
-              <div className="layout-container layout-container--white noPadding">
+              <div className="layout-container layout-container--white noPadding layout-tenders">
                 {cards}
               </div>
               <div className="clearfix"></div>

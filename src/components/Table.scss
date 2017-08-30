@@ -46,3 +46,9 @@
     }
   }
 }
+
+.layout-tenders .Table--item:not(.Table--headingItem):nth-child(1),
+.layout-tenders .Table--item:not(.Table--headingItem):nth-child(2),
+.layout-tenders .Table--item:not(.Table--headingItem):nth-child(3) {
+  font-weight: bold;
+}

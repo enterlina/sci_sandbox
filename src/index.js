@@ -15,6 +15,7 @@ import StartupMain from "./components/StartupMain";
 import TenderMain from "./components/TenderMain";
 import Research from "./components/specificPages/Research";
 import Startup from "./components/specificPages/Startup";
+import Tender from "./components/specificPages/Tender";
 
 require("!style-loader!css-loader!sass-loader!./components/scss/fonts.scss");
 require("!style-loader!css-loader!sass-loader!./components/scss/core.scss");
@@ -42,7 +43,7 @@ ReactDOM.render(
               <Route path="/Startups" component={StartupMain} />
               <Route path="/Startup/:id" component={Startup} />
               <Route path="/Tenders" component={TenderMain} />
-              <Route path="/Tenders/:id" component={Startup} />
+              <Route path="/Tender/:id" component={Tender} />
             </div>
           </ConnectedRouter >
         </Provider>,
