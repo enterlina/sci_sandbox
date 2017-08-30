@@ -98,9 +98,9 @@ class Research extends React.Component {
                   <div className="InfoPage--termKey">{this.props.lang.SKILS || 'Skils'}:</div>                  
                   <div className="InfoPage--termDescription" dangerouslySetInnerHTML={{__html:modifiedPageData.skils}}></div>
                 </div>
-                <div className={"InfoPage--term" + (modifiedPageData.tags ? '' : ' hidden')}>
+                <div className={"InfoPage--term" + (Array.isArray(modifiedPageData.tags) ? '' : ' hidden')}>
                   <div className="InfoPage--termKey">{this.props.lang.TAGS || 'Tags'}:</div>                  
-                  <div className="InfoPage--termDescription">{modifiedPageData.tags !='' ? modifiedPageData.tags.join(', ') : ''}</div>
+                  <div className="InfoPage--termDescription">{Array.isArray(modifiedPageData.tags) ? modifiedPageData.tags.join(', ') : ''}</div>
                 </div>
                 
               </div>

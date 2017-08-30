@@ -30,7 +30,7 @@ console.log(name);
           <i className={markerClass}></i>
           { item.image ? <img src={item.image} alt={name} title={name} /> : null }
           <div className="SearchItem--content">
-            <p>{langArrayHandler(item.use, currentLang)}</p>
+            <p>{langArrayHandler(item.sphere, currentLang)}</p>
             <h1><Link to={item.type + '/' + item._id}>{getHighlightedText(name, searchWord)}</Link></h1>
             <p>{langArrayHandler(item._author[0].name, currentLang).toLowerCase()}</p>
           </div>
