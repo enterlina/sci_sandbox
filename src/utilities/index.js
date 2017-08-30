@@ -32,16 +32,16 @@ export function escapeHtml(text) {
 
 export function langArrayHandler(data, lang) {
   if(data === undefined || data.length === 0 ) {
-    return false;
+    return '';
   }
  let result = data.find((element)=>{
     if (element !== undefined ) { return element[lang] }
-    return false;
+    return '';
   });
   if(result) {
     return result[lang];
   }
-  return "Translation not found";
+  return "";
 }
 export function convertDate(date) {
         date = new Date(date);
