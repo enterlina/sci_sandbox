@@ -31,12 +31,13 @@ export function escapeHtml(text) {
 }
 
 export function langArrayHandler(data, lang) {
+  console.log(data)
   if(data === undefined || data.length === 0 ) {
-    return '';
+    return false;
   }
  let result = data.find((element)=>{
     if (element !== undefined ) { return element[lang] }
-    return '';
+    return false;
   });
   if(result) {
     return result[lang];

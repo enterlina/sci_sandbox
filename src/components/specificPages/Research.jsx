@@ -22,10 +22,22 @@ class Research extends React.Component {
       let page = this.props.data;
       let defaultLang = this.props.defaultLang;
 
-      document.title = 'SciTech - ' + this.props.lang.RESEARCH + ' - ' + langArrayHandler(page.name, defaultLang);
 
       if(page.length == 0) {
         return <Preloader />;
+      }
+      
+      document.title = 'SciTech - ' + this.props.lang.RESEARCH + ' - ' + langArrayHandler(page.name, defaultLang);
+
+      let modifiedPageData = {
+        name: langArrayHandler(page.name, defaultLang),
+        methods: langArrayHandler(page.methods, defaultLang),
+        solution: langArrayHandler(page.solution, defaultLang),
+        recommendation: langArrayHandler(page.recommendation, defaultLang),
+        use: langArrayHandler(page.use, defaultLang),
+        skills: langArrayHandler(page.skils, defaultLang),
+        tags: langArrayHandler(page.tags, defaultLang)  ,
+        goal: langArrayHandler(page.goal, defaultLang)
       }
       return <div className="InfoPage">
               {this.props.alert.length != 0 ? <Alert type={this.props.alert.type} text={this.props.alert.text}/> : null}
@@ -36,8 +48,8 @@ class Research extends React.Component {
               <div className="layout-container InfoPage--wrapper layout-container--white">
                 <div className={`InfoPage--heading ${page.type}`}>
                   <i className={`icon-marker-${page.type.toLowerCase()}`}></i>
-                  <span className="sphere">{langArrayHandler(page.use, defaultLang)}</span>
-                  <h1>{langArrayHandler(page.name, defaultLang)}</h1>
+                  <span className="sphere">{modifiedPageData.use}</span>
+                  <h1>{modifiedPageData.name}</h1>
                 </div>
                 <div className="InfoPage--term">
                   <div className="InfoPage--termKey">{this.props.lang.AUTHOR || 'Author'}:</div>                  
@@ -46,33 +58,33 @@ class Research extends React.Component {
                   })}
                   </div>
                 </div>
-                <div className="InfoPage--term">
+                <div  className={"InfoPage--term" + (modifiedPageData.goal ? '' : ' hidden')}>
                   <div className="InfoPage--termKey">{this.props.lang.GOAL || 'Goal'}:</div>                  
-                  <div className="InfoPage--termDescription" dangerouslySetInnerHTML={{__html:langArrayHandler(page.goal, defaultLang)}}></div>
+                  <div className="InfoPage--termDescription" dangerouslySetInnerHTML={{__html:modifiedPageData.goal}}></div>
                 </div>
                 
-                <div className="InfoPage--term">
+                <div  className={"InfoPage--term" + (modifiedPageData.methods ? '' : ' hidden')}>
                   <div className="InfoPage--termKey">{this.props.lang.METHODS || 'Methods'}:</div>                  
-                  <div className="InfoPage--termDescription" dangerouslySetInnerHTML={{__html:langArrayHandler(page.methods, defaultLang)}}></div>
+                  <div className="InfoPage--termDescription" dangerouslySetInnerHTML={{__html:modifiedPageData.methods}}></div>
                 </div>
-                <div className="InfoPage--term">
+                <div  className={"InfoPage--term" + (modifiedPageData.solution ? '' : ' hidden')}>
                   <div className="InfoPage--termKey">{this.props.lang.RESULTS || 'Results'}:</div>                  
-                  <div className="InfoPage--termDescription" dangerouslySetInnerHTML={{__html:langArrayHandler(page.solution, defaultLang)}}></div>
+                  <div className="InfoPage--termDescription" dangerouslySetInnerHTML={{__html:modifiedPageData.solution}}></div>
                 </div>
-                <div className="InfoPage--term">
+                <div  className={"InfoPage--term" + (modifiedPageData.recommendation ? '' : ' hidden')}>
                   <div className="InfoPage--termKey">{this.props.lang.RECOMENDATIONS || 'Recomendations'}:</div>                  
-                  <div className="InfoPage--termDescription" dangerouslySetInnerHTML={{__html:langArrayHandler(page.recommendation, defaultLang)}}></div>
+                  <div className="InfoPage--termDescription" dangerouslySetInnerHTML={{__html:modifiedPageData.recommendation}}></div>
                 </div>
-                <div className="InfoPage--term">
+                <div  className={"InfoPage--term" + (modifiedPageData.use ? '' : ' hidden')}>
                   <div className="InfoPage--termKey">{this.props.lang.USING || 'Using'}:</div>                  
-                  <div className="InfoPage--termDescription" dangerouslySetInnerHTML={{__html:langArrayHandler(page.use, defaultLang)}}></div>
+                  <div className="InfoPage--termDescription" dangerouslySetInnerHTML={{__html:modifiedPageData.use}}></div>
                 </div>
-                <div className="InfoPage--term">
+                <div  className={"InfoPage--term" + (modifiedPageData.tags ? '' : ' hidden')}>
                   <div className="InfoPage--termKey">{this.props.lang.TAGS || 'Tags'}:</div>                  
-                  <div className="InfoPage--termDescription" >{langArrayHandler(page.tags, defaultLang).join(', ')}</div>
+                  <div className="InfoPage--termDescription" >{modifiedPageData.tags !='' ? modifiedPageData.tags.join(', ') : ''}</div>
                 </div>
                 
-                <div className="InfoPage--term">
+                <div className={"InfoPage--term" + (page.date ? '' : ' hidden')}>
                   <div className="InfoPage--termKey">{this.props.lang.DATE || 'Date'}:</div>                  
                   <div className="InfoPage--termDescription">{convertDate(page.date)}</div>
                 </div>

@@ -28,7 +28,16 @@ class Research extends React.Component {
       if(page.length == 0) {
         return <Preloader />;
       }
-      console.log(page);
+      let modifiedPageData = {
+        name: langArrayHandler(page.name, defaultLang),
+        problem: langArrayHandler(page.problem, defaultLang),
+        solution: langArrayHandler(page.solution, defaultLang),
+        info: langArrayHandler(page.info, defaultLang),
+        needToFind: langArrayHandler(page.needTofind, defaultLang),
+        skills: langArrayHandler(page.skils, defaultLang),
+        tags: langArrayHandler(page.tags, defaultLang)  ,
+        stage: langArrayHandler(page.stage, defaultLang)
+      }
       return <div className="InfoPage">
               {this.props.alert.length != 0 ? <Alert type={this.props.alert.type} text={this.props.alert.text}/> : null}
               {this.props.preloader ? <Preloader /> : null }
@@ -39,11 +48,11 @@ class Research extends React.Component {
                 <div className={`InfoPage--heading ${page.type}`}>
                   <i className={`icon-marker-${page.type.toLowerCase()}`}></i>
                   <span className="sphere">{langArrayHandler(page.sphere, defaultLang)}</span>
-                  <h1>{langArrayHandler(page.name, defaultLang)}</h1>
+                  <h1>{modifiedPageData.name}</h1>
                 </div>
-                <div className="InfoPage--term">
+                <div className={"InfoPage--term" + (modifiedPageData.stage ? '' : ' hidden')}>
                   <div className="InfoPage--termKey">{this.props.lang.STAGE || 'Stage'}:</div>                  
-                  <div className="InfoPage--termDescription" dangerouslySetInnerHTML={{__html:langArrayHandler(page.stage, defaultLang)}} ></div>
+                  <div className="InfoPage--termDescription" dangerouslySetInnerHTML={{__html:modifiedPageData.stage}} ></div>
                 </div>
                 { page.video.length != 0 ? 
                 (<div className="InfoPage--term">
@@ -64,34 +73,34 @@ class Research extends React.Component {
                   })}
                   </div>
                 </div>
-                <div className="InfoPage--term">
+                <div className={"InfoPage--term" + (modifiedPageData.problem ? '' : ' hidden')}>
                   <div className="InfoPage--termKey">{this.props.lang.PROBLEM || 'Problem'}:</div>                  
-                  <div className="InfoPage--termDescription" dangerouslySetInnerHTML={{__html:langArrayHandler(page.problem, defaultLang)}}></div>
+                  <div className="InfoPage--termDescription" dangerouslySetInnerHTML={{__html:modifiedPageData.problem}}></div>
                 </div>
                 
-                <div className="InfoPage--term">
+                <div className={"InfoPage--term" + (modifiedPageData.solution ? '' : ' hidden')}>
                   <div className="InfoPage--termKey">{this.props.lang.SOLUTION || 'Solution'}:</div>                  
-                  <div className="InfoPage--termDescription" dangerouslySetInnerHTML={{__html:langArrayHandler(page.solution, defaultLang)}}></div>
+                  <div className="InfoPage--termDescription" dangerouslySetInnerHTML={{__html:modifiedPageData.solution}}></div>
                 </div>
-                <div className="InfoPage--term">
+                <div className={"InfoPage--term" + (modifiedPageData.demo ? '' : ' hidden')}>
                   <div className="InfoPage--termKey">{this.props.lang.DEMO || 'Demo'}:</div>                  
                   <div className="InfoPage--termDescription"><a href={page.demo} target="_blank">{page.demo}</a></div>
                 </div>
-                <div className="InfoPage--term">
+                <div className={"InfoPage--term" + (modifiedPageData.info ? '' : ' hidden')}>
                   <div className="InfoPage--termKey">{this.props.lang.INFO || 'Info'}:</div>                  
-                  <div className="InfoPage--termDescription" dangerouslySetInnerHTML={{__html:langArrayHandler(page.info, defaultLang)}}></div>
+                  <div className="InfoPage--termDescription" dangerouslySetInnerHTML={{__html:modifiedPageData.info}}></div>
                 </div>
-                <div className="InfoPage--term">
+                <div className={"InfoPage--term" + (modifiedPageData.needTofind ? '' : ' hidden')}>
                   <div className="InfoPage--termKey">{this.props.lang.WHOISNEEDED || 'Who is needed'}:</div>                  
-                  <div className="InfoPage--termDescription" dangerouslySetInnerHTML={{__html:langArrayHandler(page.needTofind, defaultLang)}}></div>
+                  <div className="InfoPage--termDescription" dangerouslySetInnerHTML={{__html:modifiedPageData.needTofind}}></div>
                 </div>
-                <div className="InfoPage--term">
+                <div className={"InfoPage--term" + (modifiedPageData.skils ? '' : ' hidden')}>
                   <div className="InfoPage--termKey">{this.props.lang.SKILS || 'Skils'}:</div>                  
-                  <div className="InfoPage--termDescription" dangerouslySetInnerHTML={{__html:langArrayHandler(page.skils, defaultLang)}}></div>
+                  <div className="InfoPage--termDescription" dangerouslySetInnerHTML={{__html:modifiedPageData.skils}}></div>
                 </div>
-                <div className="InfoPage--term">
+                <div className={"InfoPage--term" + (modifiedPageData.tags ? '' : ' hidden')}>
                   <div className="InfoPage--termKey">{this.props.lang.TAGS || 'Tags'}:</div>                  
-                  <div className="InfoPage--termDescription">{langArrayHandler(page.tags, defaultLang).join(', ')}</div>
+                  <div className="InfoPage--termDescription">{modifiedPageData.tags !='' ? modifiedPageData.tags.join(', ') : ''}</div>
                 </div>
                 
               </div>
