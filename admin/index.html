@@ -444,10 +444,8 @@
 
     saveBtn.addEventListener('click', () => {
       let result = JSON.stringify(convertData(form.elements));
-
+      message.innerHTML = 'In progress...';
       let type = form.elements.type.value;
-
-      console.log(type);
 
       if(type == "Research" || type == "Startup") {    
           fetch('https://scitech.herokuapp.com/api/card/add', {
@@ -494,9 +492,10 @@
           let isArray = field.dataset.isarray == 'true' ? true : false;
           let isMultiArray = field.dataset.ismultiarray == 'true' ? true : false;
           if(elements[name + '_en'] == undefined) {
-            
-            result[name] = isArray ? field.value.split(',') : field.value;
-            result[name] = isMultiArray ? multipleArrayConvert(field.value) : field.value;
+            if(field.value != '') {
+              result[name] = isArray ? field.value.split(',') : field.value;
+              result[name] = isMultiArray ? multipleArrayConvert(field.value) : field.value;
+            }
             
           } else {
             result[name] = [];
