@@ -54,12 +54,12 @@ class Research extends React.Component {
                   <div className="InfoPage--termKey">{this.props.lang.STAGE || 'Stage'}:</div>                  
                   <div className="InfoPage--termDescription" dangerouslySetInnerHTML={{__html:modifiedPageData.stage}} ></div>
                 </div>
-                { page.video.length != 0 ? 
+                { page.video ? 
                 (<div className="InfoPage--term">
                   <div className="InfoPage--termKey">{this.props.lang.VIDEO || 'video'}:</div>                  
                   <div className="InfoPage--termDescription"><iframe width="560" height="315" src={`https://www.youtube.com/embed/${page.video}`} frameborder="0" allowfullscreen></iframe></div>
                 </div>) : null }
-                { page.presentation.length != 0 ? 
+                { page.presentation ? 
                 (<div className="InfoPage--term">
                   <div className="InfoPage--termKey">{this.props.lang.PRESENTATION || 'Presentation'}:</div>                  
                   <div className="InfoPage--termDescription">

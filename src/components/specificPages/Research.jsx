@@ -81,7 +81,7 @@ class Research extends React.Component {
                 </div>
                 <div  className={"InfoPage--term" + (modifiedPageData.tags ? '' : ' hidden')}>
                   <div className="InfoPage--termKey">{this.props.lang.TAGS || 'Tags'}:</div>                  
-                  <div className="InfoPage--termDescription" >{modifiedPageData.tags !='' ? modifiedPageData.tags.join(', ') : ''}</div>
+                  <div className="InfoPage--termDescription" >{modifiedPageData.tags != '' ? modifiedPageData.tags.join(', ') : ''}</div>
                 </div>
                 
                 <div className={"InfoPage--term" + (page.date ? '' : ' hidden')}>
