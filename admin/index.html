@@ -63,7 +63,8 @@
         title: "Кастом автор (Имя) (Если заполняешь кастом автора, то должны быть заполнены все его поля)",
         name: "custom_author_name",
         id: "custom_author",
-        isMultilang: true
+        isMultilang: true,
+        value: ' '
       },
       {
         tag: 'input',
@@ -71,7 +72,8 @@
         title: "Кастом автор (контакты). Формат ввода заголовокСсылки, ссылка; заголовокСсылки, ссылка",
         name: "custom_author_contacts",
         id: "custom_author_contacts",
-        isMultilang: false
+        isMultilang: false,
+        value: ' '
       },
       {
         tag: 'input',
@@ -79,7 +81,8 @@
         title: "Кастом автор (описание).",
         name: "custom_author_description",
         id: "custom_author_description",
-        isMultilang: true
+        isMultilang: true,
+        value: ' '
       },
       {
         tag: 'textarea',
@@ -185,7 +188,8 @@
         title: "Кастом автор (Имя) (Если заполняешь кастом автора, то должны быть заполнены все его поля)",
         name: "custom_author_name",
         id: "custom_author",
-        isMultilang: true
+        isMultilang: true,
+        value: ' '
       },
       {
         tag: 'input',
@@ -193,7 +197,8 @@
         title: "Кастом автор (контакты). Формат ввода заголовокСсылки, ссылка; заголовокСсылки, ссылка",
         name: "custom_author_contacts",
         id: "custom_author_contacts",
-        isMultilang: false
+        isMultilang: false,
+        value: ' '
       },
       {
         tag: 'input',
@@ -201,7 +206,8 @@
         title: "Кастом автор (описание).",
         name: "custom_author_description",
         id: "custom_author_description",
-        isMultilang: true
+        isMultilang: true,
+        value: ' '
       },
       {
         tag: 'input',
@@ -554,6 +560,7 @@
           element.setAttribute('id', item.id ? item.id : item.name);
           element.setAttribute('type', item.type);
           element.setAttribute('name', item.name);
+          if(item.value){element.setAttribute('value', item.value) };
           element.setAttribute('data-isarray', item.isArray ? item.isArray : false);
           element.setAttribute('data-ismultiarray', item.isMultiArray ? item.isMultiArray : false);
           row.appendChild(element);
@@ -562,6 +569,8 @@
             let elementEn = document.createElement(item.tag);
             elementEn.setAttribute('id', item.id ? item.id + '_en' : item.name + '_en');
             elementEn.setAttribute('type', item.type);
+            
+            if(item.value){elementEn.setAttribute('value', item.value) };
             elementEn.setAttribute('placeholder', 'English version');
             elementEn.setAttribute('name', item.name + '_en');
             element.setAttribute('data-isarray', item.isArray ? item.isArray : false);

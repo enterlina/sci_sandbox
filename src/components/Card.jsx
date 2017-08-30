@@ -38,7 +38,7 @@ class Card extends React.Component {
                 <h1><Link to={cardData.type + '/' + cardData._id}>{substrName(langArrayHandler(cardData.name, lang), 100)}</Link></h1>
                 { cardData.type == 'Meetup' ? <p className="Card-place">{cardData.place}</p> : null }
                 <div>
-                    <p className="Card-sphere">{cardData.type !== 'Meetup' && cardData.type !== 'Tender' ? langArrayHandler(cardData.use, lang) : ''} <i className={iconClass}></i></p>
+                    <p className="Card-sphere">{cardData.type !== 'Meetup' && cardData.type !== 'Tender' ? langArrayHandler(cardData.sphere, lang) : ''} <i className={iconClass}></i></p>
                     <p className="Card-author">
                         {langArrayHandler(cardData._author[0].name, lang)}
                         <span>{langArrayHandler(cardData._author[0].description, lang)}</span>
