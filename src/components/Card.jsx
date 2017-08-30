@@ -1,7 +1,7 @@
 import React from "react";
 import {Link} from 'react-router-dom';
 
-import {substrName, langArrayHandler} from '../utilities';
+import {substrName, convertDate, langArrayHandler} from '../utilities';
 
 require("!style-loader!css-loader!sass-loader!./Card.scss");
 
@@ -30,10 +30,10 @@ class Card extends React.Component {
       return <div className="layout-cardFrame">
         <div className={className}>
             <article className="Card">
-                { cardData.type == 'Meetup' ? <p className="Card-date">{cardData.date}</p> : null }
+                { cardData.type == 'Meetup' ? <p className="Card-date">{convertDate(cardData.date)}</p> : null }
                 { cardData.type == 'Tender' ? <div className="Card-info">
                     <p className="Card-activity">{langArrayHandler(cardData.activity, lang)}</p>
-                    <p className="Card-date">{cardData.date}</p>
+                    <p className="Card-date">{convertDate(cardData.date)}</p>
                 </div> : null }
                 <h1><Link to={cardData.type + '/' + cardData._id}>{substrName(langArrayHandler(cardData.name, lang), 100)}</Link></h1>
                 { cardData.type == 'Meetup' ? <p className="Card-place">{cardData.place}</p> : null }

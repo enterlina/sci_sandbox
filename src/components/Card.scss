@@ -50,6 +50,7 @@
           background: transparent;
           color: #fff;
           text-transform: uppercase;
+          display: inline-block;
         }
       }
 
@@ -65,6 +66,10 @@
 
     &.bg-yellow {
       background: #f7db87;
+    }
+
+    &.bg-green {
+      background: #5ad89f;
     }
 
     &.bg-purple {
