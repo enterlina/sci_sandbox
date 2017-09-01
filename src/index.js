@@ -14,10 +14,12 @@ import ResearchMain from "./components/ResearchMain";
 import StartupMain from "./components/StartupMain";
 import PeopleMain from "./components/PeopleMain";
 import TenderMain from "./components/TenderMain";
+import MeetupMain from "./components/MeetupMain";
 import Research from "./components/specificPages/Research";
 import Startup from "./components/specificPages/Startup";
 import People from "./components/specificPages/People";
 import Tender from "./components/specificPages/Tender";
+import Meetup from "./components/specificPages/Meetup";
 
 require("!style-loader!css-loader!sass-loader!./components/scss/fonts.scss");
 require("!style-loader!css-loader!sass-loader!./components/scss/core.scss");
@@ -48,6 +50,8 @@ ReactDOM.render(
               <Route path="/People/:id" component={People} />
               <Route path="/Tenders" component={TenderMain} />
               <Route path="/Tender/:id" component={Tender} />
+              <Route path="/Meetups" component={MeetupMain} />
+              <Route path="/Meetup/:id" component={Meetup} />
             </div>
           </ConnectedRouter >
         </Provider>,
