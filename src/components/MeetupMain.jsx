@@ -28,7 +28,7 @@ class ResearchMain extends React.Component {
       let cardData = this.props.cards;
      
         let tableData = {
-          fields: ['М-Название', 'М-Дедлайн', 'М-Награда', 'М-Сфера', 'М-Компания' ],
+          fields: ['Название', 'Дата', 'М-Награда', 'М-Сфера', 'М-Компания' ],
           items: []
         };
 
@@ -47,7 +47,7 @@ class ResearchMain extends React.Component {
           
         });
 
-        cards = <Table data={tableData}/>;
+        cards = cardData.map((card, index) => <Card key={index} cardData={card} lang={this.props.defaultLang}/>);;
 
 
       
@@ -57,8 +57,7 @@ class ResearchMain extends React.Component {
               <div className="layout-navbar" >
                   <Header/>
               </div>
-              
-              <div className="layout-container layout-container--white noPadding layout-tenders">
+              <div className="layout-container cards">
                 {cards}
               </div>
               <div className="clearfix"></div>

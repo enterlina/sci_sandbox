@@ -69,7 +69,7 @@ class Research extends React.Component {
                 </div>
                 <div className="InfoPage--term">
                   <div className="InfoPage--termKey">{this.props.lang.TAGS || 'Tags'}:</div>                  
-                  <div className="InfoPage--termDescription" >{Array.isArray(langArrayHandler(page.tags, defaultLang)).join(', ')}</div>
+                  <div className="InfoPage--termDescription" >{Array.isArray(langArrayHandler(page.tags, defaultLang)) ? langArrayHandler(page.tags, defaultLang).join(', ') : null}</div>
                 </div>
                 
                 <div className="InfoPage--term">
