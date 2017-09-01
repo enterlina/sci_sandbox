@@ -16,7 +16,8 @@
     "lint:js": "jshint",
     "lint:sass": "stylelint ./src/**/*.scss",
     "start": "webpack-dev-server",
-    "test": "jest --watch --coverage"
+    "test": "jest --watch --coverage",
+    "build": "cross-env NODE_ENV=production webpack --config prod.webpack.config.js --color --progress"
   },
   "dependencies": {
     "babel": "^6.23.0",
@@ -27,6 +28,7 @@
     "babel-preset-stage-2": "^6.24.1",
     "css-loader": "^0.28.4",
     "file-loader": "^0.11.2",
+    "fs": "0.0.1-security",
     "history": "^4.6.3",
     "identity-obj-proxy": "^3.0.0",
     "image-webpack-loader": "^3.3.1",
@@ -77,5 +79,8 @@
       "DEVELOPMENT": false,
       "FAKE_SERVER": false
     }
+  },
+  "devDependencies": {
+    "cross-env": "^5.0.5"
   }
 }

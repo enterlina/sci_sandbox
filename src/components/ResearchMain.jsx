@@ -77,6 +77,9 @@ export default connect(
     },
     onLoadLang: (lang) => {
       dispatch(getLangVars(lang));
+    },
+    preLoader: (state) => {
+     dispatch({ type: 'ACTION_PRELOADER', payload: state });
     }
   })
 )(ResearchMain);

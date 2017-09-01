@@ -26,6 +26,141 @@
   </body>
   <script>
     const root = document.getElementById('root');
+
+    const tenderElements = [
+      {
+        tag: 'input',
+        type: "text",
+        title: "Название",
+        name: "name",
+        isMultilang: true
+      },
+      {
+        tag: 'input',
+        type: "text",
+        title: "Видео",
+        name: "video", 
+        isMultilang: false
+      },
+      {
+        tag: 'input',
+        type: "text",
+        title: "Сфера",
+        name: "sphere",
+        isMultilang: true
+      },
+      {
+        tag: 'input',
+        type: "text",
+        title: "Авторы(только ID и запятые, никаких пробелов)",
+        name: "_author",
+        id: "_author",
+        isMultilang: false,
+        isArray: true
+      },
+      {
+        tag: 'input',
+        type: "text",
+        title: "Кастом автор (Имя) (Если заполняешь кастом автора, то должны быть заполнены все его поля)",
+        name: "custom_author_name",
+        id: "custom_author",
+        isMultilang: true,
+        value: ' '
+      },
+      {
+        tag: 'input',
+        type: "text",
+        title: "Кастом автор (контакты). Формат ввода заголовокСсылки, ссылка; заголовокСсылки, ссылка",
+        name: "custom_author_contacts",
+        id: "custom_author_contacts",
+        isMultilang: false,
+        value: ' '
+      },
+      {
+        tag: 'input',
+        type: "text",
+        title: "Кастом автор (описание).",
+        name: "custom_author_description",
+        id: "custom_author_description",
+        isMultilang: true,
+        value: ' '
+      },
+      {
+        tag: 'textarea',
+        type: "text",
+        title: "Цель",
+        name: "goal",
+        isMultilang: true
+      },
+      {
+        tag: 'textarea',
+        type: "text",
+        title: "Проблема",
+        name: "problem",
+        isMultilang: true
+      },
+      {
+        tag: 'textarea',
+        type: "text",
+        title: "Решение и новизна",
+        name: "solution",
+        isMultilang: true
+      },
+      {
+        tag: 'textarea',
+        type: "text",
+        title: "Методы",
+        name: "methods",
+        isMultilang: true
+      },
+      {
+        tag: 'textarea',
+        type: "text",
+        title: "Рекомендации",
+        name: "recommendation",
+        isMultilang: true
+      },
+      {
+        tag: 'textarea',
+        type: "text",
+        title: "Применение",
+        name: "use",
+        isMultilang: true
+      },
+      {
+        tag: 'textarea',
+        type: "text",
+        title: "Ключевые слова",
+        name: "tags",
+        isMultilang: true,
+        isArray: true
+      },
+      {
+        tag: 'input',
+        type: "date",
+        title: "Дата",
+        name: "date",
+        isMultilang: false
+      },
+      {
+        tag: 'input',
+        type: "text",
+        title: "Скачать",
+        name: "download",
+        isMultilang: false
+      },
+      {
+        tag: 'input',
+        type: "text",
+        title: "Стиль",
+        name: "style",
+        isMultilang: false,
+        value: "bg-default"
+      }
+
+    ];
+
+
     const researchElements = [
       {
         tag: 'input',

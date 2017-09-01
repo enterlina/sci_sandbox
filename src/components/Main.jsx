@@ -16,21 +16,22 @@ import { getLangVars } from '../actions/language';
 import {langArrayHandler} from '../utilities';
 
 class Main extends React.Component {
-    componentDidMount() {
-
+    componentWillMount() {
       this.props.onLoadLang(this.props.defaultLang);
       this.props.onGetCards();
-      
-      document.title = 'SciTech';
-
     }
+    componentDidMount() {
+      document.title = 'SciTech';
+    }
+    
     render() {
       
       let cards = 'There is no items';
       let cardData = this.props.cards;
       
         cards = cardData.map((card, index) => <Card key={index} cardData={card} lang={this.props.defaultLang}/>);
-  
+        
+        
 
       
       return <div>
@@ -64,6 +65,9 @@ export default connect(
     },
     onLoadLang: (lang) => {
       dispatch(getLangVars(lang));
+    },
+    preLoader: (state) => {
+     dispatch({ type: 'ACTION_PRELOADER', payload: state });
     }
   })
 )(Main);
