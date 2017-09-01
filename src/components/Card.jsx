@@ -40,8 +40,8 @@ class Card extends React.Component {
                 <div>
                     <p className="Card-sphere">{cardData.type !== 'Meetup' && cardData.type !== 'Tender' ? langArrayHandler(cardData.sphere, lang) : ''} <i className={iconClass}></i></p>
                     <p className="Card-author">
-                        {langArrayHandler(cardData._author[0].name, lang)}
-                        <span>{langArrayHandler(cardData._author[0].description, lang)}</span>
+                        {langArrayHandler(cardData._author[0] ? cardData._author[0].name: undefined, lang)}
+                        <span>{langArrayHandler(cardData._author[0] ? cardData._author[0].description: undefined, lang)}</span>
                     </p>
                 </div>
             </article>
