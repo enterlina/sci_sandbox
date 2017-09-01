@@ -36,7 +36,6 @@ import reducer from './reducers';
 
 const store = createStore(reducer, composeWithDevTools(applyMiddleware(thunk), applyMiddleware(middleware)));
 
-
 ReactDOM.render(
         <Provider store={store}>
           <ConnectedRouter history={history}>
@@ -57,6 +56,7 @@ ReactDOM.render(
         </Provider>,
         rootEl
     );
+
 
 
 
