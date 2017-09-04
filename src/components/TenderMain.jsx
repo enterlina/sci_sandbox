@@ -42,7 +42,7 @@ class ResearchMain extends React.Component {
             convertDate(card.tenderDeadline), 
             card.tenderReward,
             langArrayHandler(card.sphere, this.props.defaultLang),
-            langArrayHandler(card._author[0].name, this.props.defaultLang)
+            langArrayHandler(card._author[0] ? card._author[0].name : undefined, this.props.defaultLang)
           ];
           
         });

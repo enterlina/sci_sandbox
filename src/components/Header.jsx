@@ -14,7 +14,7 @@ class Header extends React.Component {
       super();
       this.state = {
         isSearchActive: false,
-        isMenuHidden: false
+        isMenuHidden: true
       }
     }
     toggleSearch() {
