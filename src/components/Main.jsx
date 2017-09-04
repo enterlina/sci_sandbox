@@ -9,7 +9,7 @@ import {Link} from 'react-router-dom';
 import Alert from "./Alert";
 import Preloader from "./Preloader";
 
-import { getCards, getCardsByType } from '../actions/cards';
+import { getLatestCards } from '../actions/cards';
 import { getLangVars } from '../actions/language';
 
 
@@ -18,32 +18,74 @@ import {langArrayHandler} from '../utilities';
 class Main extends React.Component {
     componentWillMount() {
       this.props.onLoadLang(this.props.defaultLang);
-      this.props.onGetCards();
+      this.props.onGetLatestCards();
     }
     componentDidMount() {
       document.title = 'SciTech';
     }
+    filterItems(type) {
+      let cardData = this.props.cards;
+      let filtered = cardData.filter((item)=>{
+        return item.type == type;
+      });
+
+      return this.createCards(filtered);
+    }
+    createCards(cards) {
+      return cards.map((card, index) => <Card key={index} cardData={card} lang={this.props.defaultLang}/>);
+    }
     
     render() {
       
-      let cards = 'There is no items';
-      let cardData = this.props.cards;
-      
-        cards = cardData.map((card, index) => <Card key={index} cardData={card} lang={this.props.defaultLang}/>);
-        
+      let tenders = this.filterItems('Tender');
+      let researches = this.filterItems('Research');
+      let startups = this.filterItems('Startup');
+      let meetups = this.filterItems('Meetup');
+       
         
 
       
       return <div>
               {this.props.alert.length != 0 ? <Alert type={this.props.alert.type} text={this.props.alert.text}/> : null}
               {this.props.preloader ? <Preloader /> : null }
+
+              
               <div className="layout-navbar" >
                   <Header/>
               </div>
               
-              <div className="layout-container cards">
-                {cards}
-              </div>
+              { tenders ? <div className="layout-container heading">
+                <h2>{this.props.lang.TENDERS}</h2> <Link to="/Tender" className="Button Button--green">{this.props.lang.VIEW_ALL}</Link>
+              </div> : null }
+              { tenders ? <div className="layout-container cards">
+                {tenders}
+              </div> : null }
+
+
+              { researches ? <div className="layout-container heading">
+                <h2>{this.props.lang.RESEARCH}</h2> <Link to="/Research" className="Button Button--green">{this.props.lang.VIEW_ALL}</Link>
+              </div> : null }
+              { researches ? <div className="layout-container cards">
+                {researches}
+              </div> : null }
+
+
+               { startups ? <div className="layout-container heading">
+                <h2>{this.props.lang.STARTUPS}</h2> <Link to="/Startup" className="Button Button--green">{this.props.lang.VIEW_ALL}</Link>
+              </div> : null }
+               { startups ? <div className="layout-container cards">
+                {startups}
+              </div> : null }
+
+
+               { meetups ? <div className="layout-container heading">
+                <h2>{this.props.lang.MEETUPS}</h2> <Link to="/Meetup" className="Button Button--green">{this.props.lang.VIEW_ALL}</Link>
+              </div> : null }
+              { meetups ? <div className="layout-container cards">
+                {meetups}
+              </div> : null }
+
+
               <div className="clearfix"></div>
             </div>
 
@@ -60,8 +102,8 @@ export default connect(
     ownProps
   }),
   dispatch => ({
-    onGetCards: () => {
-      dispatch(getCards());
+    onGetLatestCards: () => {
+      dispatch(getLatestCards());
     },
     onLoadLang: (lang) => {
       dispatch(getLangVars(lang));
