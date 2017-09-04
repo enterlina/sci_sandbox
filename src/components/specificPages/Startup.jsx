@@ -82,7 +82,7 @@ class Research extends React.Component {
                   <div className="InfoPage--termKey">{this.props.lang.SOLUTION || 'Solution'}:</div>                  
                   <div className="InfoPage--termDescription" dangerouslySetInnerHTML={{__html:modifiedPageData.solution}}></div>
                 </div>
-                <div className={"InfoPage--term" + (modifiedPageData.demo ? '' : ' hidden')}>
+                <div className={"InfoPage--term" + (page.demo ? '' : ' hidden')}>
                   <div className="InfoPage--termKey">{this.props.lang.DEMO || 'Demo'}:</div>                  
                   <div className="InfoPage--termDescription"><a href={page.demo} target="_blank">{page.demo}</a></div>
                 </div>
