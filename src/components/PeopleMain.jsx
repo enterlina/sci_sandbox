@@ -76,10 +76,10 @@ class ResearchMain extends React.Component {
               
               <div className="layout-container layout-container--white noPadding">
               <ul className="SortableFields">
-                <li><a href="javascrippt:void(0);" className={filterPeople == ""  ? 'active-link' : ''} onClick={this.sortPeoples.bind(this, '')}>Все</a></li>
-                <li><a href="javascrippt:void(0);" className={filterPeople == 'Scientist'  ? 'active-link' : ''} onClick={this.sortPeoples.bind(this, 'Scientist')}>Ученые</a></li>
-                <li><a href="javascrippt:void(0);" className={filterPeople == 'Startuper'  ? 'active-link' : ''} onClick={this.sortPeoples.bind(this, 'Startuper')}>Startapers</a></li>
-                <li><a href="javascrippt:void(0);" className={filterPeople == 'Business'  ? 'active-link' : ''} onClick={this.sortPeoples.bind(this, 'Business')}>Бизнес</a></li>
+                <li><a href="javascript:void(0);" className={filterPeople == ""  ? 'active-link' : ''} onClick={this.sortPeoples.bind(this, '')}>Все</a></li>
+                <li><a href="javascript:void(0);" className={filterPeople == 'Scientist'  ? 'active-link' : ''} onClick={this.sortPeoples.bind(this, 'Scientist')}>Ученые</a></li>
+                <li><a href="javascript:void(0);" className={filterPeople == 'Startuper'  ? 'active-link' : ''} onClick={this.sortPeoples.bind(this, 'Startuper')}>Startapers</a></li>
+                <li><a href="javascript:void(0);" className={filterPeople == 'Business'  ? 'active-link' : ''} onClick={this.sortPeoples.bind(this, 'Business')}>Бизнес</a></li>
               </ul>
                 {people}
               </div>

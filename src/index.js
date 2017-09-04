@@ -41,15 +41,15 @@ ReactDOM.render(
           <ConnectedRouter history={history}>
             <div>
               <Route exact path="/" component={Main} />
-              <Route path="/Researches" component={ResearchMain} />
+              <Route exact path="/Research" component={ResearchMain} />
               <Route path="/Research/:id" component={Research} />
-              <Route path="/Startups" component={StartupMain} />
+              <Route exact path="/Startup" component={StartupMain} />
               <Route path="/Startup/:id" component={Startup} />
-              <Route path="/Peoples" component={PeopleMain} />
+              <Route exact path="/People" component={PeopleMain} />
               <Route path="/People/:id" component={People} />
-              <Route path="/Tenders" component={TenderMain} />
+              <Route exact path="/Tender" component={TenderMain} />
               <Route path="/Tender/:id" component={Tender} />
-              <Route path="/Meetups" component={MeetupMain} />
+              <Route exact path="/Meetup" component={MeetupMain} />
               <Route path="/Meetup/:id" component={Meetup} />
             </div>
           </ConnectedRouter >

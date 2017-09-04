@@ -31,11 +31,11 @@ class Header extends React.Component {
             </div>
 
             <nav className={"Header-navigation" + (this.state.isMenuHidden ? ' hideMobile' : '')} role="navigation">
-                <li><Link to="/Researches" className={this.props.page.indexOf('Research') != '-1' ? 'active-link' : ''}>{this.props.lang.RESEARCH || 'Researches'}</Link></li>
-                <li><Link to="/Startups" className={this.props.page.indexOf('Startup') != '-1' ? 'active-link' : ''}>{this.props.lang.STARTUPS || 'Startups'}</Link></li>
-                <li><Link to="/Peoples" className={this.props.page.indexOf('People') != '-1' ? 'active-link' : ''}>{this.props.lang.PEOPLE || 'People'}</Link></li>
-                <li><Link to="/Tenders" className={"link-no-text icon-tender" + (this.props.page.indexOf('Tender') != '-1' ? ' active-link' : '')}>{this.props.lang.INVEST || 'Investitions'}</Link></li>
-                <li><Link to="/Meetups" className="link-no-text icon-meetup">{this.props.lang.MEETUPS || 'Meetups'}</Link></li>
+                <li><Link to="/Research" className={this.props.page.indexOf('Research') != '-1' ? 'active-link' : ''}>{this.props.lang.RESEARCH || 'Researches'}</Link></li>
+                <li><Link to="/Startup" className={this.props.page.indexOf('Startup') != '-1' ? 'active-link' : ''}>{this.props.lang.STARTUPS || 'Startups'}</Link></li>
+                <li><Link to="/People" className={this.props.page.indexOf('People') != '-1' ? 'active-link' : ''}>{this.props.lang.PEOPLE || 'People'}</Link></li>
+                <li><Link to="/Tender" className={"link-no-text icon-tender" + (this.props.page.indexOf('Tender') != '-1' ? ' active-link' : '')}>{this.props.lang.INVEST || 'Investitions'}</Link></li>
+                <li><Link to="/Meetup" className="link-no-text icon-meetup">{this.props.lang.MEETUPS || 'Meetups'}</Link></li>
                 <li><a href="#" className="link-no-text icon-search" onClick={this.toggleSearch.bind(this)}>{this.props.lang.SEARCH || 'Search'}</a></li>
                 <li><a href="#" className="link-no-text plasma">Plasma +</a></li>
                 <li className="lang-selector">
