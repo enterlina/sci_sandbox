@@ -13,20 +13,24 @@ class Header extends React.Component {
     constructor() {
       super();
       this.state = {
-        isSearchActive: false
+        isSearchActive: false,
+        isMenuHidden: false
       }
     }
     toggleSearch() {
       this.setState({ isSearchActive: !this.state.isSearchActive });
     }
+    toggleMenu() {
+      this.setState({ isMenuHidden: !this.state.isMenuHidden });
+    }
     render() {
         return <header className="Header layout-container">
             <Link to="/" className="Header-logo link-no-text">SciTech</Link>
-            <div className="hamburger">
+            <div className="hamburger" onClick={this.toggleMenu.bind(this)}>
                 <div className="hamburger-stripe"></div>
             </div>
 
-            <nav className="Header-navigation" role="navigation">
+            <nav className={"Header-navigation" + (this.state.isMenuHidden ? ' hideMobile' : '')} role="navigation">
                 <li><Link to="/Researches" className={this.props.page.indexOf('Research') != '-1' ? 'active-link' : ''}>{this.props.lang.RESEARCH || 'Researches'}</Link></li>
                 <li><Link to="/Startups" className={this.props.page.indexOf('Startup') != '-1' ? 'active-link' : ''}>{this.props.lang.STARTUPS || 'Startups'}</Link></li>
                 <li><Link to="/Peoples" className={this.props.page.indexOf('People') != '-1' ? 'active-link' : ''}>{this.props.lang.PEOPLE || 'People'}</Link></li>

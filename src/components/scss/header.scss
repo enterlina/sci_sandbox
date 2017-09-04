@@ -17,13 +17,15 @@
       width: 100%;
     }
 
-    li {
+    nav.hideMobile {
       display: none;
     }
 
     li a {
       padding: 25px;
       display: block;
+      width: 100%;
+      box-sizing: border-box;
     }
 
     li a.plasma {
@@ -44,12 +46,6 @@
       display: flex;
       width: 80px;
       cursor: pointer;
-
-      &:hover {
-        & + .Header-navigation li {
-          display: block;
-        }
-      }
     }
   }
 }
