@@ -19,4 +19,15 @@
       cursor: pointer;
     }
   }
+
+  &--blue {
+    background-color: #30bae7;
+    border: solid 2px #30bae7;
+
+    &:hover {
+      background-color: #fff;
+      color: #30bae7;
+      cursor: pointer;
+    }
+  }
 }

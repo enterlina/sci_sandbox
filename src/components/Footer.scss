@@ -1,0 +1,74 @@
+@import './scss/helpers/variables.scss';
+@import './scss/helpers/placeholders.scss';
+
+.Footer {
+  background-color: rgb(226, 230, 233);
+
+  &-navigation {
+    li {
+      list-style-type: none;
+      margin-bottom: 15px;
+
+      a {
+        color: $fontColor;
+        font-size: 16px;
+        font-weight: bold;
+        text-decoration: none;
+        text-transform: uppercase;
+      }
+    }
+  }
+
+  &-additional-navigation {
+    li {
+      list-style-type: none;
+      margin-bottom: 15px;
+
+      a {
+        color: #818791;
+        font-size: 16px;
+        font-weight: bold;
+        text-decoration: none;
+        text-transform: uppercase;
+      }
+    }
+  }
+
+  &-social-networks {
+    li {
+      list-style-type: none;
+      margin-bottom: 15px;
+
+      a {
+        color: #152033;
+        font-size: 14px;
+        text-decoration: none;
+      }
+    }
+  }
+
+  .Button {
+    display: block;
+  }
+}
+
+.Footer-grid-wrapper {
+  display: grid;
+  grid-template-areas: "Footer-grid-first-column Footer-grid-second-column Footer-grid-third-column";
+  grid-auto-columns: 240px;
+}
+
+.Footer-grid-first-column {
+  grid-column: 1 / 2;
+  grid-row: 1;
+}
+
+.Footer-grid-second-column {
+  grid-column: 2 / 3;
+  grid-row: 1;
+}
+
+.Footer-grid-third-column {
+  grid-column: 3 / 3;
+  grid-row: 1;
+}

@@ -10,6 +10,7 @@ import thunk from 'redux-thunk';
 import createHistory from 'history/createBrowserHistory';
 
 import Main from "./components/Main";
+import Footer from "./components/Footer";
 import ResearchMain from "./components/ResearchMain";
 import StartupMain from "./components/StartupMain";
 import PeopleMain from "./components/PeopleMain";
@@ -51,6 +52,7 @@ ReactDOM.render(
               <Route path="/Tender/:id" component={Tender} />
               <Route exact path="/Meetup" component={MeetupMain} />
               <Route path="/Meetup/:id" component={Meetup} />
+              <Footer/>
             </div>
           </ConnectedRouter >
         </Provider>,
