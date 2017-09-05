@@ -63,3 +63,9 @@
 .InfoPage--heading span {
   font-size: 14px;
 }
+
+@media all and (max-width: 910px) {
+  .InfoPage--term {
+    flex-direction: column;
+  }
+}
