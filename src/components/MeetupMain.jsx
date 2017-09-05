@@ -22,32 +22,12 @@ class ResearchMain extends React.Component {
     }
     render() {
       
-      document.title = 'SciTech - ' + this.props.lang.TENDER;
+      document.title = 'SciTech - ' + this.props.lang.MEETUP;
 
       let cards = 'There is no items';
       let cardData = this.props.cards;
-     
-        let tableData = {
-          fields: ['Название', 'Дата', 'М-Награда', 'М-Сфера', 'М-Компания' ],
-          items: []
-        };
-
-        tableData.items = cardData.map((card, index) => {
-          
-          
-          let cardLink = <Link to={'/' + card.type + '/' + card._id}>{langArrayHandler(card.name, this.props.defaultLang)}</Link>;
-
-          return [
-            cardLink,  
-            convertDate(card.tenderDeadline), 
-            card.tenderReward,
-            langArrayHandler(card.sphere, this.props.defaultLang),
-            langArrayHandler(card._author[0] ? card._author[0].name: undefined, this.props.defaultLang)
-          ];
-          
-        });
-
-        cards = cardData.map((card, index) => <Card key={index} cardData={card} lang={this.props.defaultLang}/>);;
+         
+      cards = cardData.map((card, index) => <Card key={index} cardData={card} lang={this.props.defaultLang}/>);;
 
 
       

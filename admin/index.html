@@ -16,6 +16,8 @@
         <option value="Scientist">Ученый</option>
         <option value="Startuper">Стартапер</option>
         <option value="Business">Бизнес</option>
+        <option value="Tender">Тендер</option>
+        <option value="Meetup">Митап</option>
       </select>
       <div id="root">
 
@@ -27,6 +29,96 @@
   <script>
     const root = document.getElementById('root');
 
+    // Meetup
+    const meetupElements = [
+      {
+        tag: 'input',
+        type: "text",
+        title: "Название",
+        name: "name",
+        isMultilang: true
+      },
+      {
+        tag: 'input',
+        type: "date",
+        title: "Дата",
+        name: "date",
+        isMultilang: false
+      },
+      {
+        tag: 'input',
+        type: "text",
+        title: "Место",
+        name: "meetupPlace",
+        isMultilang: false
+      },
+      {
+        tag: 'input',
+        type: "text",
+        title: "Регистрация (ссылка)",
+        name: "regLink",
+        isMultilang: false
+      },
+      {
+        tag: 'input',
+        type: "text",
+        title: "Сфера",
+        name: "sphere",
+        isMultilang: true
+      },
+      {
+        tag: 'textarea',
+        title: "Описание",
+        name: "description",
+        isMultilang: false
+      },
+      {
+        tag: 'input',
+        title: "Сайт организатора",
+        name: "eventHolder",
+        isMultilang: false
+      },
+      {
+        tag: 'input',
+        type: "text",
+        title: "Видео",
+        name: "video", 
+        isMultilang: false
+      },
+       {
+        tag: 'input',
+        type: "text",
+        title: "Презентация",
+        name: "presentation", 
+        isMultilang: false
+      },
+      {
+        tag: 'input',
+        type: "text",
+        title: "Инфо (ссылка)",
+        name: "infoLink",
+        isMultilang: false
+      },
+      {
+        tag: 'textarea',
+        type: "text",
+        title: "Ключевые слова",
+        name: "tags",
+        isMultilang: true,
+        isArray: true
+      },
+      {
+        tag: 'input',
+        type: "text",
+        title: "Стиль",
+        name: "style",
+        isMultilang: false,
+        value: "bg-default"
+      }
+
+    ];
+
+    // Tender
     const tenderElements = [
       {
         tag: 'input',
@@ -38,8 +130,15 @@
       {
         tag: 'input',
         type: "text",
-        title: "Видео",
-        name: "video", 
+        title: "Награда",
+        name: "tenderReward",
+        isMultilang: false
+      },
+      {
+        tag: 'input',
+        type: "date",
+        title: "Дедлайн",
+        name: "tenderDeadline",
         isMultilang: false
       },
       {
@@ -52,80 +151,24 @@
       {
         tag: 'input',
         type: "text",
-        title: "Авторы(только ID и запятые, никаких пробелов)",
+        title: "Статус",
+        name: "status",
+        isMultilang: true
+      },
+      {
+        tag: 'textarea',
+        title: "Описание",
+        name: "description",
+        isMultilang: true
+      },
+      {
+        tag: 'input',
+        type: "text",
+        title: "Компания(только ID и запятые, никаких пробелов)",
         name: "_author",
         id: "_author",
         isMultilang: false,
         isArray: true
-      },
-      {
-        tag: 'input',
-        type: "text",
-        title: "Кастом автор (Имя) (Если заполняешь кастом автора, то должны быть заполнены все его поля)",
-        name: "custom_author_name",
-        id: "custom_author",
-        isMultilang: true,
-        value: ' '
-      },
-      {
-        tag: 'input',
-        type: "text",
-        title: "Кастом автор (контакты). Формат ввода заголовокСсылки, ссылка; заголовокСсылки, ссылка",
-        name: "custom_author_contacts",
-        id: "custom_author_contacts",
-        isMultilang: false,
-        value: ' '
-      },
-      {
-        tag: 'input',
-        type: "text",
-        title: "Кастом автор (описание).",
-        name: "custom_author_description",
-        id: "custom_author_description",
-        isMultilang: true,
-        value: ' '
-      },
-      {
-        tag: 'textarea',
-        type: "text",
-        title: "Цель",
-        name: "goal",
-        isMultilang: true
-      },
-      {
-        tag: 'textarea',
-        type: "text",
-        title: "Проблема",
-        name: "problem",
-        isMultilang: true
-      },
-      {
-        tag: 'textarea',
-        type: "text",
-        title: "Решение и новизна",
-        name: "solution",
-        isMultilang: true
-      },
-      {
-        tag: 'textarea',
-        type: "text",
-        title: "Методы",
-        name: "methods",
-        isMultilang: true
-      },
-      {
-        tag: 'textarea',
-        type: "text",
-        title: "Рекомендации",
-        name: "recommendation",
-        isMultilang: true
-      },
-      {
-        tag: 'textarea',
-        type: "text",
-        title: "Применение",
-        name: "use",
-        isMultilang: true
       },
       {
         tag: 'textarea',
@@ -140,13 +183,6 @@
         type: "date",
         title: "Дата",
         name: "date",
-        isMultilang: false
-      },
-      {
-        tag: 'input',
-        type: "text",
-        title: "Скачать",
-        name: "download",
         isMultilang: false
       },
       {
@@ -590,7 +626,7 @@
       message.innerHTML = 'In progress...';
       let type = form.elements.type.value;
 
-      if(type == "Research" || type == "Startup") {    
+      if(type == "Research" || type == "Startup" || type == "Tender" || type == "Meetup") {    
           fetch('https://scitech.herokuapp.com/api/card/add', {
               method: 'post',
               body: result,
@@ -602,6 +638,7 @@
           .then((result)=>{
             message.innerHTML = result.statusText;
           })
+
       } else if(type == "Scientist" || type == "Startuper" || type == "Business") {    
           fetch('https://scitech.herokuapp.com/api/persons/add', {
               method: 'post',
@@ -614,6 +651,7 @@
           .then((result)=>{
             message.innerHTML = result.statusText;
           })
+
       }
     })
     function multipleArrayConvert(string) {
@@ -720,32 +758,32 @@
     }
 
     optionSelector.addEventListener('change', function() {
-      if(this.value == "Research") {
-        wrapper.innerHTML = '';
-        root.innerHTML = '';
-        researchElements.map(renderFields);
-        root.appendChild(wrapper);
-      } else if(this.value == "Startup") {
-        wrapper.innerHTML = '';
-        root.innerHTML = '';
-        startupElements.map(renderFields);
-        root.appendChild(wrapper);
-      } else if(this.value == "Scientist") {
-        wrapper.innerHTML = '';
-        root.innerHTML = '';
-        scientistElements.map(renderFields);
-        root.appendChild(wrapper);
-      } else if(this.value == "Business") {
-        wrapper.innerHTML = '';
-        root.innerHTML = '';
-        companyElements.map(renderFields);
-        root.appendChild(wrapper);
-      } else if(this.value == "Startuper") {
-        wrapper.innerHTML = '';
-        root.innerHTML = '';
-        startuperElements.map(renderFields);
-        root.appendChild(wrapper);
+      wrapper.innerHTML = '';
+      root.innerHTML = '';
+      switch(this.value) {
+          case "Research":
+              researchElements.map(renderFields);
+              break;
+          case "Startup":
+              startupElements.map(renderFields);
+              break;
+          case "Scientist":
+              scientistElements.map(renderFields);
+              break;
+          case "Business":
+              companyElements.map(renderFields);
+              break;
+          case "Startuper":
+              startuperElements.map(renderFields);
+              break;
+          case "Tender":
+              tenderElements.map(renderFields);
+              break;
+          case "Meetup":
+              meetupElements.map(renderFields);
+              break;
       }
+      root.appendChild(wrapper);
       message.innerHTML = '';
     })
 
