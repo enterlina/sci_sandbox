@@ -35,8 +35,12 @@ class Footer extends React.Component {
                         </ul>
                     </div>
                     <div className="Footer-grid-second-column">
-                        <Link to="/Submit_business_application" className="Button Button--green">sfs</Link>
-                        <Link to="/Submit_business_application" className="Button Button--blue">sfs</Link>
+                        <Link to="/Submit_business_application" className="Button Button--green">
+                            Добавить исследование
+                        </Link>
+                        <Link to="/Submit_business_application" className="Button Button--blue">
+                            Добавить проект
+                        </Link>
                         <ul className="Footer-additional-navigation" role="navigation">
                             <li><a href="#" className="plasma">Plasma +</a></li>
                             <li><Link to="/Startup" className={this.props.page.indexOf('Search_experts') != '-1' ? 'active-link' : ''}>{this.props.lang.SEARCH_EXPERTS || 'Search Experts'}</Link></li>

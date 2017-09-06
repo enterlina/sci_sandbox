@@ -4,7 +4,7 @@ import { AppContainer } from "react-hot-loader";
 import { Provider } from 'react-redux';
 import { createStore, applyMiddleware } from 'redux';
 import { composeWithDevTools } from 'redux-devtools-extension';
-import {  BrowserRouter as Router, Route } from 'react-router-dom';
+import { BrowserRouter as Router, Route } from 'react-router-dom';
 import { ConnectedRouter, routerMiddleware, push } from 'react-router-redux';
 import thunk from 'redux-thunk';
 import createHistory from 'history/createBrowserHistory';
@@ -38,26 +38,28 @@ import reducer from './reducers';
 const store = createStore(reducer, composeWithDevTools(applyMiddleware(thunk), applyMiddleware(middleware)));
 
 ReactDOM.render(
-        <Provider store={store}>
-          <ConnectedRouter history={history}>
-            <div>
-              <Route exact path="/" component={Main} />
-              <Route exact path="/Research" component={ResearchMain} />
-              <Route path="/Research/:id" component={Research} />
-              <Route exact path="/Startup" component={StartupMain} />
-              <Route path="/Startup/:id" component={Startup} />
-              <Route exact path="/People" component={PeopleMain} />
-              <Route path="/People/:id" component={People} />
-              <Route exact path="/Tender" component={TenderMain} />
-              <Route path="/Tender/:id" component={Tender} />
-              <Route exact path="/Meetup" component={MeetupMain} />
-              <Route path="/Meetup/:id" component={Meetup} />
-              <Footer/>
-            </div>
-          </ConnectedRouter >
-        </Provider>,
-        rootEl
-    );
+  <Provider store={store}>
+    <ConnectedRouter history={history}>
+      <div>
+        <div className="no-footer-content">
+          <Route exact path="/" component={Main} />
+          <Route exact path="/Research" component={ResearchMain} />
+          <Route path="/Research/:id" component={Research} />
+          <Route exact path="/Startup" component={StartupMain} />
+          <Route path="/Startup/:id" component={Startup} />
+          <Route exact path="/People" component={PeopleMain} />
+          <Route path="/People/:id" component={People} />
+          <Route exact path="/Tender" component={TenderMain} />
+          <Route path="/Tender/:id" component={Tender} />
+          <Route exact path="/Meetup" component={MeetupMain} />
+          <Route path="/Meetup/:id" component={Meetup} />
+        </div>
+        <Footer />
+      </div>
+    </ConnectedRouter >
+  </Provider>,
+  rootEl
+);
 
 
 
