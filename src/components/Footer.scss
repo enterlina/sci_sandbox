@@ -3,7 +3,7 @@
 
 .Footer {
   background-color: rgb(226, 230, 233);
-  padding: 20px 0;
+  padding: 20px;
 
   &-logo-container {
     display: inline-block;
@@ -129,4 +129,21 @@
 .Footer-grid-third-column {
   grid-column: col-start 12 / span 2;
   grid-row: 1;
+}
+
+@media screen and (max-width: 830px) {
+  .Footer {
+    &-logo-container {
+      margin: 0;
+    }
+
+    &-grid-first-column,
+    &-grid-second-column {
+      display: none;
+    }
+
+    &-grid-third-column {
+      grid-column: col-start / span 13;
+    }
+  }
 }
