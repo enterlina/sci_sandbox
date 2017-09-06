@@ -3,11 +3,33 @@
 
 .Footer {
   background-color: rgb(226, 230, 233);
+  padding: 20px 0;
+
+  &-logo-container {
+    display: inline-block;
+    font-size: 0;
+    margin: 0 0 0 58px;
+  }
+
+  &-logo {
+    height: 52px;
+    width: 124px;
+  }
+
+  &-logo-text {
+    color: #000;
+    font-size: 11.6px;
+    margin: 5px 0 0;
+    text-align: center;
+  }
 
   &-navigation {
+    padding: 0 0 0 58px;
+    margin: 0;
+
     li {
       list-style-type: none;
-      margin-bottom: 15px;
+      margin-bottom: 17px;
 
       a {
         color: $fontColor;
@@ -17,12 +39,23 @@
         text-transform: uppercase;
       }
     }
+
+    li:last-child {
+      margin-bottom: 0;
+    }
+
+    .about-project {
+      margin: 53px 0 0;
+    }
   }
 
   &-additional-navigation {
+    padding: 0;
+    margin: 30px 0 0;
+
     li {
       list-style-type: none;
-      margin-bottom: 15px;
+      margin-bottom: 16px;
 
       a {
         color: #818791;
@@ -32,9 +65,16 @@
         text-transform: uppercase;
       }
     }
+
+    li:last-child {
+      margin-bottom: 0;
+    }
   }
 
   &-social-networks {
+    padding: 0;
+    margin: 0;
+
     li {
       list-style-type: none;
       margin-bottom: 15px;
@@ -45,30 +85,48 @@
         text-decoration: none;
       }
     }
+
+    li:last-child {
+      margin-bottom: 0;
+    }
+  }
+
+  &-copyright-information {
+    font-size: 14px;
+    color: #818791;
+    margin: 40px 50px 52px;
   }
 
   .Button {
     display: block;
+    margin: 0 0 15px;
+    text-decoration: none;
   }
 }
 
 .Footer-grid-wrapper {
+  max-width: 1200px;
+  margin: 25px auto 0;
   display: grid;
-  grid-template-areas: "Footer-grid-first-column Footer-grid-second-column Footer-grid-third-column";
-  grid-auto-columns: 240px;
+  grid-template-columns: repeat(13, [col-start] 1fr);
+  grid-gap: 20px;
+}
+
+.Footer-grid-wrapper > * {
+  grid-column: col-start / span 13;
 }
 
 .Footer-grid-first-column {
-  grid-column: 1 / 2;
+  grid-column: col-start / span 3;
   grid-row: 1;
 }
 
 .Footer-grid-second-column {
-  grid-column: 2 / 3;
+  grid-column: col-start 6 / span 3;
   grid-row: 1;
 }
 
 .Footer-grid-third-column {
-  grid-column: 3 / 3;
+  grid-column: col-start 12 / span 2;
   grid-row: 1;
 }

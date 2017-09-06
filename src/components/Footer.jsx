@@ -17,8 +17,13 @@ class Footer extends React.Component {
     render() {
         return <footer className="Footer">
             <div className="layout-container">
+                <div className="Footer-logo-container">
+                    <Link to="/" className="Header-logo Footer-logo link-no-text">SciTech</Link>
+                    <div className="Footer-logo-text">
+                        с наукой в будущее
+                    </div>
+                </div>
                 <div className="Footer-grid-wrapper">
-                    
                     <div className="Footer-grid-first-column">
                         <ul className="Footer-navigation" role="navigation">
                             <li><Link to="/Research" className={this.props.page.indexOf('Research') != '-1' ? 'active-link' : ''}>{this.props.lang.RESEARCH || 'Researches'}</Link></li>
@@ -26,12 +31,12 @@ class Footer extends React.Component {
                             <li><Link to="/People" className={this.props.page.indexOf('People') != '-1' ? 'active-link' : ''}>{this.props.lang.PEOPLE || 'People'}</Link></li>
                             <li><Link to="/Tenders" className={this.props.page.indexOf('Tenders') != '-1' ? 'active-link' : ''}>{this.props.lang.TENDERS || 'Tenders'}</Link></li>
                             <li><Link to="/Meetups" className={this.props.page.indexOf('Meetups') != '-1' ? 'active-link' : ''}>{this.props.lang.MEETUPS || 'Meetups'}</Link></li>
-                            <li><a href="#" className="">О проекте</a></li>
+                            <li className="about-project"><a href="#">О проекте</a></li>
                         </ul>
                     </div>
                     <div className="Footer-grid-second-column">
-                    <Link to="/Submit_business_application" className="Button Button--green">sfs</Link>
-                    <Link to="/Submit_business_application" className="Button Button--blue">sfs</Link>
+                        <Link to="/Submit_business_application" className="Button Button--green">sfs</Link>
+                        <Link to="/Submit_business_application" className="Button Button--blue">sfs</Link>
                         <ul className="Footer-additional-navigation" role="navigation">
                             <li><a href="#" className="plasma">Plasma +</a></li>
                             <li><Link to="/Startup" className={this.props.page.indexOf('Search_experts') != '-1' ? 'active-link' : ''}>{this.props.lang.SEARCH_EXPERTS || 'Search Experts'}</Link></li>
@@ -40,7 +45,7 @@ class Footer extends React.Component {
                         </ul>
                     </div>
                     <div className="Footer-grid-third-column">
-                        <ul className="Footer-social-networks" role="navigation">
+                        <ul className="Footer-social-networks layout-container" role="navigation">
                             <li><a href="#" className="">Facebook</a></li>
                             <li><a href="#" className="">ВКонтакте</a></li>
                             <li><a href="#" className="">YouTube</a></li>
@@ -48,6 +53,9 @@ class Footer extends React.Component {
                             <li><a href="#" className="">RSS</a></li>
                         </ul>
                     </div>
+                </div>
+                <div className="Footer-copyright-information">
+                    &copy; 	&#171;СайТех&#187; 2017
                 </div>
             </div>
         </footer>
