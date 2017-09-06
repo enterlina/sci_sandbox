@@ -34,7 +34,7 @@ class Main extends React.Component {
         
 
       
-      return <div>
+      return <div className="main-content">
               {this.props.alert.length != 0 ? <Alert type={this.props.alert.type} text={this.props.alert.text}/> : null}
               {this.props.preloader ? <Preloader /> : null }
               <div className="layout-navbar" >

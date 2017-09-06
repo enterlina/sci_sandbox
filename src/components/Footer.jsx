@@ -2,12 +2,7 @@ import React from "react";
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 
-import QuickSearch from "./search/QuickSearch";
-
 require("!style-loader!css-loader!sass-loader!./Footer.scss");
-
-import { onLangUpdate } from '../actions/language';
-import { getCards } from '../actions/cards';
 
 class Footer extends React.Component {
     constructor() {
