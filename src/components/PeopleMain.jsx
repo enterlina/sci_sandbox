@@ -30,7 +30,7 @@ class ResearchMain extends React.Component {
       let people = <NoItems />;
       let tableFields = [];
       let filterPeople = this.props.filterPeople;
-      let peopleData = filterPeople ?  this.props.people.filter(item => item.type == filterPeople) : this.props.people;
+      let peopleData = filterPeople ? this.props.people.filter(item => item.type == filterPeople) : this.props.people;
 
       if(peopleData.length != 0 ){
 

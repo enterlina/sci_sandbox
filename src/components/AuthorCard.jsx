@@ -13,8 +13,9 @@ class AuthorCard extends React.Component {
       if(author.contacts !== undefined) {
         author.contacts.map((item, index) => contacts.push(<li><a href={item[1]}>{item[0]}</a></li>))
       }
+      console.log('isCustom', author)
         return <div className="AuthorCard">
-          <h2>{ author.isCutom ? <Link to={'/People/' + author._id}>{langArrayHandler(author.name, lang)}</Link> : langArrayHandler(author.name, lang)}</h2>
+          <h2>{ author.isCustom  ? langArrayHandler(author.name, lang) : <Link to={'/People/' + author._id}>{langArrayHandler(author.name, lang)}</Link> }</h2>
           <p>{langArrayHandler(author.description, lang)}</p>
           <ul>
             {contacts}
