@@ -34,7 +34,7 @@ class People extends React.Component {
       let backLink = '';
 
       if(prevPage != undefined){   
-        if(prevPage.pathname.indexOf('Peoples') != -1) {
+        if(prevPage.pathname.indexOf('People') != -1) {
           backLink = <Link to={prevPage.pathname} className="backlink">{this.props.lang[(this.props.filterPeople != '' ? this.props.filterPeople : 'All')] || this.props.filterPeople}</Link>;
         } else {
           backLink = <Link to={prevPage.pathname} className="backlink">{this.props.lang.BACK_LINK || 'BACK_LINK'}</Link>;
@@ -42,7 +42,7 @@ class People extends React.Component {
       }
 
       document.title = 'SciTech - ' + this.props.lang.PEOPLE + ' - ' + langArrayHandler(page.name, defaultLang);
-      console.log(page)
+
       return <div className="InfoPage main-content">
               {this.props.alert.length != 0 ? <Alert type={this.props.alert.type} text={this.props.alert.text}/> : null}
               {this.props.preloader ? <Preloader /> : null }
@@ -62,7 +62,7 @@ class People extends React.Component {
                 <div>
                 <div className="InfoPage--term">
                   <div className="InfoPage--termKey">{this.props.lang.DESCRIPTION || 'DESCRIPTION'}:</div>                  
-                  <div className="InfoPage--termDescription">{langArrayHandler(page.description, defaultLang)}</div>
+                  <div className="InfoPage--termDescription" dangerouslySetInnerHTML={{__html:langArrayHandler(page.description, defaultLang)}}></div>
                 </div>
                 <div className="InfoPage--term">
                   <div className="InfoPage--termKey">{this.props.lang.CONTACTS || 'Contacts'}:</div>                  
@@ -74,7 +74,7 @@ class People extends React.Component {
                 </div>
                 <div className="InfoPage--term">
                   <div className="InfoPage--termKey">{this.props.lang.SPECIALIZATION || 'Specialization'}:</div>                  
-                  <div className="InfoPage--termDescription">{langArrayHandler(page.specialization, defaultLang)}</div>
+                  <div className="InfoPage--termDescription" dangerouslySetInnerHTML={{__html:langArrayHandler(page.specialization, defaultLang)}}></div>
                 </div>
                 <div className={"InfoPage--term" + (page.publications.length != 0 ? '' : ' hidden')}>
                   <div className="InfoPage--termKey">{this.props.lang.PUBLICATION || 'Publication'}:</div>                  
@@ -97,7 +97,7 @@ class People extends React.Component {
                 <div>
                 <div className="InfoPage--term">
                   <div className="InfoPage--termKey">{this.props.lang.DESCRIPTION || 'DESCRIPTION'}:</div>                  
-                  <div className="InfoPage--termDescription">{langArrayHandler(page.description, defaultLang)}</div>
+                  <div className="InfoPage--termDescription" dangerouslySetInnerHTML={{__html:langArrayHandler(page.description, defaultLang)}}></div>
                 </div>
                 <div className="InfoPage--term">
                   <div className="InfoPage--termKey">{this.props.lang.CONTACTS || 'Contacts'}:</div>                  
@@ -109,7 +109,7 @@ class People extends React.Component {
                 </div>
                 <div className={"InfoPage--term" + (page.sphere.length != 0 ? '' : ' hidden')}>
                   <div className="InfoPage--termKey">{this.props.lang.SPECIALIZATION || 'Specialization'}:</div>                  
-                  <div className="InfoPage--termDescription">{langArrayHandler(page.specialization, defaultLang)}</div>
+                  <div className="InfoPage--termDescription" dangerouslySetInnerHTML={{__html:langArrayHandler(page.specialization, defaultLang)}}></div>
                 </div>
                 <div className={"InfoPage--term" + (page.projects.length != 0 ? '' : ' hidden')}>
                   <div className="InfoPage--termKey">{this.props.lang.PROJECTS || 'Projects'}:</div>                  
@@ -129,7 +129,11 @@ class People extends React.Component {
                 </div>
                 <div className="InfoPage--term">
                   <div className="InfoPage--termKey">{this.props.lang.DESCRIPTION || 'DESCRIPTION'}:</div>                  
-                  <div className="InfoPage--termDescription">{langArrayHandler(page.description, defaultLang)}</div>
+                  <div className="InfoPage--termDescription"  dangerouslySetInnerHTML={{__html:langArrayHandler(page.description, defaultLang)}}></div>
+                </div>
+                <div className="InfoPage--term">
+                  <div className="InfoPage--termKey">{this.props.lang.CONTACTS || 'Contacts'}:</div>                  
+                  <div className="InfoPage--termDescription"><ul>{multipleArrTransformer(page.contacts)}</ul></div>
                 </div>
                 <div className={"InfoPage--term" + (page.site ? '' : ' hidden')}>
                   <div className="InfoPage--termKey">{this.props.lang.SITE || 'Site'}:</div>                  
@@ -137,7 +141,7 @@ class People extends React.Component {
                 </div>
                 <div className={"InfoPage--term" + (page.address.length != 0 ? '' : ' hidden')}>
                   <div className="InfoPage--termKey">{this.props.lang.ADDRESS || 'Address'}:</div>                  
-                  <div className="InfoPage--termDescription">{langArrayHandler(page.address, defaultLang)}</div>
+                  <div className="InfoPage--termDescription"  dangerouslySetInnerHTML={{__html:langArrayHandler(page.address, defaultLang)}}></div>
                 </div>
                 <div className={"InfoPage--term" + (page.job.length != 0 ? '' : ' hidden')}>
                   <div className="InfoPage--termKey">{this.props.lang.JOB || 'Job'}:</div>                  

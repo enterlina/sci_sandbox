@@ -16,7 +16,7 @@ class AuthorCard extends React.Component {
       console.log('isCustom', author)
         return <div className="AuthorCard">
           <h2>{ author.isCustom  ? langArrayHandler(author.name, lang) : <Link to={'/People/' + author._id}>{langArrayHandler(author.name, lang)}</Link> }</h2>
-          <p>{langArrayHandler(author.description, lang)}</p>
+          <p dangerouslySetInnerHTML={{__html:langArrayHandler(author.description, lang)}}></p>
           <ul>
             {contacts}
           </ul>
