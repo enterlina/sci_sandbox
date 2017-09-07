@@ -45,11 +45,12 @@ class Footer extends React.Component {
                     </div>
                     <div className="Footer-grid-third-column">
                         <ul className="Footer-social-networks layout-container" role="navigation">
-                            <li><a href="#" className="">Facebook</a></li>
-                            <li><a href="#" className="">ВКонтакте</a></li>
-                            <li><a href="#" className="">YouTube</a></li>
-                            <li><a href="#" className="">Telegram</a></li>
-                            <li><a href="#" className="">RSS</a></li>
+                            <li><a href="#">Facebook</a></li>
+                            <li><a href="#">ВКонтакте</a></li>
+                            <li><a href="#">YouTube</a></li>
+                            <li><a href="#">Telegram</a></li>
+                            <li><a href="#">RSS</a></li>
+                            <li className="email"><a href="#">scitech@gmail.com</a></li>
                         </ul>
                     </div>
                 </div>

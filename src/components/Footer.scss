@@ -89,6 +89,10 @@
     li:last-child {
       margin-bottom: 0;
     }
+
+    .email {
+      display: none;
+    }
   }
 
   &-copyright-information {
@@ -174,6 +178,11 @@
 
     &-social-networks {
       padding: 0;
+
+      .email {
+        display: list-item;
+        margin: 50px 0 0;
+      }
     }
 
     &-copyright-information {
