@@ -1,6 +1,6 @@
 import React from "react";
 import { connect } from 'react-redux';
-import {langArrayHandler, convertDate, cardMapData} from '../../utilities';
+import {langArrayHandler, convertDate, cardMapData,multipleArrTransformer} from '../../utilities';
 require("!style-loader!css-loader!sass-loader!../InfoPage.scss");
 
 import { getCardsById } from '../../actions/cards';
@@ -27,6 +27,15 @@ class Research extends React.Component {
       if(page.length == 0) {
         return <Preloader />;
       }
+      
+      let modifiedPageData = {
+        name: langArrayHandler(page.name, defaultLang),
+        sphere: langArrayHandler(page.sphere, defaultLang),
+        status: langArrayHandler(page.status, defaultLang),
+        description: langArrayHandler(page.description, defaultLang),
+        tags: langArrayHandler(page.tags, defaultLang),
+        info: multipleArrTransformer(page.info)
+      }
       return <div className="InfoPage main-content">
               {this.props.alert.length != 0 ? <Alert type={this.props.alert.type} text={this.props.alert.text}/> : null}
               {this.props.preloader ? <Preloader /> : null }
@@ -36,45 +45,51 @@ class Research extends React.Component {
               <div className="layout-container InfoPage--wrapper layout-container--white">
                 <div className={`InfoPage--heading ${page.type}`}>
                   <i className={`icon-marker-${page.type.toLowerCase()}`}></i>
-                  <span className="sphere">{langArrayHandler(page.use, defaultLang)}</span>
-                  <h1>{langArrayHandler(page.name, defaultLang)}</h1>
+                  <span className="sphere">{modifiedPageData.sphere}</span>
+                  <h1>{modifiedPageData.name}</h1>
                 </div>
                 <div className="InfoPage--term">
-                  <div className="InfoPage--termKey">{this.props.lang.AUTHOR || 'Author'}:</div>                  
+                  <div className="InfoPage--termKey">{this.props.lang.ORGANAIZER || 'ORGANAIZER'}:</div>                  
                   <div className="InfoPage--termDescription">{page._author.map((author, index)=>{
                       return <AuthorCard data={author} key={index} lang={defaultLang} />
                   })}
                   </div>
                 </div>
+                
+                                
+                <div className={"InfoPage--term" + (page.tenderReward ? '' : ' hidden')}>
+                  <div className="InfoPage--termKey">{this.props.lang.TENDER_REVARD || 'Revard'}:</div>                  
+                  <div className="InfoPage--termDescription">{page.tenderReward}</div>
+                </div>
                 <div className="InfoPage--term">
-                  <div className="InfoPage--termKey">{this.props.lang.GOAL || 'Goal'}:</div>                  
-                  <div className="InfoPage--termDescription" dangerouslySetInnerHTML={{__html:langArrayHandler(page.goal, defaultLang)}}></div>
+                  <div className="InfoPage--termKey">{this.props.lang.PUBLICATION_DATE || 'Date of publication'}:</div>                  
+                  <div className="InfoPage--termDescription">{convertDate(page.creationDate)}</div>
+                </div>
+                <div className="InfoPage--term">
+                  <div className="InfoPage--termKey">{this.props.lang.DEADLINE || 'Deadline'}:</div>                  
+                  <div className="InfoPage--termDescription">{convertDate(page.tenderDeadline)}</div>
                 </div>
                 
-                <div className="InfoPage--term">
-                  <div className="InfoPage--termKey">{this.props.lang.METHODS || 'Methods'}:</div>                  
-                  <div className="InfoPage--termDescription" dangerouslySetInnerHTML={{__html:langArrayHandler(page.methods, defaultLang)}}></div>
+                <div className={"InfoPage--term" + (modifiedPageData.status ? '' : ' hidden')}>
+                  <div className="InfoPage--termKey">{this.props.lang.STATUS || 'Status'}:</div>                  
+                  <div className="InfoPage--termDescription">{modifiedPageData.status}</div>
                 </div>
-                <div className="InfoPage--term">
-                  <div className="InfoPage--termKey">{this.props.lang.RESULTS || 'Results'}:</div>                  
-                  <div className="InfoPage--termDescription" dangerouslySetInnerHTML={{__html:langArrayHandler(page.solution, defaultLang)}}></div>
+                <div className={"InfoPage--term" + (modifiedPageData.description ? '' : ' hidden')}>
+                  <div className="InfoPage--termKey">{this.props.lang.DESCRIPTION || 'Description'}:</div>                  
+                  <div className="InfoPage--termDescription" dangerouslySetInnerHTML={{__html:modifiedPageData.description}}></div>
                 </div>
-                <div className="InfoPage--term">
-                  <div className="InfoPage--termKey">{this.props.lang.RECOMENDATIONS || 'Recomendations'}:</div>                  
-                  <div className="InfoPage--termDescription" dangerouslySetInnerHTML={{__html:langArrayHandler(page.recommendation, defaultLang)}}></div>
+                
+                <div className={"InfoPage--term" + (page.eventHolder ? '' : ' hidden')}>
+                  <div className="InfoPage--termKey">{this.props.lang.EVENT_HOLDER || 'Event Holder'}:</div>                  
+                  <div className="InfoPage--termDescription" ><a href={page.eventHolder} target="_blank">{page.eventHolder}</a></div>
                 </div>
-                <div className="InfoPage--term">
-                  <div className="InfoPage--termKey">{this.props.lang.USING || 'Using'}:</div>                  
-                  <div className="InfoPage--termDescription" dangerouslySetInnerHTML={{__html:langArrayHandler(page.use, defaultLang)}}></div>
+                <div className={"InfoPage--term" + (modifiedPageData.info.length !=0 ? '' : ' hidden')}>
+                  <div className="InfoPage--termKey">{this.props.lang.INFO || 'Event Holder'}:</div>                  
+                  <div className="InfoPage--termDescription" ><ul>{modifiedPageData.info}</ul></div>
                 </div>
-                <div className="InfoPage--term">
+                <div  className={"InfoPage--term" + (Array.isArray(modifiedPageData.tags) ? '' : ' hidden')}>
                   <div className="InfoPage--termKey">{this.props.lang.TAGS || 'Tags'}:</div>                  
-                  <div className="InfoPage--termDescription" >{Array.isArray(langArrayHandler(page.tags, defaultLang)) ? langArrayHandler(page.tags, defaultLang).join(', ') : null}</div>
-                </div>
-                
-                <div className="InfoPage--term">
-                  <div className="InfoPage--termKey">{this.props.lang.DATE || 'Date'}:</div>                  
-                  <div className="InfoPage--termDescription">{convertDate(page.date)}</div>
+                  <div className="InfoPage--termDescription" >{Array.isArray(modifiedPageData.tags) ? modifiedPageData.tags.join(', ') : ''}</div>
                 </div>
                 
               </div>

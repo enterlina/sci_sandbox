@@ -48,7 +48,7 @@ class Research extends React.Component {
                   <h1>{modifiedPageData.name}</h1>
                 </div>
                 <div className="InfoPage--term">
-                  <div className="InfoPage--termKey">{this.props.lang.ORGANAIZER || 'Organaiser'}:</div>                  
+                  <div className="InfoPage--termKey">{this.props.lang.ORGANAIZER || 'Organaizer'}:</div>                  
                   <div className="InfoPage--termDescription">{page._author.map((author, index)=>{
                       return <AuthorCard data={author} key={index} lang={defaultLang} />
                   })}
