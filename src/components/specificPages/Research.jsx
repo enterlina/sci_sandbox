@@ -40,7 +40,7 @@ class Research extends React.Component {
         tags: langArrayHandler(page.tags, defaultLang)  ,
         goal: langArrayHandler(page.goal, defaultLang)
       }
-      return <div className="InfoPage">
+      return <div className="InfoPage main-content">
               {this.props.alert.length != 0 ? <Alert type={this.props.alert.type} text={this.props.alert.text}/> : null}
               {this.props.preloader ? <Preloader /> : null }
               <div className="layout-navbar" >
