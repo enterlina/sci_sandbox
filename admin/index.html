@@ -40,9 +40,16 @@
       },
       {
         tag: 'input',
-        type: "date",
+        type: "datetime-local",
         title: "Дата",
         name: "date",
+        isMultilang: false
+      },
+      {
+        tag: 'input',
+        type: "datetime-local",
+        title: "Дата До",
+        name: "dateTo",
         isMultilang: false
       },
       {
@@ -70,7 +77,7 @@
         tag: 'textarea',
         title: "Описание",
         name: "description",
-        isMultilang: false
+        isMultilang: true
       },
       {
         tag: 'input',
@@ -123,22 +130,7 @@
         tag: 'textarea',
         title: "Инфо",
         name: "info",
-        isMultilang: true
-      },
-      {
-        tag: 'input',
-        type: "text",
-        title: "Инфо (ссылка)",
-        name: "infoLink",
-        isMultilang: false
-      },
-      {
-        tag: 'textarea',
-        type: "text",
-        title: "Ключевые слова",
-        name: "tags",
-        isMultilang: true,
-        isArray: true
+        isMultiArray: true
       },
       {
         tag: 'input',

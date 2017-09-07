@@ -57,6 +57,28 @@ export function convertDate(date) {
 
         return dd + '.' + mm + '.' + yyyy;
 }
+export function convertDateAndTime(date) {
+        date = new Date(date);
+        var dd = date.getDate();
+        if (dd < 10) 
+            dd = '0' + dd;
+        
+        var mm = date.getMonth() + 1;
+        if (mm < 10) 
+            mm = '0' + mm;
+        
+        var yyyy = date.getFullYear()
+
+        var hh = date.getUTCHours();
+        if (hh < 10) 
+            hh = '0' + hh;
+
+        var min = date.getMinutes();
+        if (min < 10) 
+            min = '0' + min;
+
+        return dd + '.' + mm + '.' + yyyy + ' ' + hh + ':' + min;
+}
 export function multipleArrTransformer(arr) {
   if(!arr) { return false} 
   return arr.map((item) => {
