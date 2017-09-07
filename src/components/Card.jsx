@@ -33,15 +33,19 @@ class Card extends React.Component {
                 { cardData.type == 'Meetup' ? <p className="Card-date">{convertDate(cardData.date)}</p> : null }
                 { cardData.type == 'Tender' ? <div className="Card-info">
                     <p className="Card-activity">{langArrayHandler(cardData.activity, lang)}</p>
-                    <p className="Card-date">{convertDate(cardData.date)}</p>
+                    <p className="Card-date">ДО: {convertDate(cardData.tenderDeadline)}</p>
                 </div> : null }
                 <h1><Link to={'/' + cardData.type + '/' + cardData._id}>{substrName(langArrayHandler(cardData.name, lang), 100)}</Link></h1>
                 { cardData.type == 'Meetup' ? <p className="Card-place">{cardData.place}</p> : null }
                 <div>
-                    <p className="Card-sphere">{cardData.type !== 'Meetup' && cardData.type !== 'Tender' ? langArrayHandler(cardData.sphere, lang) : ''} <i className={iconClass}></i></p>
-                    <p className="Card-author">
+                    <p className="Card-sphere">{langArrayHandler(cardData.sphere, lang)} <i className={iconClass}></i></p>
+                    <p className={"Card-author " + (cardData.type == 'Tender' ? 'hidden' : '' )}>
                         {langArrayHandler(cardData._author[0] ? cardData._author[0].name: undefined, lang)}
-                        <span>{langArrayHandler(cardData._author[0] ? cardData._author[0].description: undefined, lang)}</span>
+                        <span>{substrName(langArrayHandler(cardData._author[0] ? cardData._author[0].description: undefined, lang), 50)}</span>
+                    </p>
+                    <p className={"Card-author " +  (cardData.type != 'Tender' ? 'hidden' : '' )}>
+                        {cardData.tenderReward}
+                        <span>{langArrayHandler(cardData._author[0] ? cardData._author[0].name: undefined, lang)}</span>
                     </p>
                 </div>
             </article>
