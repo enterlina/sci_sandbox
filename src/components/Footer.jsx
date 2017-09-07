@@ -30,14 +30,14 @@ class Footer extends React.Component {
                         </ul>
                     </div>
                     <div className="Footer-grid-second-column">
-                        <a href="https://goo.gl/forms/FniLdnwZxQvRjABl1" className="Button Button--green">
+                        <a href="https://goo.gl/forms/FniLdnwZxQvRjABl1" target="_blank" className="Button Button--green">
                             {this.props.lang.ADD_RESEARCH || 'Add Research'}
                         </a>
-                        <a href="https://goo.gl/forms/zb93HhOflrHV0yQ52" className="Button Button--blue">
+                        <a href="https://goo.gl/forms/zb93HhOflrHV0yQ52" target="_blank" className="Button Button--blue">
                             {this.props.lang.ADD_PROJECT || 'Add Project'}
                         </a>
                         
-                        <a href="https://goo.gl/forms/g1w9GmsYcjoIxKM32" className="Button Button--gray">
+                        <a href="https://goo.gl/forms/g1w9GmsYcjoIxKM32" target="_blank" className="Button Button--gray">
                             {this.props.lang.WRITE_US || 'Write us'}
                         </a>
                         <ul className="Footer-additional-navigation hidden" role="navigation">
