@@ -31,4 +31,15 @@
       cursor: pointer;
     }
   }
+
+  &--gray {
+    background-color: #ced6db;
+    border: solid 2px #ced6db;
+
+    &:hover {
+      background-color: #fff;
+      color: #ced6db;
+      cursor: pointer;
+    }
+  }
 }

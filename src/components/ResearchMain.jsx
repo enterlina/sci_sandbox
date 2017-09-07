@@ -2,6 +2,7 @@ import React from "react";
 import { connect } from 'react-redux';
 
 import Card from "./Card";
+import NoItems from "./NoItems";
 import Header from "./Header";
 import Table from "./Table";
 import AuthorCard from "./AuthorCard";
@@ -24,9 +25,10 @@ class ResearchMain extends React.Component {
       
       document.title = 'SciTech - ' + this.props.lang.RESEARCH;
 
-      let cards = 'There is no items';
+      let cards = <NoItems/>;
       let cardData = this.props.cards;
-     
+      
+      if(cardData.length !=0) {
         let tableData = {
           fields: ['Название', 'Автор', 'Сфера'],
           items: []
@@ -43,6 +45,8 @@ class ResearchMain extends React.Component {
         });
 
         cards = <Table data={tableData}/>;
+      }
+        
 
 
       

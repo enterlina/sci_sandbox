@@ -5,6 +5,7 @@ require("!style-loader!css-loader!sass-loader!./SortableFields.scss");
 
 import Header from "./Header";
 import Table from "./Table";
+import NoItems from "./NoItems";
 import AuthorCard from "./AuthorCard";
 import {Link} from 'react-router-dom';
 import Alert from "./Alert";
@@ -26,44 +27,48 @@ class ResearchMain extends React.Component {
     render() {
       document.title = 'SciTech - ' + this.props.lang.PEOPLE;
 
-      let people = 'There is no items';
+      let people = <NoItems />;
       let tableFields = [];
       let filterPeople = this.props.filterPeople;
       let peopleData = filterPeople ?  this.props.people.filter(item => item.type == filterPeople) : this.props.people;
 
-      if(filterPeople == "Scientist") {
-        tableFields = ['Ученый', 'Специализация', 'Сфера', 'Публикации/Патенты'];
-      } else if(filterPeople == "Startuper") {
-        tableFields = ['Контакт', 'Специализация', 'Сфера', 'Проекты'];
-      } else if(filterPeople == "Business") {
-        tableFields = ['Компания', 'Сфера', 'Вакансии'];
-      } else {
-        tableFields = ['Имя/Название', 'Тип', 'Специализация', 'Сфера', 'Работы/Вакансии'];
-      }
-     
-        let tableData = {
-          fields: tableFields,
-          items: []
-        };
+      if(peopleData.length != 0 ){
 
-        tableData.items = peopleData.map((card, index) => {
+        if(filterPeople == "Scientist") {
+          tableFields = ['Ученый', 'Специализация', 'Сфера', 'Публикации/Патенты'];
+        } else if(filterPeople == "Startuper") {
+          tableFields = ['Контакт', 'Специализация', 'Сфера', 'Проекты'];
+        } else if(filterPeople == "Business") {
+          tableFields = ['Компания', 'Сфера', 'Вакансии'];
+        } else {
+          tableFields = ['Имя/Название', 'Тип', 'Специализация', 'Сфера', 'Работы/Вакансии'];
+        }
+      
+          let tableData = {
+            fields: tableFields,
+            items: []
+          };
 
-          let author = <AuthorCard data={card}  lang={this.props.defaultLang} />;
+          tableData.items = peopleData.map((card, index) => {
+
+            let author = <AuthorCard data={card}  lang={this.props.defaultLang} />;
+            
+            if(filterPeople == "Scientist") {
+              return [author, langArrayHandler(card.specialization, this.props.defaultLang), langArrayHandler(card.sphere, this.props.defaultLang), <ul>{multipleArrTransformer(card.publications)}{multipleArrTransformer(card.patents)}</ul>];
+            } else if(filterPeople == "Startuper") {
+              return [author, langArrayHandler(card.specialization, this.props.defaultLang), langArrayHandler(card.sphere, this.props.defaultLang), <ul>{multipleArrTransformer(card.projects)}</ul>];
+            } else if(filterPeople == "Business") {
+              return [author, langArrayHandler(card.sphere, this.props.defaultLang), langArrayHandler(card.job, this.props.defaultLang)];
+            } else {
+              return [author, card.type, langArrayHandler(card.specialization, this.props.defaultLang), langArrayHandler(card.sphere, this.props.defaultLang), <ul>{multipleArrTransformer(card.publications)}{multipleArrTransformer(card.patents)}{multipleArrTransformer(card.projects)}{langArrayHandler(card.job, this.props.defaultLang)}</ul>];
+            }
+
+            
+          });
           
-          if(filterPeople == "Scientist") {
-            return [author, langArrayHandler(card.specialization, this.props.defaultLang), langArrayHandler(card.sphere, this.props.defaultLang), <ul>{multipleArrTransformer(card.publications)}{multipleArrTransformer(card.patents)}</ul>];
-          } else if(filterPeople == "Startuper") {
-            return [author, langArrayHandler(card.specialization, this.props.defaultLang), langArrayHandler(card.sphere, this.props.defaultLang), <ul>{multipleArrTransformer(card.projects)}</ul>];
-          } else if(filterPeople == "Business") {
-            return [author, langArrayHandler(card.sphere, this.props.defaultLang), langArrayHandler(card.job, this.props.defaultLang)];
-          } else {
-            return [author, card.type, langArrayHandler(card.specialization, this.props.defaultLang), langArrayHandler(card.sphere, this.props.defaultLang), <ul>{multipleArrTransformer(card.publications)}{multipleArrTransformer(card.patents)}{multipleArrTransformer(card.projects)}{langArrayHandler(card.job, this.props.defaultLang)}</ul>];
-          }
+          people = <Table data={tableData}/>;
+        }
 
-          
-        });
-
-        people = <Table data={tableData}/>;
 
 
       

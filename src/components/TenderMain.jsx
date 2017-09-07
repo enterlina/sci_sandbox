@@ -4,6 +4,7 @@ import { connect } from 'react-redux';
 import Card from "./Card";
 import Header from "./Header";
 import Table from "./Table";
+import NoItems from "./NoItems";
 import AuthorCard from "./AuthorCard";
 import {Link} from 'react-router-dom';
 import Alert from "./Alert";
@@ -24,9 +25,10 @@ class ResearchMain extends React.Component {
       
       document.title = 'SciTech - ' + this.props.lang.TENDER;
 
-      let cards = 'There is no items';
+      let cards = <NoItems/>;
       let cardData = this.props.cards;
-     
+      
+      if(cardData.length != 0) {
         let tableData = {
           fields: ['Название', 'Дедлайн', 'Награда', 'Сфера', 'Компания' ],
           items: []
@@ -48,7 +50,8 @@ class ResearchMain extends React.Component {
         });
 
         cards = <Table data={tableData}/>;
-
+      
+      }
 
       
       return <div className="main-content">

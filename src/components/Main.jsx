@@ -29,7 +29,9 @@ class Main extends React.Component {
         return item.type == type;
       });
 
-      return this.createCards(filtered);
+      let createdCards = this.createCards(filtered);
+
+      return createdCards.length != 0 ? createdCards : false ;
     }
     createCards(cards) {
       return cards.map((card, index) => <Card key={index} cardData={card} lang={this.props.defaultLang}/>);
@@ -41,7 +43,7 @@ class Main extends React.Component {
       let researches = this.filterItems('Research');
       let startups = this.filterItems('Startup');
       let meetups = this.filterItems('Meetup');
-       
+      console.log(meetups);
         
 
       
