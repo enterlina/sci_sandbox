@@ -28,6 +28,7 @@
 .InfoPage--term .InfoPage--termDescription {
   flex-grow: 10;
   font-size: 14px;
+  line-height: 18px;
 
   ul {
     margin: 0;
@@ -61,4 +62,10 @@
 
 .InfoPage--heading span {
   font-size: 14px;
+}
+
+@media all and (max-width: 910px) {
+  .InfoPage--term {
+    flex-direction: column;
+  }
 }
