@@ -27,7 +27,7 @@ class Research extends React.Component {
       if(page.length == 0) {
         return <Preloader />;
       }
-      console.log(page);
+    
       let modifiedPageData = {
         name: langArrayHandler(page.name, defaultLang),
         sphere: langArrayHandler(page.sphere, defaultLang),
