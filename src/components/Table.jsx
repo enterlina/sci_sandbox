@@ -19,7 +19,7 @@ class Table extends React.Component {
       let heading = table.fields.map((item, index) => <div key={index} className="Table--item Table--headingItem"> {item} </div>);
 
       let items = table.items.map((row, index) => {
-        let items = row.map((item, index) => <div key={index} className="Table--item"> {item} </div>);
+        let items = row.map((item, index) => <div key={index} className="Table--item"><span className="showMobile">{item != '' ? table.fields[index] + ':' : ''} </span> {item} </div>);
         
         return <div className="Table--row"> {items} </div>
       });
