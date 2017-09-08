@@ -202,6 +202,50 @@
   }
 }
 
+.layout-cardFrame .Card-wrapper {
+  &.bg-card-yellow {
+    .Card {
+      background: #f7db87;
+    }
+  }
+
+  &.bg-card-green {
+    .Card {
+      background: #5ad89f;
+    }
+  }
+
+  &.bg-card-purple {
+    .Card {
+      background: #6e6bba;
+    }
+  }
+
+  &.bg-card-blue {
+    .Card {
+      background: #3abbe5;
+    }
+  }
+
+  &.bg-card-sky {
+    .Card {
+      background: #5582d0;
+    }
+  }
+
+  &.bg-rainy {
+    .Card {
+      background: #79b2b9;
+    }
+  }
+
+  &.bg-pink {
+    .Card {
+      background: #f38fa7;
+    }
+  }
+}
+
 @media (max-width: 768px) {
   .Card {
     &-externalBound {
