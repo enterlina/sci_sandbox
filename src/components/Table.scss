@@ -61,3 +61,31 @@
 .layout-tenders .Table--item:not(.Table--headingItem):nth-child(3) {
   font-weight: bold;
 }
+
+.showMobile {
+  display: none;
+}
+
+@media (max-width: 768px) {
+  .Table--headingItem {
+    display: none;
+  }
+
+  .Table--row {
+    flex-direction: column;
+    padding-bottom: 15px;
+  }
+
+  .Table--item {
+    padding: 10px 30px;
+    box-sizing: border-box;
+  }
+
+  .showMobile {
+    font-weight: bold;
+    display: block;
+    margin-bottom: 10px;
+    text-decoration: underline;
+  }
+}
+
