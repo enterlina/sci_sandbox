@@ -35,6 +35,10 @@ const rootEl = document.getElementById("root");
 const history = createHistory();
 const middleware = routerMiddleware(history);
 
+history.listen(() => {
+  window.scrollTo(0, 0);
+})
+
 import reducer from './reducers';
 
 const store = createStore(reducer, composeWithDevTools(applyMiddleware(thunk), applyMiddleware(middleware)));
