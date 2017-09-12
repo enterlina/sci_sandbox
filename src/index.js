@@ -21,6 +21,7 @@ import Startup from "./components/specificPages/Startup";
 import People from "./components/specificPages/People";
 import Tender from "./components/specificPages/Tender";
 import Meetup from "./components/specificPages/Meetup";
+import Article from "./components/specificPages/Article";
 
 require("!style-loader!css-loader!sass-loader!./components/scss/fonts.scss");
 require("!style-loader!css-loader!sass-loader!./components/scss/core.scss");
@@ -54,6 +55,7 @@ ReactDOM.render(
           <Route path="/Tender/:id" component={Tender} />
           <Route exact path="/Meetup" component={MeetupMain} />
           <Route path="/Meetup/:id" component={Meetup} />
+          <Route path="/Article/:id" component={Article} />
         </div>
         <Footer />
       </div>

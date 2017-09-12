@@ -26,7 +26,7 @@ class Footer extends React.Component {
                             <li><Link to="/People" className={this.props.page.indexOf('People') != '-1' ? 'active-link' : ''}>{this.props.lang.PEOPLE || 'People'}</Link></li>
                             <li><Link to="/Tenders" className={this.props.page.indexOf('Tenders') != '-1' ? 'active-link' : ''}>{this.props.lang.TENDERS || 'Tenders'}</Link></li>
                             <li><Link to="/Meetups" className={this.props.page.indexOf('Meetups') != '-1' ? 'active-link' : ''}>{this.props.lang.MEETUPS || 'Meetups'}</Link></li>
-                            <li className="about-project hidden"><a href="#">{this.props.lang.ABOUT_US || 'About Us'}</a></li>
+                            <li className="about-project"><Link to="/Article/59b69a108b639c0ce1d52166">{this.props.lang.ABOUT_US || 'About Us'}</Link></li>
                         </ul>
                     </div>
                     <div className="Footer-grid-second-column">
