@@ -39,6 +39,10 @@ import reducer from './reducers';
 
 const store = createStore(reducer, composeWithDevTools(applyMiddleware(thunk), applyMiddleware(middleware)));
 
+history.listen(() => {
+  window.scrollTo(0, 0);
+})
+
 ReactDOM.render(
   <Provider store={store}>
     <ConnectedRouter history={history}>
