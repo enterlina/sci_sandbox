@@ -52,7 +52,7 @@ class Footer extends React.Component {
                             <li><a href="https://www.facebook.com/scitechby/" target="_blank">Facebook</a></li>
                             <li><a href="https://vk.com/scitechby" target="_blank">{this.props.lang.VK || 'VK'}</a></li>
                             <li><a href="https://www.youtube.com/channel/UClF9SlczBDDEbB9JxKCVaBw" target="_blank">YouTube</a></li>
-                            <li><a href="https://t.me/joinchat/BoOWGA7ZNzw_PDu1ai6cFw" target="_blank">Telegram</a></li>
+                            <li><a href="https://t.me/joinchat/BoOWGEN1HrzaFkbzH0bzXg" target="_blank">Telegram</a></li>
                             <li className="email"><a href="mailto:sciencehitby@gmail.com">sciencehitby@gmail.com</a></li>
                         </ul>
                     </div>
