@@ -35,6 +35,7 @@ class Research extends React.Component {
         solution: langArrayHandler(page.solution, defaultLang),
         recommendation: langArrayHandler(page.recommendation, defaultLang),
         use: langArrayHandler(page.use, defaultLang),
+        problem: langArrayHandler(page.problem, defaultLang),
         sphere: langArrayHandler(page.sphere, defaultLang),
         skills: langArrayHandler(page.skils, defaultLang),
         tags: langArrayHandler(page.tags, defaultLang)  ,
@@ -64,6 +65,10 @@ class Research extends React.Component {
                   <div className="InfoPage--termDescription" dangerouslySetInnerHTML={{__html:modifiedPageData.goal}}></div>
                 </div>
                 
+                <div  className={"InfoPage--term" + (modifiedPageData.problem ? '' : ' hidden')}>
+                  <div className="InfoPage--termKey">{this.props.lang.PROBLEM || 'Problem'}:</div>                  
+                  <div className="InfoPage--termDescription" dangerouslySetInnerHTML={{__html:modifiedPageData.problem}}></div>
+                </div>
                 <div  className={"InfoPage--term" + (modifiedPageData.methods ? '' : ' hidden')}>
                   <div className="InfoPage--termKey">{this.props.lang.METHODS || 'Methods'}:</div>                  
                   <div className="InfoPage--termDescription" dangerouslySetInnerHTML={{__html:modifiedPageData.methods}}></div>
