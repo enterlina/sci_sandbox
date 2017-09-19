@@ -74,7 +74,7 @@ class Research extends React.Component {
                 </div>
                 <div className="InfoPage--term">
                   <div className="InfoPage--termKey">{this.props.lang.ORGANAIZER || 'Organaizer'}:</div>                  
-                  <div className="InfoPage--termDescription Meetup-AuthorCard">{page._author.map((author, index)=>{
+                  <div className="InfoPage--termDescription AuthorCard">{page._author.map((author, index)=>{
                       return <AuthorCard data={author} key={index} lang={defaultLang} />
                   })}
                   </div>

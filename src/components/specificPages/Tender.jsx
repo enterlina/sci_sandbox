@@ -47,16 +47,7 @@ class Research extends React.Component {
                   <i className={`icon-marker-${page.type.toLowerCase()}`}></i>
                   <span className="sphere">{modifiedPageData.sphere}</span>
                   <h1>{modifiedPageData.name}</h1>
-                </div>
-                <div className="InfoPage--term">
-                  <div className="InfoPage--termKey">{this.props.lang.ORGANAIZER || 'ORGANAIZER'}:</div>                  
-                  <div className="InfoPage--termDescription">{page._author.map((author, index)=>{
-                      return <AuthorCard data={author} key={index} lang={defaultLang} />
-                  })}
-                  </div>
-                </div>
-                
-                                
+                </div>           
                 <div className={"InfoPage--term" + (page.tenderReward ? '' : ' hidden')}>
                   <div className="InfoPage--termKey">{this.props.lang.TENDER_REVARD || 'Revard'}:</div>                  
                   <div className="InfoPage--termDescription">{page.tenderReward}</div>
@@ -78,7 +69,13 @@ class Research extends React.Component {
                   <div className="InfoPage--termKey">{this.props.lang.DESCRIPTION || 'Description'}:</div>                  
                   <div className="InfoPage--termDescription" dangerouslySetInnerHTML={{__html:modifiedPageData.description}}></div>
                 </div>
-                
+                <div className="InfoPage--term">
+                  <div className="InfoPage--termKey">{this.props.lang.ORGANAIZER || 'ORGANAIZER'}:</div>                  
+                  <div className="InfoPage--termDescription AuthorCard">{page._author.map((author, index)=>{
+                      return <AuthorCard data={author} key={index} lang={defaultLang} />
+                  })}
+                  </div>
+                </div>
                 <div className={"InfoPage--term" + (page.eventHolder ? '' : ' hidden')}>
                   <div className="InfoPage--termKey">{this.props.lang.EVENT_HOLDER || 'Event Holder'}:</div>                  
                   <div className="InfoPage--termDescription" ><a href={page.eventHolder} target="_blank">{page.eventHolder}</a></div>
