@@ -49,7 +49,6 @@ class Footer extends React.Component {
                     </div>
                     <div className="Footer-grid-third-column">
                         <ul className="Footer-social-networks layout-container" role="navigation">
-                          
                             <li><a href="https://www.facebook.com/scitechby/" target="_blank">Facebook</a></li>
                             <li><a href="https://vk.com/scitechby" target="_blank">{this.props.lang.VK || 'VK'}</a></li>
                             <li><a href="https://www.youtube.com/channel/UClF9SlczBDDEbB9JxKCVaBw" target="_blank">YouTube</a></li>
