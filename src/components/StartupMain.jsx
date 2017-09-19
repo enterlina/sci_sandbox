@@ -41,7 +41,7 @@ class ResearchMain extends React.Component {
           
           let cardLink = <Link to={'/' + card.type + '/' + card._id}>{langArrayHandler(card.name, this.props.defaultLang)}</Link>;
 
-          return [cardLink, authors, langArrayHandler(card.use, this.props.defaultLang)];
+          return [cardLink, authors, langArrayHandler(card.sphere, this.props.defaultLang)];
         });
       
         cards = <Table data={tableData}/>;
