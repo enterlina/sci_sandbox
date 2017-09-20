@@ -82,6 +82,18 @@ export function convertDateAndTime(date) {
 export function multipleArrTransformer(arr) {
   if(!arr) { return false} 
   return arr.map((item) => {
-    return <li><a href={item[1]}>{item[0]}</a></li>;
+    let title = item[0] ? item[0].toLowerCase().trim() : false;
+    let value = item[1] ? item[1].trim() : false;
+    let prefix = '';
+    if(!title || !value) {
+      return false;
+    }
+    if(title == 'email' || title == 'e-mail') {
+      prefix = 'mailto:';
+    } else if (title == 'phone' || title == 'tel') {
+      prefix = 'tel:';
+    }
+
+    return <li><a href={prefix + value}>{title}</a></li>;
   })
 }
