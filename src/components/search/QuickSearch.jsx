@@ -10,7 +10,6 @@ import { search } from '../../actions/search';
 
 class QuickSearch extends React.Component {
     render() {
-      console.log(this.props.searchTerm);
       let searchItems = <SearchItem data={false}/>;
 
       if(this.props.searchResult){

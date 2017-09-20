@@ -25,7 +25,6 @@ class SearchItem extends React.Component {
       if(item) {
         const markerClass = "icon-marker-" + item.type.toLowerCase();
         let name = substrName(langArrayHandler(item.name, currentLang), 80);
-console.log(name);
         return <article className="SearchItem">
           <i className={markerClass}></i>
           { item.image ? <img src={item.image} alt={name} title={name} /> : null }

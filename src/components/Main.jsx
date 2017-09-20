@@ -43,7 +43,6 @@ class Main extends React.Component {
       let researches = this.filterItems('Research');
       let startups = this.filterItems('Startup');
       let meetups = this.filterItems('Meetup');
-      console.log(meetups);
         
 
       
