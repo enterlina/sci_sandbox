@@ -1,6 +1,7 @@
-const webpack         = require("webpack");
-const path       = require("path");
+const webpack = require("webpack");
+const path = require("path");
 const StyleLintPlugin = require('stylelint-webpack-plugin');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
     resolve: {
@@ -10,7 +11,7 @@ module.exports = {
         "./index.js" // the entry point of our app
     ],
     output:  {
-        filename:   "bundle.js", // the output bundle
+        filename:   "bundle.[hash].js", // the output bundle
         path:       path.join(__dirname, "dist")
     },
 
@@ -45,14 +46,11 @@ module.exports = {
 
     plugins:     [
         new StyleLintPlugin(),
-        new webpack.NamedModulesPlugin(), // prints more readable module names in the browser console on HMR updates
-        new webpack.ProvidePlugin({
-          "React": "react",
-        }),
+        new webpack.NamedModulesPlugin(),
+        new HtmlWebpackPlugin({
+            hash: true,
+            template: './index.html'
+        })
 
-    ],
-    externals:   {
-        "react":     "React",
-        "react-dom": "ReactDOM"
-    }
+    ]
 };

@@ -1,6 +1,7 @@
 const webpack         = require("webpack");
 const {resolve}       = require("path");
 const StyleLintPlugin = require('stylelint-webpack-plugin');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
     resolve: {
@@ -56,16 +57,13 @@ module.exports = {
     plugins:     [
         new StyleLintPlugin(),
         new webpack.HotModuleReplacementPlugin(), // enable HMR globally
-        new webpack.NamedModulesPlugin(), // prints more readable module names in the browser console on HMR updates
-        new webpack.ProvidePlugin({
-          "React": "react",
-        }),
+        new webpack.NamedModulesPlugin(),
+        new HtmlWebpackPlugin({
+            hash: true,
+            template: './index.html'
+        })
 
     ],
-    externals:   {
-        "react":     "React",
-        "react-dom": "ReactDOM"
-    },
     performance: {
         hints: false
     }
