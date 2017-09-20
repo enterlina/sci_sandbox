@@ -1,3 +1,4 @@
+import React from "react";
 
 // обрезать строку и добавить 3 точки в конце
 export function substrName(name, num) {
