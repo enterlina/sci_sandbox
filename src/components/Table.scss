@@ -32,7 +32,7 @@
   &--item {
     background: #fff;
     width: 100%;
-    padding: 16px 5px;
+    padding: 16px;
     flex: 1 1 10%;
 
     ul {
@@ -47,6 +47,10 @@
     &:first-child {
       padding-left: 30px;
       flex-grow: 4;
+    }
+
+    &:first-child:not(.Table--headingItem) {
+      padding-right: 30px;
     }
 
     &:last-child {

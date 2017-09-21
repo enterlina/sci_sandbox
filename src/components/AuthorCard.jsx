@@ -6,6 +6,19 @@ import {Link} from 'react-router-dom';
 require("!style-loader!css-loader!sass-loader!./AuthorCard.scss");
 
 class AuthorCard extends React.Component {
+  componentWillMount() {
+    let authorDescription = this.props.data.description;
+    let linksResolver = /(https?:\/\/)?([\da-z\.-]+)\.([a-z\.]{2,6})([\/\w\.-]*)*\/?/;
+    authorDescription.map((description) => {
+      for (let key in description) {
+        let link = description[key].match(linksResolver);
+        if (link) {
+          description[key] = description[key].replace(linksResolver, `<a href=${link[0]} class="icon-meetup">Link</a>`);
+        }
+      }
+    })
+  }
+
     render() {
       let author = this.props.data;
       let lang = this.props.lang;
