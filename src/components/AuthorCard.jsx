@@ -20,7 +20,7 @@ class AuthorCard extends React.Component {
           this.authorExternalLink = link[0];
           description[key] = description[key].replace(linksResolver,``);
         }
-      }//<a href=${link[0]} class="author-more-info" target="_blank">${key == 'ru' ? 'Больше информации' : 'More info'}</a>
+      }
     })
   }
 
