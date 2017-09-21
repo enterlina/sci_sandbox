@@ -6,6 +6,10 @@ import {Link} from 'react-router-dom';
 require("!style-loader!css-loader!sass-loader!./AuthorCard.scss");
 
 class AuthorCard extends React.Component {
+  constructor() {
+    super();
+    this.authorExternalLink = null;
+  }
   componentWillMount() {
     let authorDescription = this.props.data.description;
     let linksResolver = /(https?:\/\/)?([\da-z\.-]+)\.([a-z\.]{2,6})([\/\w\.-]*)*\/?/;
@@ -13,9 +17,10 @@ class AuthorCard extends React.Component {
       for (let key in description) {
         let link = description[key].match(linksResolver);
         if (link) {
-          description[key] = description[key].replace(linksResolver,`<a href=${link[0]} class="author-more-info" target="_blank">${key == 'ru' ? 'Больше информации' : 'More info'}</a>`);
+          this.authorExternalLink = link[0];
+          description[key] = description[key].replace(linksResolver,``);
         }
-      }
+      }//<a href=${link[0]} class="author-more-info" target="_blank">${key == 'ru' ? 'Больше информации' : 'More info'}</a>
     })
   }
 
@@ -29,6 +34,7 @@ class AuthorCard extends React.Component {
         return <div className="AuthorCard">
           <h2>{ author.isCustom  ? langArrayHandler(author.name, lang) : <Link to={'/People/' + author._id}>{langArrayHandler(author.name, lang)}</Link> }</h2>
           <p className={langArrayHandler(author.description, lang).trim() != '' ? '' : 'hidden'} dangerouslySetInnerHTML={{__html:langArrayHandler(author.description, lang)}}></p>
+          {this.authorExternalLink ? <a href={this.authorExternalLink} target="_blank">{lang == 'ru' ? 'Больше информации' : 'More info'}</a> : ''}
           <ul className={contacts ? '' : 'hidden'}>
             {contacts}
           </ul>
