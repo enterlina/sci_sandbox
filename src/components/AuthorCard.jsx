@@ -13,7 +13,7 @@ class AuthorCard extends React.Component {
       for (let key in description) {
         let link = description[key].match(linksResolver);
         if (link) {
-          description[key] = description[key].replace(linksResolver, `<a href=${link[0]} class="icon-meetup">Link</a>`);
+          description[key] = description[key].replace(linksResolver, `<a href=${link[0]} class="icon-meetup" target="_blank">Link</a>`);
         }
       }
     })
