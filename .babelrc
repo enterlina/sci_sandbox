@@ -9,7 +9,10 @@
     "react" // Transpile React components to JavaScript
   ],
   "plugins": [
-    "react-hot-loader/babel" // Enables React code to work with HMR.
+    "react-hot-loader/babel", // Enables React code to work with HMR.
+    "es6-promise",
+    "transform-es2015-arrow-functions",
+    "transform-react-inline-elements"
   ],
   "env": {
     "test": {

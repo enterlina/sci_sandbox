@@ -21,7 +21,7 @@ export const getArticleById = (id) => dispatch => {
             dispatch({ type: 'ACTION_PRELOADER', payload: false });
 
         }, error => {
-            dispatch({ type: 'FETCH_ARTICLE_FAILED', payload: result });
+            dispatch({ type: 'FETCH_ARTICLE_FAILED', payload: error });
             
             dispatch({ type: 'ACTION_PRELOADER', payload: false });
         });

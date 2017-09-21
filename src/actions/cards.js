@@ -20,7 +20,7 @@ export const getCards = () => dispatch => {
             
             dispatch({ type: 'ACTION_PRELOADER', payload: false }); 
         }, error => {
-            dispatch({ type: 'FETCH_CARDS_FAILED', payload: result });
+            dispatch({ type: 'FETCH_CARDS_FAILED', payload: error });
             
             dispatch({ type: 'ACTION_PRELOADER', payload: false });
         });
@@ -48,7 +48,7 @@ export const getLatestCards = () => dispatch => {
             
             dispatch({ type: 'ACTION_PRELOADER', payload: false }); 
         }, error => {
-            dispatch({ type: 'FETCH_CARDS_FAILED', payload: result });
+            dispatch({ type: 'FETCH_CARDS_FAILED', payload: error });
             
             dispatch({ type: 'ACTION_PRELOADER', payload: false });
         });
@@ -77,7 +77,7 @@ export const getCardsById = ( id) => dispatch => {
             dispatch({ type: 'ACTION_PRELOADER', payload: false });
 
         }, error => {
-            dispatch({ type: 'FETCH_SPECIFIC_CARD_FAILED', payload: result });
+            dispatch({ type: 'FETCH_SPECIFIC_CARD_FAILED', payload: error });
             
             dispatch({ type: 'ACTION_PRELOADER', payload: false });
         });
@@ -104,7 +104,7 @@ export const getCardsByType = ( type) => dispatch => {
             
             dispatch({ type: 'ACTION_PRELOADER', payload: false });
         }, error => {
-            dispatch({ type: 'FETCH_CARDS_FAILED', payload: result });
+            dispatch({ type: 'FETCH_CARDS_FAILED', payload: error });
             
             dispatch({ type: 'ACTION_PRELOADER', payload: false });
         });

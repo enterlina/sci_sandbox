@@ -62,7 +62,7 @@ module.exports = {
         extensions: [".js", ".jsx"],
     },
     entry:   [
-        "./index.js" // the entry point of our app
+      "./index.js" // the entry point of our app
     ],
     output:  {
         filename:   "bundle.[hash].js", // the output bundle
@@ -99,18 +99,18 @@ module.exports = {
     },
 
     plugins:     [
-        new webpack.optimize.UglifyJsPlugin(),
+        // new webpack.optimize.UglifyJsPlugin(),
         new StyleLintPlugin(),
         new webpack.NamedModulesPlugin(),
         new HtmlWebpackPlugin({
             hash: true,
             template: './index.html'
         }),
-        new webpack.DefinePlugin({
-          'process.env': {
-            NODE_ENV: JSON.stringify('production')
-          }
-        }),
+        // new webpack.DefinePlugin({
+        //   'process.env': {
+        //     NODE_ENV: JSON.stringify('production')
+        //   }
+        // }),
 
     ]
 };
