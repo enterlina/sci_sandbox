@@ -65,14 +65,13 @@ class Research extends React.Component {
                   <div className="InfoPage--termKey">{this.props.lang.VIDEO || 'video'}:</div>                  
                   <div className="InfoPage--termDescription"><iframe width="560" height="315" src={`https://www.youtube.com/embed/${page.video}`} frameborder="0" allowfullscreen></iframe></div>
                 </div>) : null }
-                <div  className={"InfoPage--term" + (modifiedPageData.goal ? '' : ' hidden')}>
-                  <div className="InfoPage--termKey">{this.props.lang.GOAL || 'Goal'}:</div>                  
-                  <div className="InfoPage--termDescription" dangerouslySetInnerHTML={{__html:modifiedPageData.goal}}></div>
-                </div>
-                
                 <div  className={"InfoPage--term" + (modifiedPageData.problem ? '' : ' hidden')}>
                   <div className="InfoPage--termKey">{this.props.lang.PROBLEM || 'Problem'}:</div>                  
                   <div className="InfoPage--termDescription" dangerouslySetInnerHTML={{__html:modifiedPageData.problem}}></div>
+                </div>
+                <div  className={"InfoPage--term" + (modifiedPageData.goal ? '' : ' hidden')}>
+                  <div className="InfoPage--termKey">{this.props.lang.GOAL || 'Goal'}:</div>                  
+                  <div className="InfoPage--termDescription" dangerouslySetInnerHTML={{__html:modifiedPageData.goal}}></div>
                 </div>
                 <div  className={"InfoPage--term" + (modifiedPageData.methods ? '' : ' hidden')}>
                   <div className="InfoPage--termKey">{this.props.lang.METHODS || 'Methods'}:</div>                  

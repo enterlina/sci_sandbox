@@ -28,7 +28,7 @@
 }
 
 .InfoPage--term .InfoPage--termKey {
-  flex-grow: 1;
+  flex-grow: 0.08;
   font-size: 16px;
   font-weight: bold;
   text-align: left;
@@ -39,6 +39,7 @@
   flex-grow: 10;
   font-size: 14px;
   line-height: 18px;
+  max-width: 650px;
 
   ul {
     margin: 0;
@@ -95,6 +96,10 @@
 
 .InfoPage--heading span {
   font-size: 14px;
+}
+
+.InfoPage .AuthorCard h2 {
+  margin: 2px 0 13px;
 }
 
 @media screen and (max-width: 910px) {
