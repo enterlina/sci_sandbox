@@ -98,3 +98,33 @@ export function multipleArrTransformer(arr) {
     return <li><a href={prefix + value}>{title}</a></li>;
   })
 }
+
+// Завернуть текстовую ссылку в тег <a></a>
+export function convertTextLinkIntoTag(text, lang, isReplacementText) {
+  let linksResolver = /(http?s?:\/\/)?([\da-z\.-]+)\.([a-z\.]{2,6})([\/\w\.-]*)*\/?/;
+  let domainNameResolver = /((?:(?:(?:\w[\.\-\+]?)*)\w)+)((?:(?:(?:\w[\.\-\+]?){0,62})\w)+)\.(\w{2,6})/;
+  let domainName = '';
+  let outputText = '';
+  let linkLabel = '';
+  let linkLabelConfig = {
+    'ru': 'Больше информации на ',
+    'en': 'More info on ' 
+  }
+
+  let linkInText = text.match(linksResolver);
+
+  if (linkInText) {
+    let linkUrl = linkInText[0];
+    linkLabel = linkUrl;
+
+    if (isReplacementText) {
+      domainName = linkUrl.match(domainNameResolver)[0];
+      linkLabel = `${linkLabelConfig[lang]}${domainName}`;
+    }
+
+    let link = `<div><a href=${linkUrl} target="_blank">${linkLabel}</a></div>`;
+    outputText = text.replace(linksResolver, link);
+  }
+
+  return outputText;
+}
