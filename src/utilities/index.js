@@ -124,6 +124,8 @@ export function convertTextLinkIntoTag(text, lang, isReplacementText) {
 
     let link = `<div><a href=${linkUrl} target="_blank">${linkLabel}</a></div>`;
     outputText = text.replace(linksResolver, link);
+  } else {
+    outputText = text;
   }
 
   return outputText;
