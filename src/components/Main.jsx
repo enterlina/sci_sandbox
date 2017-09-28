@@ -47,6 +47,7 @@ class Main extends React.Component {
 
       
       return <div className="main-content">
+        
               {this.props.alert.length != 0 ? <Alert type={this.props.alert.type} text={this.props.alert.text}/> : null}
               {this.props.preloader ? <Preloader /> : null }
 
@@ -85,8 +86,7 @@ class Main extends React.Component {
               { meetups ? <div className="layout-container cards">
                 {meetups}
               </div> : null }
-
-
+              
               <div className="clearfix"></div>
             </div>
 

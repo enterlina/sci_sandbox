@@ -13,6 +13,8 @@ import filterPeople from "./filterPeople";
 import specificPeople from "./specificPeople";
 import routerLocations from "./path";
 import article from "./article";
+import dropdowns from "./dropdowns";
+import filters from "./filters";
 
 export default combineReducers({
   routing: routerReducer,
@@ -27,5 +29,8 @@ export default combineReducers({
   people,
   specificPeople,
   routerLocations,
-  article
+  article,
+  specificCard,
+  dropdowns,
+  filters
 });

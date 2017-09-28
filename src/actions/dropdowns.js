@@ -1,7 +1,7 @@
-export const search = (searchTerm) => dispatch => {
+const getDropdowns = (lang) => dispatch => {
 
   let promise = new Promise((resolve, reject) => {
-            fetch(`https://scitech-dev.herokuapp.com/api/search/${searchTerm}`)
+            fetch(`https://scitech-dev.herokuapp.com/api/dropdowns`)
                 .then((response) => {
                     return response.json()
                 })
@@ -15,15 +15,13 @@ export const search = (searchTerm) => dispatch => {
 
         promise.then(result => {
             console.log('data loaded');
-            
-            if(result.length == 0) {
-              dispatch({ type: 'SEARCH_NO_ITEMS', payload: false });
-              return;
-            }
 
-            dispatch({ type: 'SEARCH_WORD', payload: result, searchWord: searchTerm  });
+            dispatch({ type: 'DROPDOWNS_LOADED', payload: result });
+            
 
         }, error => {
-            dispatch({ type: 'SEARCH_NO_ITEMS', payload: false });
+            dispatch({ type: 'DROPDOWNS_NOT_LOADED', payload: false });
         });
 }
+
+export {getDropdowns}

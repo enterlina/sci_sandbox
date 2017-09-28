@@ -1,7 +1,7 @@
 export const getPeople = () => dispatch => {
   dispatch({ type: 'ACTION_PRELOADER', payload: true });
   let promise = new Promise((resolve, reject) => {
-            fetch(`https://scitech.herokuapp.com/api/persons`)
+            fetch(`https://scitech-dev.herokuapp.com/api/persons`)
                 .then((response) => {
                     return response.json()
                 })
@@ -26,7 +26,7 @@ export const getPeople = () => dispatch => {
 export const getPeopleById = (id) => dispatch => {
   dispatch({ type: 'ACTION_PRELOADER', payload: true });
   let promise = new Promise((resolve, reject) => {
-            fetch(`https://scitech.herokuapp.com/api/person/${id}`)
+            fetch(`https://scitech-dev.herokuapp.com/api/person/${id}`)
                 .then((response) => {
                     return response.json()
                 })
