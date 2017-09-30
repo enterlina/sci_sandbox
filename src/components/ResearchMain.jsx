@@ -42,7 +42,7 @@ class ResearchMain extends React.PureComponent {
           
           let cardLink = <Link to={'/' + card.type + '/' + card._id}>{langArrayHandler(card.name, this.props.defaultLang)}</Link>;
 
-          return [cardLink, authors, this.props.lang[card.sphere]];
+          return [cardLink, authors, card.sphere.map((item)=> this.props.lang[item]).join(', ')];
         });
 
         cards = <Table data={tableData}/>;

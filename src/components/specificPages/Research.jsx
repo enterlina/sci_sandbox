@@ -36,7 +36,7 @@ class Research extends React.Component {
         recommendation: langArrayHandler(page.recommendation, defaultLang),
         use: langArrayHandler(page.use, defaultLang),
         problem: langArrayHandler(page.problem, defaultLang),
-        sphere: langArrayHandler(page.sphere, defaultLang),
+        sphere: page.sphere.map((item)=> this.props.lang[item]).join(', '),
         skills: langArrayHandler(page.skils, defaultLang),
         tags: langArrayHandler(page.tags, defaultLang)  ,
         goal: langArrayHandler(page.goal, defaultLang)

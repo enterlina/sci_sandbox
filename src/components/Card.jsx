@@ -26,7 +26,8 @@ class Card extends React.Component {
       let lang = this.props.lang;
       let className = "Card-wrapper " + cardData.type + " " + cardData.style;
       let iconClass = "icon-" + cardData.type.toLowerCase();
-      
+      let sphere = cardData.sphere.map((item)=> this.props.lang[item]).join(', ');
+
       return <div className="layout-cardFrame">
         <div className={className}>
             <article className="Card">
@@ -38,7 +39,7 @@ class Card extends React.Component {
                 <h1><Link to={'/' + cardData.type + '/' + cardData._id}>{substrName(langArrayHandler(cardData.name, lang), 100)}</Link></h1>
                 { cardData.type == 'Meetup' ? <p className="Card-place">{cardData.place}</p> : null }
                 <div>
-                    <p className="Card-sphere">{langArrayHandler(cardData.sphere, lang)} <i className={iconClass}></i></p>
+                    <p className="Card-sphere">{sphere} <i className={iconClass}></i></p>
                     <p className={"Card-author " + (cardData.type == 'Tender' ? 'hidden' : '' )}>
                         {langArrayHandler(cardData._author[0] ? cardData._author[0].name: undefined, lang)}
                         <span>{substrName(langArrayHandler(cardData._author[0] ? cardData._author[0].description: undefined, lang), 50)}</span>

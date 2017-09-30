@@ -113,7 +113,7 @@ export const getCardsByFilter = (type, name, filter) => dispatch => {
   
   dispatch({ type: 'ACTION_PRELOADER', payload: true });
   let promise = new Promise((resolve, reject) => {
-            fetch(`http://localhost:8083/api/cards/filter/${type}/${name}/${filter}`)
+            fetch(`https://scitech-dev.herokuapp.com/api/cards/filter/${type}/${name}/${filter}`)
                 .then((response) => {
                     return response.json()
                 })

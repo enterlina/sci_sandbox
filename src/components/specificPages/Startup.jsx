@@ -36,6 +36,7 @@ class Research extends React.Component {
         needToFind: langArrayHandler(page.needTofind, defaultLang),
         skills: langArrayHandler(page.skils, defaultLang),
         tags: langArrayHandler(page.tags, defaultLang)  ,
+        sphere: page.sphere.map((item)=> this.props.lang[item]).join(', '),
         stage: langArrayHandler(page.stage, defaultLang)
       }
       return <div className="InfoPage main-content">
@@ -47,7 +48,7 @@ class Research extends React.Component {
               <div className="layout-container InfoPage--wrapper layout-container--white">
                 <div className={`InfoPage--heading ${page.type}`}>
                   <i className={`icon-marker-${page.type.toLowerCase()}`}></i>
-                  <span className="sphere">{langArrayHandler(page.sphere, defaultLang)}</span>
+                  <span className="sphere">{modifiedPageData.sphere}</span>
                   <h1>{modifiedPageData.name}</h1>
                 </div>
                 <div className={"InfoPage--term" + (modifiedPageData.stage ? '' : ' hidden')}>

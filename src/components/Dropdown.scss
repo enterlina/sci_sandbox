@@ -1,6 +1,7 @@
 //
 .Dropdown {
   position: relative;
+  margin: 5px;
 }
 
 .Dropdown ul {
@@ -14,16 +15,27 @@
 }
 
 .Dropdown--selectedItem {
-  width: 200px;
+  width: 300px;
   padding: 10px;
   background-color: #fff;
-  border: solid 1px #f6f6f6;
-  font-size: 12px;
+  border: solid 1px #e6e6e6;
+  font-size: 14px;
   font-weight: bold;
   min-height: 12px;
+  position: relative;
 
   &:hover {
     cursor: pointer;
+  }
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    right: 10px;
+    border: 5px solid transparent;
+    border-top: 5px solid black;
+    transform: translateY(-20%);
   }
 }
 
@@ -32,7 +44,7 @@
   top: 34px;
   left: 0;
   display: none;
-  width: 220px;
+  width: 350px;
   max-height: 400px;
   overflow-y: auto;
   background-color: #fff;
@@ -53,16 +65,40 @@
 
 .Dropdown--list label {
   display: block;
-  font-size: 12px;
-  padding: 0 5px;
+  font-size: 14px;
+  padding: 5px;
+  padding-left: 25px;
   margin-top: 5px;
   user-select: none;
+  position: relative;
+
+  &:hover {
+    cursor: pointer;
+
+    &::before {
+      border-color: #f8e71c;
+    }
+  }
 }
 
 .Dropdown--list input {
   display: none;
 }
 
+.Dropdown--list input + label::before {
+  content: '';
+  width: 5px;
+  height: 15px;
+  display: inline-block;
+  border-right: 2px solid #ececec;
+  border-bottom: 2px solid #ececec;
+  transform: rotate(30deg) translateY(-50%);
+  margin-right: 5px;
+  position: absolute;
+  top: 50%;
+  left: 0;
+}
+
 .Dropdown--list input:checked + label::before {
-  content: '- ';
+  border-color: #f8e71c;
 }

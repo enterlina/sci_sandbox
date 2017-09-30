@@ -36,7 +36,7 @@ class Dropdown extends React.Component {
         })
         // <input type="checkbox" name="sphere[]" value={element.name} />
         return <li>
-          {element.name != this.props.name ? <span><input onChange={this.handleInputChange.bind(this)} type="checkbox" name={this.props.name + '--' + element.name} value={element.name} id={element.name} /><label htmlFor={element.name}>{this.props.lang[element.name] || element.name}</label></span> : ''}
+          <b>{element.name != this.props.name ? <span><input onChange={this.handleInputChange.bind(this)} type="checkbox" name={this.props.name + '--' + element.name} value={element.name} id={element.name} /><label htmlFor={element.name}>{this.props.lang[element.name] || element.name}</label></span> : ''}</b>
           <ul>{expanded}</ul>
         </li>
       }
@@ -97,7 +97,7 @@ class Dropdown extends React.Component {
                     return this.props.lang[item.toUpperCase()];
                   }).join(', ');
       
-      const sphereText = this.props.lang[this.props.name.toUpperCase()];
+      const sphereText = this.props.lang['SELECT_' + this.props.name.toUpperCase()];
       
       return <div className="Dropdown">
                 <div className="Dropdown--selectedItem" onClick={this.openDropdown}>{selected ? substrName(selected, 25) : sphereText }</div>
