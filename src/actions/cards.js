@@ -1,7 +1,7 @@
 export const getCards = () => dispatch => {
   dispatch({ type: 'ACTION_PRELOADER', payload: true });
   let promise = new Promise((resolve, reject) => {
-            fetch(`https://scitech-dev.herokuapp.com/api/cards`)
+            fetch(`https://scitech.herokuapp.com/api/cards`)
                 .then((response) => {
                     return response.json()
                 })
@@ -29,7 +29,7 @@ export const getCards = () => dispatch => {
 export const getLatestCards = () => dispatch => {
   dispatch({ type: 'ACTION_PRELOADER', payload: true });
   let promise = new Promise((resolve, reject) => {
-            fetch(`https://scitech-dev.herokuapp.com/api/cards/latest`)
+            fetch(`https://scitech.herokuapp.com/api/cards/latest`)
                 .then((response) => {
                     return response.json()
                 })
@@ -58,7 +58,7 @@ export const getCardsById = ( id) => dispatch => {
   
   dispatch({ type: 'ACTION_PRELOADER', payload: true });
   let promise = new Promise((resolve, reject) => {
-            fetch(`https://scitech-dev.herokuapp.com/api/card/${id}`)
+            fetch(`https://scitech.herokuapp.com/api/card/${id}`)
                 .then((response) => {
                     return response.json()
                 })
@@ -86,7 +86,7 @@ export const getCardsByType = ( type) => dispatch => {
   
   dispatch({ type: 'ACTION_PRELOADER', payload: true });
   let promise = new Promise((resolve, reject) => {
-            fetch(`https://scitech-dev.herokuapp.com/api/cards/type/${type}`)
+            fetch(`https://scitech.herokuapp.com/api/cards/type/${type}`)
                 .then((response) => {
                     return response.json()
                 })
@@ -113,7 +113,7 @@ export const getCardsByFilter = (type, name, filter) => dispatch => {
   
   dispatch({ type: 'ACTION_PRELOADER', payload: true });
   let promise = new Promise((resolve, reject) => {
-            fetch(`https://scitech-dev.herokuapp.com/api/cards/filter/${type}/${name}/${filter}`)
+            fetch(`https://scitech.herokuapp.com/api/cards/filter/${type}/${name}/${filter}`)
                 .then((response) => {
                     return response.json()
                 })

@@ -1,7 +1,7 @@
 const getDropdowns = (lang) => dispatch => {
 
   let promise = new Promise((resolve, reject) => {
-            fetch(`https://scitech-dev.herokuapp.com/api/dropdowns`)
+            fetch(`https://scitech.herokuapp.com/api/dropdowns`)
                 .then((response) => {
                     return response.json()
                 })

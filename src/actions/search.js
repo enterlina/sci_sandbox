@@ -1,7 +1,7 @@
 export const search = (searchTerm) => dispatch => {
 
   let promise = new Promise((resolve, reject) => {
-            fetch(`https://scitech-dev.herokuapp.com/api/search/${searchTerm}`)
+            fetch(`https://scitech.herokuapp.com/api/search/${searchTerm}`)
                 .then((response) => {
                     return response.json()
                 })
