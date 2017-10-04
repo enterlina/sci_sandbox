@@ -96,7 +96,7 @@ class Research extends React.Component {
                 
                 <div className={"InfoPage--term" + (page.download ? '' : ' hidden')}>
                   <div className="InfoPage--termKey">{this.props.lang.DOWNLOAD || 'Download'}:</div>                  
-                  <div className="InfoPage--termDescription"><a href={page.download} targe="_blank">{page.download}</a></div>
+                  <div className="InfoPage--termDescription"><a href={page.download} target="_blank">{page.download}</a></div>
                 </div>
                 
                 <div className={"InfoPage--term" + (page.date ? '' : ' hidden')}>

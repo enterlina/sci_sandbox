@@ -34,7 +34,7 @@ class Main extends React.Component {
       return createdCards.length != 0 ? createdCards : false ;
     }
     createCards(cards) {
-      return cards.map((card, index) => <Card key={index} cardData={card} lang={this.props.defaultLang}/>);
+      return cards.map((card, index) => <Card key={index} cardData={card} lang={this.props.lang} defaultLang={this.props.defaultLang}/>);
     }
     
     render() {
