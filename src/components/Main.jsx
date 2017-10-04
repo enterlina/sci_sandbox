@@ -34,7 +34,7 @@ class Main extends React.Component {
       return createdCards.length != 0 ? createdCards : false ;
     }
     createCards(cards) {
-      return cards.map((card, index) => <Card key={index} cardData={card} lang={this.props.defaultLang}/>);
+      return cards.map((card, index) => <Card key={index} cardData={card} lang={this.props.lang} defaultLang={this.props.defaultLang}/>);
     }
     
     render() {
@@ -47,6 +47,7 @@ class Main extends React.Component {
 
       
       return <div className="main-content">
+        
               {this.props.alert.length != 0 ? <Alert type={this.props.alert.type} text={this.props.alert.text}/> : null}
               {this.props.preloader ? <Preloader /> : null }
 
@@ -85,8 +86,7 @@ class Main extends React.Component {
               { meetups ? <div className="layout-container cards">
                 {meetups}
               </div> : null }
-
-
+              
               <div className="clearfix"></div>
             </div>
 

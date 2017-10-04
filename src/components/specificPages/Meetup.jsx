@@ -30,7 +30,7 @@ class Research extends React.Component {
     
       let modifiedPageData = {
         name: langArrayHandler(page.name, defaultLang),
-        sphere: langArrayHandler(page.sphere, defaultLang),
+        sphere: page.sphere.map((item)=> this.props.lang[item]).join(', '),
         description: langArrayHandler(page.description, defaultLang),
         info: multipleArrTransformer(page.info)
       }

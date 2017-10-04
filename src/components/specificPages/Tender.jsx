@@ -30,11 +30,11 @@ class Research extends React.Component {
       
       let modifiedPageData = {
         name: langArrayHandler(page.name, defaultLang),
-        sphere: langArrayHandler(page.sphere, defaultLang),
         status: langArrayHandler(page.status, defaultLang),
         description: langArrayHandler(page.description, defaultLang),
         tags: langArrayHandler(page.tags, defaultLang),
-        info: multipleArrTransformer(page.info)
+        info: multipleArrTransformer(page.info),
+        sphere: page.sphere.map((item)=> this.props.lang[item]).join(', '),
       }
       return <div className="InfoPage main-content">
               {this.props.alert.length != 0 ? <Alert type={this.props.alert.type} text={this.props.alert.text}/> : null}

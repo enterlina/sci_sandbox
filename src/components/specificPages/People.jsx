@@ -28,7 +28,7 @@ class People extends React.Component {
       if(!page) {
         return <Preloader />;
       }
-      
+      const shpere = page.sphere.map((item)=> this.props.lang[item]).join(', ');
       let prevPage = this.props.prevPages[this.props.prevPages.length - 2];
       
       let backLink = '';
@@ -70,7 +70,7 @@ class People extends React.Component {
                 </div>
                 <div className="InfoPage--term">
                   <div className="InfoPage--termKey">{this.props.lang.SPHERE || 'Sphere'}:</div>                  
-                  <div className="InfoPage--termDescription">{langArrayHandler(page.sphere, defaultLang)}</div>
+                  <div className="InfoPage--termDescription">{shpere}</div>
                 </div>
                 <div className="InfoPage--term">
                   <div className="InfoPage--termKey">{this.props.lang.SPECIALIZATION || 'Specialization'}:</div>                  
@@ -105,7 +105,7 @@ class People extends React.Component {
                 </div>
                 <div className={"InfoPage--term" + (page.sphere.length != 0 ? '' : ' hidden')}>
                   <div className="InfoPage--termKey">{this.props.lang.SPHERE || 'Sphere'}:</div>                  
-                  <div className="InfoPage--termDescription">{langArrayHandler(page.sphere, defaultLang)}</div>
+                  <div className="InfoPage--termDescription">{shpere}</div>
                 </div>
                 <div className={"InfoPage--term" + (page.sphere.length != 0 ? '' : ' hidden')}>
                   <div className="InfoPage--termKey">{this.props.lang.SPECIALIZATION || 'Specialization'}:</div>                  
@@ -125,7 +125,7 @@ class People extends React.Component {
                 
                 <div className="InfoPage--term">
                   <div className="InfoPage--termKey">{this.props.lang.COMPANY_SPHERE || 'Company Sphere'}:</div>                  
-                  <div className="InfoPage--termDescription">{langArrayHandler(page.sphere, defaultLang)}</div>
+                  <div className="InfoPage--termDescription">{shpere}</div>
                 </div>
                 <div className="InfoPage--term">
                   <div className="InfoPage--termKey">{this.props.lang.DESCRIPTION || 'DESCRIPTION'}:</div>                  

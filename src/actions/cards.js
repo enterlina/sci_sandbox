@@ -109,3 +109,30 @@ export const getCardsByType = ( type) => dispatch => {
             dispatch({ type: 'ACTION_PRELOADER', payload: false });
         });
 }
+export const getCardsByFilter = (type, name, filter) => dispatch => {
+  
+  dispatch({ type: 'ACTION_PRELOADER', payload: true });
+  let promise = new Promise((resolve, reject) => {
+            fetch(`https://scitech.herokuapp.com/api/cards/filter/${type}/${name}/${filter}`)
+                .then((response) => {
+                    return response.json()
+                })
+                .then((data) => {
+                    resolve(data);
+                })
+                .catch((err) => {
+                    reject(err)
+                });
+        });
+
+        promise.then(result => {
+            console.log('data loaded');
+            dispatch({ type: 'FETCH_CARDS_SUCCESS', payload: result });
+            
+            dispatch({ type: 'ACTION_PRELOADER', payload: false });
+        }, error => {
+            dispatch({ type: 'FETCH_CARDS_FAILED', payload: error });
+            
+            dispatch({ type: 'ACTION_PRELOADER', payload: false });
+        });
+}

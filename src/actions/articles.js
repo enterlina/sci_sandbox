@@ -2,7 +2,7 @@ export const getArticleById = (id) => dispatch => {
   
   dispatch({ type: 'ACTION_PRELOADER', payload: true });
   let promise = new Promise((resolve, reject) => {
-            fetch(`https://scitech.herokuapp.com/api/article/${id}`)
+            fetch(`https://scitech-dev.herokuapp.com/api/article/${id}`)
                 .then((response) => {
                     return response.json()
                 })

@@ -9,7 +9,6 @@
   padding: 25px;
   box-sizing: border-box;
   margin-top: 10px;
-  overflow: hidden;
   box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.15);
 }
 
@@ -29,6 +28,7 @@
 
 .layout-container.noPadding {
   padding: 0;
+  padding-top: 5px;
 }
 
 .layout-container.cards {

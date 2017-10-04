@@ -52,15 +52,15 @@ class ResearchMain extends React.Component {
           tableData.items = peopleData.map((card, index) => {
 
             let author = <AuthorCard data={card}  lang={this.props.defaultLang} />;
-            
+            const sphere = card.sphere.map((item)=> this.props.lang[item]).join(', ');
             if(filterPeople == "Scientist") {
-              return [author, langArrayHandler(card.specialization, this.props.defaultLang), langArrayHandler(card.sphere, this.props.defaultLang), <ul>{multipleArrTransformer(card.publications)}{multipleArrTransformer(card.patents)}</ul>];
+              return [author, langArrayHandler(card.specialization, this.props.defaultLang), sphere, <ul>{multipleArrTransformer(card.publications)}{multipleArrTransformer(card.patents)}</ul>];
             } else if(filterPeople == "Startuper") {
-              return [author, langArrayHandler(card.specialization, this.props.defaultLang), langArrayHandler(card.sphere, this.props.defaultLang), <ul>{multipleArrTransformer(card.projects)}</ul>];
+              return [author, langArrayHandler(card.specialization, this.props.defaultLang), sphere, <ul>{multipleArrTransformer(card.projects)}</ul>];
             } else if(filterPeople == "Business") {
-              return [author, langArrayHandler(card.sphere, this.props.defaultLang), langArrayHandler(card.job, this.props.defaultLang)];
+              return [author, sphere, langArrayHandler(card.job, this.props.defaultLang)];
             } else {
-              return [author, card.type, langArrayHandler(card.specialization, this.props.defaultLang), langArrayHandler(card.sphere, this.props.defaultLang), <ul>{multipleArrTransformer(card.publications)}{multipleArrTransformer(card.patents)}{multipleArrTransformer(card.projects)}{langArrayHandler(card.job, this.props.defaultLang)}</ul>];
+              return [author, card.type, langArrayHandler(card.specialization, this.props.defaultLang), sphere, <ul>{multipleArrTransformer(card.publications)}{multipleArrTransformer(card.patents)}{multipleArrTransformer(card.projects)}{langArrayHandler(card.job, this.props.defaultLang)}</ul>];
             }
 
             
