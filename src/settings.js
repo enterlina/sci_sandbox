@@ -1,0 +1,1 @@
+export const apiUrl = 'https://scitech-dev.herokuapp.com/api';

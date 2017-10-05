@@ -87,10 +87,10 @@ ReactDOM.render(
           <Route exact path="/" component={Main} />
           <Route exact path="/Research" component={ResearchMain} />
           <Route path="/Research/:id" component={Research} />
-          <Route exact path="/Startup" component={StartupMain} />
-          <Route path="/Startup/:id" component={Startup} />
-          <Route exact path="/People" component={PeopleMain} />
-          <Route path="/People/:id" component={People} />
+          <Route exact path="/Companies" component={StartupMain} />
+          <Route path="/Companies/:id" component={Startup} />
+          <Route exact path="/Community" component={PeopleMain} />
+          <Route path="/Community/:id" component={People} />
           <Route exact path="/Tender" component={TenderMain} />
           <Route path="/Tender/:id" component={Tender} />
           <Route exact path="/Meetup" component={MeetupMain} />

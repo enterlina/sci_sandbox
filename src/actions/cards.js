@@ -1,7 +1,9 @@
+import {apiUrl} from '../settings.js';
+
 export const getCards = () => dispatch => {
   dispatch({ type: 'ACTION_PRELOADER', payload: true });
   let promise = new Promise((resolve, reject) => {
-            fetch(`https://scitech.herokuapp.com/api/cards`)
+            fetch(`${apiUrl}/cards`)
                 .then((response) => {
                     return response.json()
                 })
@@ -29,7 +31,7 @@ export const getCards = () => dispatch => {
 export const getLatestCards = () => dispatch => {
   dispatch({ type: 'ACTION_PRELOADER', payload: true });
   let promise = new Promise((resolve, reject) => {
-            fetch(`https://scitech.herokuapp.com/api/cards/latest`)
+            fetch(`${apiUrl}/cards/latest`)
                 .then((response) => {
                     return response.json()
                 })
@@ -58,7 +60,7 @@ export const getCardsById = ( id) => dispatch => {
   
   dispatch({ type: 'ACTION_PRELOADER', payload: true });
   let promise = new Promise((resolve, reject) => {
-            fetch(`https://scitech.herokuapp.com/api/card/${id}`)
+            fetch(`${apiUrl}/card/${id}`)
                 .then((response) => {
                     return response.json()
                 })
@@ -86,7 +88,7 @@ export const getCardsByType = ( type) => dispatch => {
   
   dispatch({ type: 'ACTION_PRELOADER', payload: true });
   let promise = new Promise((resolve, reject) => {
-            fetch(`https://scitech.herokuapp.com/api/cards/type/${type}`)
+            fetch(`${apiUrl}/cards/type/${type}`)
                 .then((response) => {
                     return response.json()
                 })
@@ -113,7 +115,7 @@ export const getCardsByFilter = (type, name, filter) => dispatch => {
   
   dispatch({ type: 'ACTION_PRELOADER', payload: true });
   let promise = new Promise((resolve, reject) => {
-            fetch(`https://scitech.herokuapp.com/api/cards/filter/${type}/${name}/${filter}`)
+            fetch(`${apiUrl}/filter/${type}/${name}/${filter}`)
                 .then((response) => {
                     return response.json()
                 })

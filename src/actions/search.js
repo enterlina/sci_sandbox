@@ -1,7 +1,9 @@
+import {apiUrl} from '../settings.js';
+
 export const search = (searchTerm) => dispatch => {
 
   let promise = new Promise((resolve, reject) => {
-            fetch(`https://scitech.herokuapp.com/api/search/${searchTerm}`)
+            fetch(`${apiUrl}/search/${searchTerm}`)
                 .then((response) => {
                     return response.json()
                 })

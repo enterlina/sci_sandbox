@@ -1,6 +1,8 @@
+import {apiUrl} from '../settings.js';
+
 const getLangVars = (lang) => dispatch => {
   let promise = new Promise((resolve, reject) => {
-            fetch(`https://scitech.herokuapp.com/api/langvars/${lang}`)
+            fetch(`${apiUrl}/langvars/${lang}`)
                 .then((response) => {
                     return response.json()
                 })

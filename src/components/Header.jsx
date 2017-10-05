@@ -32,8 +32,8 @@ class Header extends React.Component {
 
             <nav className={"Header-navigation" + (this.state.isMenuHidden ? ' hideMobile' : '')} role="navigation">
                 <li><Link to="/Research" className={this.props.page.indexOf('Research') != '-1' ? 'active-link' : ''}>{this.props.lang.RESEARCH || 'Researches'}</Link></li>
-                <li><Link to="/Startup" className={this.props.page.indexOf('Startup') != '-1' ? 'active-link' : ''}>{this.props.lang.STARTUPS || 'Startups'}</Link></li>
-                <li><Link to="/People" className={this.props.page.indexOf('People') != '-1' ? 'active-link' : ''}>{this.props.lang.PEOPLE || 'People'}</Link></li>
+                <li><Link to="/Companies" className={this.props.page.indexOf('Companies') != '-1' ? 'active-link' : ''}>{this.props.lang.COMPANIES || 'Companies'}</Link></li>
+                <li><Link to="/Community" className={this.props.page.indexOf('Community') != '-1' ? 'active-link' : ''}>{this.props.lang.COMMUNITY || 'Community'}</Link></li>
                 <li><Link to="/Tender" className={"link-no-text icon-tender" + (this.props.page.indexOf('Tender') != '-1' ? ' active-link' : '')}>{this.props.lang.TENDERS || 'Tenders'}</Link></li>
                 <li><Link to="/Meetup" className="link-no-text icon-meetup">{this.props.lang.MEETUPS || 'Meetups'}</Link></li>
                 <li className="about-project"><Link to="/Article/59b69a108b639c0ce1d52166">{this.props.lang.ABOUT_US || 'About Us'}</Link></li>

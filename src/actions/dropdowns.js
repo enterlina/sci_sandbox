@@ -1,7 +1,9 @@
+import {apiUrl} from '../settings.js';
+
 const getDropdowns = (lang) => dispatch => {
 
   let promise = new Promise((resolve, reject) => {
-            fetch(`https://scitech.herokuapp.com/api/dropdowns`)
+            fetch(`${apiUrl}/dropdowns`)
                 .then((response) => {
                     return response.json()
                 })

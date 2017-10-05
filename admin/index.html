@@ -18,6 +18,8 @@
         <option value="Business">Бизнес</option>
         <option value="Tender">Тендер</option>
         <option value="Meetup">Митап</option>
+        <option value="Fund">Фонд</option>
+        <option value="Accelerator">Акселератор</option>
       </select>
       <div id="root">
 
@@ -644,6 +646,13 @@
       {
         tag: 'input',
         type: "text",
+        title: "Специализация",
+        name: "specialization",
+        isMultilang: true
+      }
+      {
+        tag: 'input',
+        type: "text",
         title: "Контакты. ",
         name: "contacts",
         isMultilang: false,
@@ -720,8 +729,8 @@
             message.innerHTML = result.statusText;
           })
 
-      } else if(type == "Scientist" || type == "Startuper" || type == "Business") {    
-          fetch('https://scitech.herokuapp.com/api/persons/add', {
+      } else if(type == "Scientist" || type == "Startuper" || type == "Business" || type == "Fund" || type == "Accelerator") {    
+          fetch('https://scitech-dev.herokuapp.com/api/persons/add', {
               method: 'post',
               body: result,
               headers: {
@@ -862,6 +871,12 @@
               break;
           case "Meetup":
               meetupElements.map(renderFields);
+              break;
+          case "Fund":
+              companyElements.map(renderFields);
+              break;
+          case "Accelerator":
+              companyElements.map(renderFields);
               break;
       }
       root.appendChild(wrapper);
