@@ -1,1 +1,1 @@
-export const apiUrl = 'https://scitech-dev.herokuapp.com/api';
+export const apiUrl = 'https://scitech.herokuapp.com/api';
