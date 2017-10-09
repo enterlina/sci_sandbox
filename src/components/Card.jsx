@@ -25,7 +25,7 @@ class Card extends React.Component {
     render() {
       let cardData = this.props.cardData;
       let lang = this.props.lang;
-      let defaultLang = this.props.defaultLang;
+      let defaultLang = this.props.lang;
       let className = "Card-wrapper " + cardData.type + " " + cardData.style;
       let iconClass = "icon-" + cardData.type.toLowerCase();
       
