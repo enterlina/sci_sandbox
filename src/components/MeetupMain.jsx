@@ -28,7 +28,7 @@ class ResearchMain extends React.Component {
       let cards = <NoItems/>;
       let cardData = this.props.cards;
       if (cardData.length != 0) {  
-        cards = cardData.map((card, index) => <Card key={index} cardData={card} lang={this.props.defaultLang}/>);
+        cards = cardData.map((card, index) => <Card key={index} cardData={card} lang={this.props.defaultLang} defaultLang={this.props.defaultLang}/>);
       }
 
 
