@@ -120,7 +120,7 @@ class People extends React.Component {
                 
                 {/* Business Markup */}
 
-                { page.type == 'Business' ? 
+                { page.type == 'Business' || page.type == 'Fund' || page.type == 'Accelerator'? 
                 <div>
                 
                 <div className="InfoPage--term">
