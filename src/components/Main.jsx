@@ -73,7 +73,7 @@ class Main extends React.Component {
 
 
                { startups ? <div className="layout-container heading">
-                <h2>{this.props.lang.STARTUPS}</h2> <Link to="/Startup" className="Button Button--green">{this.props.lang.VIEW_ALL}</Link>
+                <h2>{this.props.lang.STARTUPS}</h2> <Link to="/Companies" className="Button Button--green">{this.props.lang.VIEW_ALL}</Link>
               </div> : null }
                { startups ? <div className="layout-container cards">
                 {startups}
